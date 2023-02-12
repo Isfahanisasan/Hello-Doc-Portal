@@ -1,0 +1,20 @@
+{
+    id: 1
+    username: 'jdoe',
+    password: '12345'
+    firstName: 'Jane',
+    lastName: 'Doe',
+    DOB:'01/01/1990'
+    phoneNumber: '714123456'
+    email:'123@example.com'
+},
+{
+    id: 2
+    username: 'jodoe',
+    password: '12346'
+    firstName: 'John',
+    lastName: 'Doe',
+    DOB:'01/02/1990'
+    phoneNumber: '714123456'
+    email:'345@example.com'
+}
