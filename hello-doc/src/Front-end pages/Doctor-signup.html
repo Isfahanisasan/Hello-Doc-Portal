@@ -1,35 +1,39 @@
 <!DOCTYPE html>
 <html>
 
-    <head>
-        <link rel="stylesheet" href="./styles/styles.doctor-signup.css">
-    </head>
+<head>
+  <link rel="stylesheet" href="./styles/styles.doctor-signup.css">
+</head>
 
-    <header>
-        <img src="./img/HelloDoc_Logo.png" alt="" width="200px">
-    </header>
+<header>
+  <img src="./img/HelloDoc_Logo.png" alt="" width="200px">
+</header>
 
-    <body>
-        <h1> Provider sign-up </h1>
-        <div>
-            <p> Username </p>
-            <input type="text"/>
-            <p> Password </p>
-            <input type="password"/>
-            <p> First name </p>
-            <input type="text"/>
-            <p> Last name </p>
-            <input type="text"/>
-            <p> Phone number</p>
-            <input type="text"/>
-            <p> Specialty </p>
-            <input type="text"/>
-            <p> Email address</p>
-            <input type="text"/>
-            <p> Location </p>
-            <input type="text"/>
-        </div>
-    
-    </body>
+<body>
+  <h1> Provider sign-up </h1>
+  <div>
+    <form action="/submit-form-provider" method="POST">
+      <p> Username </p>
+      <input type="text" name="username"/>
+      <p> Password </p>
+      <input type="password" name="password"/>
+      <p> First name </p>
+      <input type="text" name="first_name"/>
+      <p> Last name </p>
+      <input type="text" name="last_name"/>
+      <p> Phone number</p>
+      <input type="text" name="phone_number"/>
+      <p> Specialty </p>
+      <input type="text" name="specialty"/>
+      <p> Email address</p>
+      <input type="text" name="email"/>
+      <p> Location </p>
+      <input type="text" name="Location"/>
+      <button type="submit">Submit</button>
+      <script src="../Database/signup-data-handler.js"></script>
+    </form>
+  </div>
+
+</body>
 
 </html>
