@@ -1,0 +1,49 @@
+header
+{
+    margin-top: 20px;
+}
+body{
+    text-align: center;
+}
+
+h1,p{
+    text-align: center;
+}
+.picture1
+{
+    text-align: center;
+    margin-right: 20px;
+    size: 20%;
+    
+}
+table
+{
+    margin-top: 20px;
+    width:50%;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top: 80px;
+    
+}
+tr,th{
+    text-align: center;
+    margin-left: 100px;
+    padding: -100px;
+}
+h1{
+    text-align: center;
+    margin-top: 50px;
+    font-family:'Times New Roman', Times, serif
+}
+body{
+    background-color:white;
+}
+.submitbutton
+{
+    margin-top: 50px;
+}
+header
+{
+    margin-top: 10px;
+    background-color: azure;
+}

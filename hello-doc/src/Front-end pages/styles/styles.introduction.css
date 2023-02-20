@@ -1,3 +1,41 @@
 html{
     padding: 50px;
+    
+}
+
+header{
+    width: 100%;
+    margin-top: -20px;
+    
+    
+}
+body{
+    background-color:white;
+}
+.provider{
+    text-align: right;
+    margin-top:-50px;
+    margin-right: 100px;
+}
+.picture{
+    margin-left: 40px;
+    margin-top: 50px;
+
+}
+.picture2{
+    text-align: right;
+    margin-left: -150;
+    margin-top: -200px;
+}
+.text1
+{
+    text-align: left;
+    margin-left: 100px;
+    margin-top: 150px;
+}
+.text2
+{
+    margin-left: 100px;
+    margin-top: -150px;
+    text-align: left;
 }

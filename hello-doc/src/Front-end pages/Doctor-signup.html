@@ -2,34 +2,45 @@
 <html>
 
     <head>
-        <link rel="stylesheet" href="./styles/styles.doctor-signup.css">
+        <link rel="stylesheet" href="./styles/styles.patient-signup.css">
     </head>
 
     <header>
-        <img src="./img/HelloDoc_Logo.png" alt="" width="200px">
+        <div class="picture1">
+            <img src="./img/HelloDoc_Logo.png" alt="" width="200px" class="image">
+        </div>
     </header>
 
     <body>
-        <h1> Provider sign-up </h1>
-        <div>
-            <p> Username </p>
-            <input type="text"/>
-            <p> Password </p>
-            <input type="password"/>
-            <p> First name </p>
-            <input type="text"/>
-            <p> Last name </p>
-            <input type="text"/>
-            <p> Phone number</p>
-            <input type="text"/>
-            <p> Specialty </p>
-            <input type="text"/>
-            <p> Email address</p>
-            <input type="text"/>
-            <p> Location </p>
-            <input type="text"/>
+        <h1 > Provider-signup</h1>
+        <table >
+            <tr>
+                <td><p> First name </p>
+                <input type="text"/></td>
+                <td><p> Last name </p>
+                <input type="text"/></td>
+                <td><p> Date of birth </p>
+                <input type="text"/></td>
+            </tr>
+            <tr>
+                <td><p> Username </p>
+                <input type="text"/></td>
+                <td><p> Password </p>
+                <input type="password"/></td>
+                <td><p> email </p>
+                <input type="text"/></td>
+            </tr>
+            <tr>
+                
+                <td><p> Phone number</p>
+                <input type="text"/></td>
+            </tr>
+
+        </table>
+        <div class="submitbutton">
+            <input type ="submit",value="submit"/>
         </div>
-    
+        
     </body>
 
 </html>
