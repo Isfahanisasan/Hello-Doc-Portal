@@ -1,49 +1,56 @@
 header
 {
     margin-top: 20px;
-}
-body{
-    text-align: center;
-}
-
-h1,p{
-    text-align: center;
-}
-.picture1
-{
-    text-align: center;
-    margin-right: 20px;
-    size: 20%;
-    
-}
-table
-{
-    margin-top: 20px;
-    width:50%;
-    margin-left:auto;
-    margin-right:auto;
-    margin-top: 80px;
-    
-}
-tr,th{
-    text-align: center;
-    margin-left: 100px;
-    padding: -100px;
-}
-h1{
-    text-align: center;
-    margin-top: 50px;
-    font-family:'Times New Roman', Times, serif
+    text-align: left;
 }
 body{
     background-color:white;
 }
-.submitbutton
-{
-    margin-top: 50px;
+section{
+    display: flex;
 }
-header
+.signUp{
+    padding: 2px;
+    text-align: center;
+    border-style:hidden;
+    border-radius: 20px;
+    background-color:cornsilk;
+    width: 40%;
+    height: 70%;
+    position: relative;
+    left: 55%;
+    margin-top: -20px;
+}
+.text1
 {
-    margin-top: 10px;
-    background-color: azure;
+    width: 50%;
+    margin-top: -550px;
+    font-size: 180%;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-align: center;
+    color:darkslategrey;
+    
+}
+
+
+input[type=text],[type=date],[type=email],select{
+    width: 80%;
+    padding: 10px 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+input[type=submit]
+{
+    width: 80%;
+    padding: 10px 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: green;
+    color:white
 }

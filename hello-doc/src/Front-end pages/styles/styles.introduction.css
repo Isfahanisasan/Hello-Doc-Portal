@@ -5,37 +5,88 @@ html{
 
 header{
     width: 100%;
-    margin-top: -20px;
-    
-    
+    margin-top: 20px;
+    text-align: left;
 }
 body{
     background-color:white;
+    
 }
 .provider{
     text-align: right;
     margin-top:-50px;
     margin-right: 100px;
+    color:darkslategrey;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+    
+    
+    
 }
-.picture{
-    margin-left: 40px;
-    margin-top: 50px;
 
-}
 .picture2{
     text-align: right;
     margin-left: -150;
-    margin-top: -200px;
+    margin-top: 180px;
+    
+    
 }
 .text1
 {
     text-align: left;
     margin-left: 100px;
-    margin-top: 150px;
+    margin-top: 100px;
+    margin-bottom: 20px;
+    
+    
 }
 .text2
 {
     margin-left: 100px;
-    margin-top: -150px;
     text-align: left;
+    margin-top: 50px;
+    
 }
+
+table{
+    margin-top: -150px;
+}
+
+h1{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 300%;
+    color: darkslategrey;
+    
+}
+.text3{
+    width:70%;
+    line-height: 2;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color:darkcyan;
+    margin-top: 50px;
+}
+.button{
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.button1
+{
+    background-color:olivedrab
+}
+.button2
+{
+    background-color:steelblue
+}
+.button3
+{
+    background-color:darkcyan;
+    color: white;
+    border-radius: 10px;
+}
+
