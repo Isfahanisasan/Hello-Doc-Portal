@@ -1,0 +1,34 @@
+{
+  "name": "halodoc",
+  "version": "1.0.0",
+  "description": "We are making appointment reservation web application\r thinh",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "clientinstall": "npm install --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bugs-Squasher2023/Bugs-Squasher.git"
+  },
+  "author": "BugSquasher members",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Bugs-Squasher2023/Bugs-Squasher/issues"
+  },
+  "homepage": "https://github.com/Bugs-Squasher2023/Bugs-Squasher#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "http-proxy-middleware": "^2.0.6"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20",
+    "react-dom": "^18.2.0"
+  }
+}

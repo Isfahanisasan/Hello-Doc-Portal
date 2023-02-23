@@ -1,0 +1,36 @@
+[{
+    "doctor_id": "1",
+    "patient_id": "1",
+    "startTime": "9:00",
+    "date": 25,
+    "month": 1,
+    "year": 2023
+}
+,
+{
+    "doctor_id": "1",
+    "patient_id": "1",
+    "startTime": "9:30",
+    "date": 27,
+    "month": 1,
+    "year": 2023
+},
+{
+    "doctor_id": "1",
+    "patient_id": "2",
+    "startTime": "9:30",
+    "date": 28,
+    "month": 1,
+    "year": 2023
+},
+{
+    "doctor_id": "3",
+    "patient_id": "2",
+    "startTime": "10:30",
+    "date": 28,
+    "month": 1,
+    "year": 2023
+}
+
+
+]
