@@ -1,4 +1,1 @@
-# Bugs-Squasher
-We are making appointment reservation web application
-
-@2023
+Work for HTML webpage! 

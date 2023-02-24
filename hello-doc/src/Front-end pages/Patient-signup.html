@@ -1,34 +1,47 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-  <link rel="stylesheet" href="./styles/styles.doctor-signup.css">
-</head>
 
-<header>
-  <img src="./img/HelloDoc_Logo.png" alt="" width="200px">
-</header>
+    <head>
+        <link rel="stylesheet" href="./styles/styles.patient-signup.css">
+    </head>
 
-<body>
-  <h1> Patient-signup</h1>
-  <form action="/submit-form-patient" method="POST">
-    <p> Username </p>
-    <input type="text" name="username" />
-    <p> Password </p>
-    <input type="password" name="password" />
-    <p> First name </p>
-    <input type="text" name="first_name" />
-    <p> Last name </p>
-    <input type="text" name="last_name" />
-    <p> Date of birth </p>
-    <input type="text" name="date_of_birth" />
-    <p> Phone number</p>
-    <input type="text" name="phone_number" />
-    <p> Email address</p>
-    <input type="text" name="email" />
-    <button type="submit">Submit</button>
-  </form>
-  <script src="../Database/signup-data-handler.js"></script>
-</body>
+    <header>
+        <div class="picture1">
+            <img src="./img/HelloDoc_Logo.png" alt="" width="300px" class="image">
+        </div>
+    </header>
+    <body>
+        <section>
+        <div class="signUp">
+            <h1 > Patient-signup</h1>
+            <form action="/hello-doc/src/Database/Patient.txt">
+                <label for="fname">First name:</label><br>
+                <input type="text" id="fname" name="fname" placeholder="your first name"><br>
+                <label for="lname">Last name:</label><br>
+                <input type="text" id="lname" name="lname" placeholder="your last name"><br>
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" placeholder="email account"><br>
+                <label for="number">Phone Number:</label><br>
+                <input type="text" id="number" name="number" placeholder="Phone Number"><br>
+                <label for="Bdate">Birthday:</label><br>
+                <input type="date" id="Bdate" name="Bdate" placeholder="Birthdate:"><br>
+                <label for="gender">Gender</label><br>
+                <select id="gender" name="gender" placeholder="your gender">
+                    <option value="Female">Female</option>
+                    <option value="Male">Male</option>
+                </select>
+                    <br><br>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </section>
+    <section>
+        <div class ="text1">
+        <h1>Provide strightforwad,fast medical appointment service</h1>
+        <h2>Save your Time and checky your appointment calendar Conveniently </h2>
+        <img src="./img/doctor_online_3.jpg" alt="" width="300px" height="250px"class="image" style="margin-top: -20px;">
+    </section>       
+    </body>
 
 </html>
