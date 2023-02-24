@@ -1,11 +1,11 @@
 import React from 'react';
-import '../Styles/Styles.Introduction.css'
+import '../Styles/Styles.Introduction.scss'
 import { Link } from 'react-router-dom'
 const Introduction = () => {
 
 
     return(
-        <div>
+        <div className='introduction'>
             <header>
                 <div className="picture">
                     <img src={require("../Styles/img/HelloDoc_Logo.png")} alt="" width="300px" />

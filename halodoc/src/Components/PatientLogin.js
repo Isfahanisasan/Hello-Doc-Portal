@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import '../Styles/Styles.PatientLogin.css'
+import '../Styles/Styles.PatientLogin.scss'
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 
@@ -37,7 +37,7 @@ const PatientLogin = () => {
 
     return(
         
-      <div>
+      <div className='patientlogin'>
           <header>
               <img src={require("../Styles/img/HelloDoc_Logo.png")} alt="" width="300px" />
           </header>

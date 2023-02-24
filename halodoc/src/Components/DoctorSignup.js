@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import '../Styles/Styles.PatientSignup.scss'
-const PatientSignup = () => {
+const DoctorSignUp = () => {
     // const [backendData, setBackendData] = useState({})
     // useEffect(() => {
     // fetch("/api").then(
@@ -27,8 +27,8 @@ const PatientSignup = () => {
 
           <body>
             <section>
-              <div className="signUp">
-                <h1 > Patient-signup</h1>
+              <div className="signUp" style={{backgroundColor: "lightblue"}}>
+                <h1 > DoctorSignUp </h1>
                 <label for="fname">First name:</label><br/>
                 <input type="text" id="fname" name="fname" placeholder="your first name"/><br/>
                 <label for="lname">Last name:</label><br/>
@@ -46,15 +46,15 @@ const PatientSignup = () => {
                 </select>
                 <br/>
                 <br/>
-                <button> Submit </button>
+                <button style={{backgroundColor: "coral"}}> Submit </button>
               </div>
             </section>
 
             <section>
               <div class ="text1">
-              <h1>Provide strightforwad,fast medical appointment service</h1>
+              <h1>Optimizing and organizing schedules with patients quickly</h1>
               <br/><br/>
-              <h2>Save your Time and checky your appointment calendar Conveniently </h2> <br/>
+              <h2>Checky appointment calendar Conveniently and manage your time</h2>
               <img src={require("../Styles/img/doctor_online_3.jpg")} alt="" width="300px" height="250px" className="image"/>
               
               </div>
@@ -68,4 +68,4 @@ const PatientSignup = () => {
     )
 }
 
-export default PatientSignup
+export default DoctorSignUp
