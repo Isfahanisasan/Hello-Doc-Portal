@@ -1,7 +1,9 @@
 const express = require('express');
 const session = require("express-session");
+const fs = require('fs');
 
 const patients = require('../halodoc/src/database/patients.json');
+const doctors = require('../halodoc/src/database/doctors.json');
 
 
 const app = express();
@@ -51,5 +53,81 @@ app.get('/dashboard', async (req, res) => {
 
 
 
-const PORT = process.env.PORT || 5000;
+  app.post('/patientsignup', async (req, res) => {
+    const formData = req.body;
+    console.log(formData);
+    let data; 
+    //error handling for when the file doesn't exist
+    //if (fs.existsSync(filePath)) {
+    //  const jsonData = fs.readFileSync(filePath);
+    //  data = JSON.parse(jsonData);
+    //} else {
+    //  fs.writeFileSync(filePath, JSON.stringify(data));
+    //}
+
+    //error handling for when patients.json is empty so it wouldn't throw an error in parse module
+    //it should also be done in other posts it will catch the error if error handling is also done in other posts
+    //this still reads the whole databse with each submission. I couldn't find a better way to do it? 
+
+    try {
+      let jsonData = fs.readFileSync('../halodoc/src/database/patients.json');
+      data  = JSON.parse(jsonData);
+
+    } catch (error) {
+      data = [];
+      console.log('New database initialized.');
+    }
+    let lastPatientId = data.length > 0 ? parseInt(data[data.length-1].id): 0;
+    let newPatientId = lastPatientId + 1; 
+
+    const newPatient = {
+      id: newPatientId.toString(),
+      ...formData
+    }
+    data.push(newPatient);
+    fs.writeFileSync('../halodoc/src/database/patients.json', JSON.stringify(data, null, 2) + '\n');
+    res.send('Form submitted successfully!')
+    
+  });
+
+  app.post('/doctorsignup', async (req, res) => {
+    const formData = req.body;
+    console.log(formData);
+    let data; 
+    //error handling for when the file doesn't exist
+    //if (fs.existsSync(filePath)) {
+    //  const jsonData = fs.readFileSync(filePath);
+    //  data = JSON.parse(jsonData);
+    //} else {
+    //  fs.writeFileSync(filePath, JSON.stringify(data));
+    //}
+
+    //error handling for when doctors.json is empty so it wouldn't throw an error in parse module
+    //it should also be done in other posts it will catch the error if error handling is also done in other posts
+    //this still reads the whole databse with each submission. I couldn't find a better way to do it? 
+
+    try {
+      let jsonData = fs.readFileSync('../halodoc/src/database/doctors.json');
+      data  = JSON.parse(jsonData);
+
+    } catch (error) {
+      data = [];
+      console.log('New database initialized.');
+    }
+    let lastDoctorId = data.length > 0 ? parseInt(data[data.length-1].id): 0;
+    let newDoctorId = lastDoctorId + 1; 
+
+    const newDoctor = {
+      id: newDoctorId.toString(),
+      ...formData
+    }
+    data.push(newDoctor);
+    fs.writeFileSync('../halodoc/src/database/doctors.json', JSON.stringify(data, null, 2) + '\n');
+    res.send('Form submitted successfully!')
+    
+  });
+
+
+
+const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {console.log(`server starting on port ${PORT}`)});

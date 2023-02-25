@@ -1,25 +1,50 @@
-import React, {useState, useEffect} from 'react';
-import '../Styles/Styles.PatientSignup.scss'
+import React, {useState} from 'react';
+import '../Styles/Styles.PatientSignup.scss';
+import axios from 'axios';
+
+
 const PatientSignup = () => {
-    // const [backendData, setBackendData] = useState({})
-    // useEffect(() => {
-    // fetch("/api").then(
-    //   response => response.json()
-    // ).then(
-    //   data => {
-    //     setBackendData(data)
-    //   }
-    // )
-    // }, [])
+  const [formValues, setFormValues] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+    number: '',
+    Bdate: '',
+    gender: '',
+  });
+
+  const [error, setError] = useState('');
+  const handleInputChange = (e) => {
+    const {name, value} = e.target;
+    setFormValues({
+      ...formValues,
+      [name]: value
+    });
+  };
+
+ 
+  const handleSubmit = async (e) => {
+    e.preventDefault(); 
+    try{
+      const response = await axios.post('/patientsignup', formValues);
+      console.log(response.data);
+      if(response.status == 200){
+        console.log('successful')
+      } else {
+        setError('There was an error with your signup')
+      }
+    }
+    catch (err){
+      console.error(err);
+      setError('There was an error with your signup');
+    }
+
+  };
+  
+    
 
     return(
-        // <div>
-        //     {(typeof backendData.msg === 'undefined') ? (
-        //         <p>Loading....</p>  
-        //     ) : (
-        //         <p> {backendData.msg} </p>
-        //     )}
-        // </div>
         <div className='patientsignup'>
           <header>
             <img src={require("../Styles/img/HelloDoc_Logo.png")} alt="" width="300px" />
@@ -29,24 +54,33 @@ const PatientSignup = () => {
             <section>
               <div className="signUp">
                 <h1 > Patient-signup</h1>
-                <label for="fname">First name:</label><br/>
-                <input type="text" id="fname" name="fname" placeholder="your first name"/><br/>
-                <label for="lname">Last name:</label><br/>
-                <input type="text" id="lname" name="lname" placeholder="your last name"/><br/>
-                <label for="email">Email:</label><br/>
-                <input type="email" id="email" name="email" placeholder="email account"/><br/>
-                <label for="number">Phone Number:</label><br/>
-                <input type="text" id="number" name="number" placeholder="Phone Number"/><br/>
-                <label for="Bdate">Birthday:</label><br/>
-                <input type="date" id="Bdate" name="Bdate" placeholder="Birthdate:"/><br/>
-                <label for="gender">Gender</label><br/>
-                <select id="gender" name="gender" placeholder="your gender">
+                <form onSubmit={handleSubmit}>
+                  <label htmlFor="firstName">First name:</label><br />
+                  <input type="text" id="firstName" name="firstName" placeholder="Your first name" value={formValues.firstName} onChange={handleInputChange} required/><br />
+
+                  <label htmlFor="lastName">Last name:</label><br />
+                  <input type="text" id="lastName" name="lastName" placeholder="Your last name"value={formValues.lastName} onChange={handleInputChange} required/><br />
+
+                  <label htmlFor="email">Email:</label><br />
+                  <input type="email" id="email" name="email" placeholder="Your email"value={formValues.email} onChange={handleInputChange} required/><br />
+                  <label htmlFor="password">Password:</label><br />
+                  <input type="password" id="password" name="password" placeholder="Password" value={formValues.password} onChange={handleInputChange} required /><br />
+
+                  <label htmlFor="number">Phone Number:</label><br />
+                  <input type="text" id="number" name="number" placeholder="Your phone number"value={formValues.number} onChange={handleInputChange} required/><br />
+
+                  <label htmlFor="Bdate">Birthday:</label><br />
+                  <input type="date" id="Bdate" name="Bdate" placeholder="Birthdate:"value={formValues.Bdate} onChange={handleInputChange} required/><br />
+
+                  <label htmlFor="gender">Gender:</label><br />
+                  <select id="gender" name="gender" value={formValues.gender} onChange={handleInputChange} required>
+                    <option value="">Select Gender</option>
                     <option value="Female">Female</option>
                     <option value="Male">Male</option>
-                </select>
-                <br/>
-                <br/>
-                <button> Submit </button>
+                  </select><br />
+
+                  <button type="submit">Submit</button>
+                </form>
               </div>
             </section>
 
