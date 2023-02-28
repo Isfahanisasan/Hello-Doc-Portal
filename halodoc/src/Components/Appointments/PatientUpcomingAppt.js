@@ -9,7 +9,6 @@ const PatientUpcomingAppt = ({patientId}) => {
     const schedules = JSON.parse(JSON.stringify(schedulesJson));
     const patients = JSON.parse(JSON.stringify(patientsJson));
     const doctors = JSON.parse(JSON.stringify(doctorsJson));
-    // console.log(patients)
     
     const schedule = schedules.filter((schedule) => schedule.patient_id === patientId)
 
@@ -19,11 +18,7 @@ const PatientUpcomingAppt = ({patientId}) => {
         
     for (let i = 0; i < schedule.length; ++i){
         const thisDoctor = doctors.find((doctor) => doctor.id === schedule[i].doctor_id)
-        // console.log(thisDoctor.firstName)
-        // console.log(thisDoctor.lastName)
-        // console.log(schedule[i].startTime)
-        // console.log(schedule[i].month+1 + '/' + schedule[i].date + '/' + schedule[i].year)
-
+    
         myAppointments.push({
             doctorName: thisDoctor.firstName + ' ' + thisDoctor.lastName,
             time: schedule[i].startTime,

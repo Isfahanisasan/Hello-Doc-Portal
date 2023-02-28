@@ -1,9 +1,14 @@
 import React, {useState, useEffect} from 'react';
 import Navbar from './Navbar';
 import PatientUpcomingAppt from './Appointments/PatientUpcomingAppt';
+import doctorsJson from '../database/doctors.json'
+import { useNavigate } from "react-router-dom";
+
 
 
 const Dashboard = () => {
+    const navigate = useNavigate();    
+    const doctors = JSON.parse(JSON.stringify(doctorsJson));
     const [backendData, setBackendData] = useState({})
     useEffect(() => {
     fetch("/dashboard").then(
@@ -33,7 +38,14 @@ const Dashboard = () => {
                 <input type="text"/>
                 <button> Find </button>
                 
-                
+                {doctors.map(function(item, i){
+                  return (
+                    <div>
+                      <h2 onClick={() => navigate(`/doctors/${item?.id}`)}> {item.firstName} </h2>
+                    </div>
+                  )
+                })}
+
               </div>  
             )}
         </div>
