@@ -1,0 +1,58 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+header img {
+  max-width: 300px;
+  width: 100%;
+  margin: 60px 0;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 800px;
+  margin: 0 auto;
+  margin-top: 60px;
+}
+
+.patient-login-info {
+  display: flex;
+  flex-direction: column;
+  margin: 40px 0 0;
+}
+
+.patient-login-info input {
+  padding: 18px;
+  margin: 5px 0;
+}
+
+.patient-login-info button {
+  padding: 18px;
+  margin: 20px 0;
+  background-color: #5fb0ad;
+  border: none;
+  color: white;
+}
+
+.patient-login h1 {
+  font-size: 42px;
+}
+
+.patient-login a {
+  color: #3959c2;
+  text-decoration: none;
+}
+
+.patient-login p {
+  font-weight: 600;
+}

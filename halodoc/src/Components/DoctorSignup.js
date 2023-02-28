@@ -162,6 +162,7 @@ const DoctorSignup = () => {
 
             <section>
               <div className ="text1">
+
               <h1>Provide strightforwad,fast medical appointment service</h1>
               <br/><br/>
               <h2>Save your Time and checky your appointment calendar Conveniently </h2> <br/>
