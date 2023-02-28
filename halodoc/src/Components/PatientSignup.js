@@ -50,7 +50,7 @@ const PatientSignup = () => {
             <img src={require("../Styles/img/HelloDoc_Logo.png")} alt="" width="300px" />
           </header>
 
-          <body>
+          <div>
             <section>
               <div className="signUp">
                 <h1 > Patient-signup</h1>
@@ -85,7 +85,7 @@ const PatientSignup = () => {
             </section>
 
             <section>
-              <div class ="text1">
+              <div className ="text1">
               <h1>Provide strightforwad,fast medical appointment service</h1>
               <br/><br/>
               <h2>Save your Time and checky your appointment calendar Conveniently </h2> <br/>
@@ -94,7 +94,7 @@ const PatientSignup = () => {
               </div>
             </section>     
 
-          </body>
+          </div>
 
 
         </div>

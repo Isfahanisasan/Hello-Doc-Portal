@@ -1,41 +1,62 @@
-[{
+[
+  {
     "id": "1",
     "firstName": "John",
     "lastName": "Doe",
     "email": "johndoe@email.com",
     "password": "123456",
     "phoneNumber": "0123456789"
-},
-{
+  },
+  {
     "id": "2",
     "firstName": "Jane",
     "lastName": "Doe",
     "email": "janedoe@email.com",
     "password": "123456",
     "phoneNumber": "012301230123"
-},
-{
+  },
+  {
     "id": "3",
     "firstName": "John",
     "lastName": "Smith",
     "email": "johnsmith@email.com",
     "password": "123456",
     "phoneNumber": "123412341234"
-},
-{
+  },
+  {
     "id": "4",
     "firstName": "Jane",
     "lastName": "Smith",
     "email": "janesmith@email.com",
     "password": "123456",
     "phoneNumber": "1932934121"
-},
-{
+  },
+  {
     "id": "5",
     "firstName": "Main",
     "lastName": "Doe",
     "email": "maindoe@email.com",
     "password": "123456",
     "phoneNumber": "12412235424"
-}
+  },
+  {
+    "id": "6",
+    "firstName": "Ashley",
+    "lastName": "Le",
+    "email": "lediemhang87@gmail.com",
+    "password": "123456",
+    "number": "7147286064",
+    "Bdate": "2000-08-24",
+    "gender": "Female"
+  },
+  {
+    "id": "7",
+    "firstName": "Ashley",
+    "lastName": "Le",
+    "email": "lediemhang87@gmail.com",
+    "password": "123456",
+    "number": "7147286064",
+    "Bdate": "2000-12-31",
+    "gender": "Female"
+  }
 ]
