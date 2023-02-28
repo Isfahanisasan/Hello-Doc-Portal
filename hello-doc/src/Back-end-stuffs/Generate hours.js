@@ -76,7 +76,15 @@ function WeeklyCalendar() {
                     
                     <td>{days[date.getDay()]} {date.getMonth()+1}/{date.getDate()}</td>
 
-                    {selectedTimeSlot(date).map(hour => ( 
+                    <div>
+                        {hours.map(hour => (
+                            <div>
+                                <p> {hour} </p>
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* {selectedTimeSlot(date).map(hour => ( 
                         <div>
                             {new Date() < date &&
                                 <div>
@@ -92,7 +100,7 @@ function WeeklyCalendar() {
                                 </div>
                             }
                         </div>
-                    ))}
+                    ))} */}
                 </td>
             ))}
             <div style={{textAlign: 'right'}}>

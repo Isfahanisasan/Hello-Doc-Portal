@@ -13,7 +13,6 @@ const PatientUpcomingAppt = ({patientId}) => {
     const schedule = schedules.filter((schedule) => schedule.patient_id === patientId)
 
     let myAppointments = [];
-    
 
         
     for (let i = 0; i < schedule.length; ++i){
@@ -26,8 +25,6 @@ const PatientUpcomingAppt = ({patientId}) => {
         })
     
     }
-    
- 
 
     return(
         <div>
