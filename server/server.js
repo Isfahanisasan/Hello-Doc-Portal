@@ -19,37 +19,9 @@ app.get('/api', (req, res) => {res.json({msg: 'Hello World'})});
 
 app.use('/patientlogin', require('./routes/patientlogin'));
 app.use('/doctorlogin', require('./routes/doctorlogin'));
+app.use('/patientlogout', require('./routes/patientlogout'));
+app.use('/doctorlogout', require('./routes/doctorlogout'));
 
-// app.get('/doctorlogin', (req, res) => {
-//   res.redirect('/doctorlogin');
-// });
-
-// app.post('/doctorlogin', async (req, res) => {
-//     const { email, password } = req.body;
-//     const doctor = doctors.find((doctor) => doctor.email === email && doctor.password === password);
-//     if (!doctor) {
-//         res.json(null)
-//         return;
-//     }
-//     try {
-//         req.session.doctorID = doctor.id;
-//         res.json(doctor)
-//     } catch (err) {
-//       console.log(err)
-//     }
-//   });
-
-app.post('/logout', (req, res) => {
-    req.session.patientID = null; // deletes the patientID property from the session object
-    console.log('Post logout')
-    res.json({data: '/patientlogin'});
-});
-
-app.post('/doctorlogout', (req, res) => {
-  req.session.doctorID = null; // deletes the patientID property from the session object
-  console.log('Post logout')
-  res.json({data: '/doctorlogin'});
-});
 
 app.get('/dashboard', async (req, res) => {
     // console.log(req.session.patientID)
