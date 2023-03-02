@@ -21,16 +21,8 @@ app.use('/patientlogin', require('./routes/patientlogin'));
 app.use('/doctorlogin', require('./routes/doctorlogin'));
 app.use('/patientlogout', require('./routes/patientlogout'));
 app.use('/doctorlogout', require('./routes/doctorlogout'));
-
-
-app.get('/dashboard', async (req, res) => {
-    // console.log(req.session.patientID)
-    if (!req.session.patientID) {
-        return res.redirect('/patientlogin');
-      }
-    const patient = patients.find((patient) => patient.id === req.session.patientID);
-    res.json({data: patient})
-  });
+app.use('/dashboard', require('./routes/dashboard'));
+app.use('/doctorDashboard', require('./routes/doctorDashboard'));
 
 app.get('/schedule/:id', async (req, res) => {
     if (!req.session.patientID) {
@@ -42,14 +34,14 @@ app.get('/schedule/:id', async (req, res) => {
   });
 
 
-app.get('/doctorDashboard', async (req, res) => {
-    // console.log(req.session.doctorID)
-    if (!req.session.doctorID) {
-        return res.redirect('/doctorlogin');
-      }
-    const doctor = doctors.find((doctor) => doctor.id === req.session.doctorID);
-    res.json({data: doctor})
-  });
+// app.get('/doctorDashboard', async (req, res) => {
+//     // console.log(req.session.doctorID)
+//     if (!req.session.doctorID) {
+//         return res.redirect('/doctorlogin');
+//       }
+//     const doctor = doctors.find((doctor) => doctor.id === req.session.doctorID);
+//     res.json({data: doctor})
+//   });
 
 
 
