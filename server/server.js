@@ -17,31 +17,13 @@ app.use(session({
 
 app.get('/api', (req, res) => {res.json({msg: 'Hello World'})});
 
-app.get('/patientlogin', (req, res) => {
-    res.redirect('/patientlogin');
-});
+app.use('/patientlogin', require('./routes/patientlogin'));
 
 app.get('/doctorlogin', (req, res) => {
   res.redirect('/doctorlogin');
 });
 
-app.post('/patientlogin', async (req, res) => {
-    const { email, password } = req.body;
-    const patient = patients.find((patient) => patient.email === email && patient.password === password);
-    if (!patient) {
-        res.json(null)
-        return;
-    }
-    try {
-        req.session.patientID = patient.id;
-        res.json(patient)
-    } catch (err) {
-      console.log(err)
-    }
-  });
-
-  app.post('/doctorlogin', async (req, res) => {
-    
+app.post('/doctorlogin', async (req, res) => {
     const { email, password } = req.body;
     const doctor = doctors.find((doctor) => doctor.email === email && doctor.password === password);
     if (!doctor) {
