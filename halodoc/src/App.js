@@ -1,6 +1,5 @@
 import './App.css';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
-import {Switch } from "react-router";
 
 import Introduction from './Components/Introduction'
 import PatientLogin from './Components/PatientLogin'

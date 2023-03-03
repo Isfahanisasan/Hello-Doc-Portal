@@ -29,7 +29,7 @@ const PatientSignup = () => {
     try{
       const response = await axios.post('/patientsignup', formValues);
       console.log(response.data);
-      if(response.status == 200){
+      if(response.status === 200){
         console.log('successful')
       } else {
         setError('There was an error with your signup')
@@ -41,8 +41,6 @@ const PatientSignup = () => {
     }
 
   };
-  
-    
 
     return(
         <div className='patientsignup'>
