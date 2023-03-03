@@ -71,7 +71,6 @@ function WeeklyCalendar() {
         
 
             {weeklyDates.map(date => (
-          
                 <td key={date}>
                     
                     <td>{days[date.getDay()]} {date.getMonth()+1}/{date.getDate()}</td>
