@@ -7,8 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "server": "nodemon server.js",
-    "client": "npm start --prefix client",
-    "clientinstall": "npm install --prefix client",
+    "client": "npm start --prefix ../halodoc",
+    "clientinstall": "npm install --prefix ../halodoc",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/Bugs-Squasher2023/Bugs-Squasher#readme",
   "dependencies": {
+    "concurrently": "^7.6.0",
     "cookie-parser": "^1.4.6",
     "express": "^4.18.2",
     "express-session": "^1.17.3",
