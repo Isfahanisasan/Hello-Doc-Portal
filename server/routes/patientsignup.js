@@ -6,7 +6,6 @@ const patients = require('../../halodoc/src/database/patients.json');
 
 router.post('/', async (req, res) => {
   const formData = req.body;
-  console.log(formData);
   let data; 
   //error handling for when the file doesn't exist
   //if (fs.existsSync(filePath)) {
@@ -20,9 +19,11 @@ router.post('/', async (req, res) => {
   //it should also be done in other posts it will catch the error if error handling is also done in other posts
   //this still reads the whole databse with each submission. I couldn't find a better way to do it? 
 
+  
+  //Handle case that patient already existed
   const patient = patients.find((patient) => patient.email === formData.email);
   if (patient) {
-      console.log("Patient alrady exist")
+      console.log("Patient already exist")
       res.json(null)
       return;
   }
