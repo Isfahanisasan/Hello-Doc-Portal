@@ -45,6 +45,15 @@ router.post('/', async (req, res) => {
   }
   data.push(newPatient);
   fs.writeFileSync('../halodoc/src/database/patients.json', JSON.stringify(data, null, 2) + '\n');
+
+  const newFile = '../halodoc/src/database/appointment/patient/' + newPatient.id + '.json'
+  fs.writeFile(newFile, JSON.stringify([]), err => {
+    if (err) {
+      console.error(err);
+      return;
+    }
+  })
+
   res.send('Form submitted successfully!')
   
 });

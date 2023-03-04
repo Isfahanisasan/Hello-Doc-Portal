@@ -5,7 +5,8 @@
     "lastName": "Doe",
     "email": "johndoe@email.com",
     "password": "123456",
-    "phoneNumber": "0123456789"
+    "phoneNumber": "0123456789",
+    "gender": "male"
   },
   {
     "id": "2",
@@ -13,7 +14,8 @@
     "lastName": "Doe",
     "email": "janedoe@email.com",
     "password": "123456",
-    "phoneNumber": "012301230123"
+    "phoneNumber": "012301230123",
+    "gender": "female"
   },
   {
     "id": "3",
@@ -21,7 +23,8 @@
     "lastName": "Smith",
     "email": "johnsmith@email.com",
     "password": "123456",
-    "phoneNumber": "123412341234"
+    "phoneNumber": "123412341234",
+    "gender": "male"
   },
   {
     "id": "4",
@@ -29,7 +32,8 @@
     "lastName": "Smith",
     "email": "janesmith@email.com",
     "password": "123456",
-    "phoneNumber": "1932934121"
+    "phoneNumber": "1932934121",
+    "gender": "female"
   },
   {
     "id": "5",
@@ -37,7 +41,8 @@
     "lastName": "Doe",
     "email": "maindoe@email.com",
     "password": "123456",
-    "phoneNumber": "12412235424"
+    "phoneNumber": "12412235424",
+    "gender": "male"
   },
   {
     "id": "6",
@@ -47,7 +52,7 @@
     "password": "123456",
     "number": "7147286064",
     "Bdate": "2000-08-24",
-    "gender": "Female"
+    "gender": "female"
   },
   {
     "id": "7",
@@ -57,6 +62,16 @@
     "password": "123456",
     "number": "7147286064",
     "Bdate": "2000-12-31",
+    "gender": "female"
+  },
+  {
+    "id": "8",
+    "firstName": "Hang",
+    "lastName": "Le",
+    "email": "ashleyle248@gmail.com",
+    "password": "123456",
+    "number": "7147286064",
+    "Bdate": "2000-08-24",
     "gender": "Female"
   }
 ]
