@@ -3,7 +3,7 @@ import schedulesJson from '../../database/schedules.json'
 import patientsJson from '../../database/patients.json'
 import doctorsJson from '../../database/doctors.json'
 import AppointmentInfo from './AppointmentInfo'
-
+import '../../Styles/Styles.Dashboard.scss'
 const PatientUpcomingAppt = ({patientId}) => {
 
     const schedules = JSON.parse(JSON.stringify(schedulesJson));
@@ -27,9 +27,8 @@ const PatientUpcomingAppt = ({patientId}) => {
     }
 
     return(
-        <div>
+        <div className='appoinment'>
             <h2> Upcoming Appointments </h2>
-            <p> Will be shown here </p>
             {myAppointments.map((appointment, i) => (
                 <AppointmentInfo key={i} doctorName={appointment.doctorName} time={appointment.time} date={appointment.date}/>
             ))}

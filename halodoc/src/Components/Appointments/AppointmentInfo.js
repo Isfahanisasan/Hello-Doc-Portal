@@ -1,5 +1,5 @@
+import '../../Styles/Styles.Dashboard.scss';
 const AppointmentInfo = (appointment) => {
-
     const styles = {
         width: '300px',
         border: '1px solid black',

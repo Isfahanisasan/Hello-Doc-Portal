@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import '../Styles/Styles.PatientLogin.scss'
+import '../Styles/Styles.PatientSignup.scss'
 import { useNavigate } from "react-router-dom";
+import { Link } from 'react-router-dom'
 import axios from 'axios';
 
 
@@ -53,7 +55,7 @@ const DoctorLogin = () => {
                       {error} 
                       <button id='patientSubmit' onClick={handleSubmit}> Login </button>
                   </div>
-                  <p> Don't have an account? Sign up </p>
+                  <p> Don't have an account?  <Link to ='/doctorsignup'><button className="button button2">Sign up</button></Link></p>
               </div>
           </div> 
       </div>

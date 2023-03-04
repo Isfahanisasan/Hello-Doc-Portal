@@ -10,7 +10,7 @@ const Introduction = () => {
                 <div className="picture">
                     <img src={require("../Styles/img/HelloDoc_Logo.png")} alt="" width="300px" />
                 </div>
-                <p className="provider"> Are you a  <button className="button3" > provider </button> ? </p> 
+                <p className="provider"> Are you a <Link to='/doctorLogin'> <button className="button3" > provider ?</button> </Link></p> 
             </header>
             <table>
                 <tbody>
