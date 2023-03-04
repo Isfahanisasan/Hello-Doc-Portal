@@ -1,5 +1,7 @@
 .DS_STORE
 node_modules
+server/node_modules
+halodoc/node_modules
 scripts/flow/*/.flowconfig
 .flowconfig
 *~
@@ -36,3 +38,6 @@ packages/react-devtools-extensions/.tempUserDataDir
 packages/react-devtools-inline/dist
 packages/react-devtools-shell/dist
 packages/react-devtools-timeline/dist
+
+halodoc/package-lock.json
+server/package-lock.json

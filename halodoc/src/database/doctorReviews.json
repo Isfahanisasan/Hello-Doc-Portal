@@ -1,7 +1,7 @@
 [
   {
     "doctor_id": "5",
-    "rating": "3.0",
+    "rating": "3.2",
     "reviews": [
       {
         "email": "ashley@email.com",
@@ -12,6 +12,21 @@
         "email": "ashleyle@email.com",
         "rating": 1,
         "review": "Main is a good doctor"
+      },
+      {
+        "email": "ashley248@email.com",
+        "rating": 4,
+        "review": "Ashley"
+      },
+      {
+        "email": "j@G.COM",
+        "rating": 5,
+        "review": "NNN"
+      },
+      {
+        "email": "M@N.CO",
+        "rating": 1,
+        "review": "VBNM,."
       }
     ]
   }

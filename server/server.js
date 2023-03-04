@@ -1,7 +1,7 @@
 const express = require('express');
 const session = require("express-session");
 const fs = require('fs');
-
+const path = require('path')
 const patients = require('../halodoc/src/database/patients.json');
 const doctors = require('../halodoc/src/database/doctors.json');
 
@@ -27,17 +27,23 @@ app.use('/patientsignup', require('./routes/patientsignup'));
 app.use('/review', require('./routes/review'));
 
 
-app.get('/schedule/:id', async (req, res) => {
+app.get('/schedule/:id', (req, res) => {
+  
     if (!req.session.patientID) {
         return res.redirect('/patientlogin');
       }
     
-    const patient = patients.find((patient) => patient.id === req.session.patientID);
-    res.json({data: patient})
+    const patient = patients.find((patient) => patient.id === req.session.patientID)
+
+    const fileName = '../halodoc/src/database/appointment/doctor/' + req.params.id + '.json';
+    const doctorSchedule = JSON.parse(fs.readFileSync(fileName));
+
+
+    res.json({data: patient, doctorSchedule: doctorSchedule})
   });
 
 
-app.post('/doctorsignup', async (req, res) => {
+app.post('/doctorsignup', (req, res) => {
   const formData = req.body;
   // console.log(formData);
   let data; 
@@ -67,9 +73,16 @@ app.post('/doctorsignup', async (req, res) => {
   }
   data.push(newDoctor);
   fs.writeFileSync('../halodoc/src/database/doctors.json', JSON.stringify(data, null, 2) + '\n');
+  const newFile = '../halodoc/src/database/appointment/doctor/' + newDoctor.id + '.json'
+  fs.writeFile(newFile, JSON.stringify([]), err => {
+    if (err) {
+      console.error(err);
+      return;
+    }
+  })
   res.send('Form submitted successfully!')
   
 });
   
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8888;
 app.listen(PORT, () => {console.log(`server starting on port ${PORT}`)});
