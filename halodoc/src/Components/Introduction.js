@@ -1,6 +1,7 @@
 import React from 'react';
 import '../Styles/Styles.Introduction.scss';
 import { Link } from 'react-router-dom';
+import RunSearch from './Search/RunSearch';
 const Introduction = () => {
   return (
     <div className='introduction'>
@@ -49,7 +50,7 @@ const Introduction = () => {
           <tbody>
             <tr>
               <td>
-                <Link to='/RunSearch'>
+                <Link to='/patientLogin'>
                   <button className='button button1'> Sign In</button>
                 </Link>
               </td>

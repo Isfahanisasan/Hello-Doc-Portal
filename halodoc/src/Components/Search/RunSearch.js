@@ -1,4 +1,4 @@
-import '../../App.css';
+import '../../Styles/Search.scss';
 import React, { Component, Fragment } from 'react';
 import Search from './Search';
 import About from './About';
