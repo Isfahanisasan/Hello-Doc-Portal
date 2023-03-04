@@ -29,6 +29,7 @@ const DoctorProfile = () => {
         <div>
             <h1> Name: {info.firstName}{' '}{info.lastName} </h1>
             <h1> Specialty: {info.specialty} </h1>
+            {reviewObject && <h1> Rating: {reviewObject.rating} </h1>}
             <h1> Phone Number: {info.phoneNumber} </h1>
             <button onClick={handleSchedule}> Make appointment </button>
             <button onClick={handleReview}> Review </button>
@@ -36,7 +37,7 @@ const DoctorProfile = () => {
                 return(
                     <div>
                         <p> ----------------- </p>
-                        <p> {item.name} </p>
+                        <p> {item.email} </p>
                         <p> {item.rating} </p>
                         <p> {item.review} </p>
                     </div>

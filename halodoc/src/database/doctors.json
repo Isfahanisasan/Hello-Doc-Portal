@@ -54,8 +54,16 @@
     "number": "7147286064",
     "Bdate": "2000-08-24",
     "gender": "Female"
+  },
+  {
+    "id": "7",
+    "firstName": "Xuan",
+    "lastName": "Le",
+    "specialty": "Opthalmologist",
+    "email": "dongle121169@gmail.com",
+    "password": "dongle",
+    "number": "17147285919",
+    "Bdate": "1969-11-12",
+    "gender": "Male"
   }
- 
- 
-  
 ]

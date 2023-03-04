@@ -1,44 +1,18 @@
-[{
-    "doctor_id": "1",
-    "rating" : null,
+[
+  {
+    "doctor_id": "5",
+    "rating": "3.0",
     "reviews": [
-        {
-            "name": "Charlie",
-            "rating": "5",
-            "review": "Very nice!"
-        },
-        {
-            "name": "Ashley",
-            "rating": "4",
-            "review": "Helpful, but bad staff"
-        },
-        {
-            "name": "Nafas",
-            "rating": "2",
-            "review": "Waited too long"
-        }
+      {
+        "email": "ashley@email.com",
+        "rating": 5,
+        "review": "Main is a good doctor"
+      },
+      {
+        "email": "ashleyle@email.com",
+        "rating": 1,
+        "review": "Main is a good doctor"
+      }
     ]
-},
-
-{
-    "doctor_id": "2",
-    "rating" : null,
-    "reviews": [
-        {
-            "name": "Miki",
-            "rating": "4",
-            "review": "Funny doctor"
-        },
-        {
-            "name": "Sasan",
-            "rating": "4",
-            "review": "Nice, comfy office"
-        },
-        {
-            "name": "Eric",
-            "rating": "5",
-            "review": "Helpful doctor."
-        }
-    ]
-}
+  }
 ]

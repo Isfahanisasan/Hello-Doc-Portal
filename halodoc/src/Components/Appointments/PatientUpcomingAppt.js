@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import schedulesJson from '../../database/schedules.json'
 import patientsJson from '../../database/patients.json'
 import doctorsJson from '../../database/doctors.json'
@@ -7,7 +7,7 @@ import AppointmentInfo from './AppointmentInfo'
 const PatientUpcomingAppt = ({patientId}) => {
 
     const schedules = JSON.parse(JSON.stringify(schedulesJson));
-    const patients = JSON.parse(JSON.stringify(patientsJson));
+    // const patients = JSON.parse(JSON.stringify(patientsJson));
     const doctors = JSON.parse(JSON.stringify(doctorsJson));
     
     const schedule = schedules.filter((schedule) => schedule.patient_id === patientId)
