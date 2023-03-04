@@ -23,6 +23,9 @@ app.use('/patientlogout', require('./routes/patientlogout'));
 app.use('/doctorlogout', require('./routes/doctorlogout'));
 app.use('/dashboard', require('./routes/dashboard'));
 app.use('/doctorDashboard', require('./routes/doctorDashboard'));
+app.use('/patientsignup', require('./routes/patientsignup'));
+app.use('/review', require('./routes/review'));
+
 
 app.get('/schedule/:id', async (req, res) => {
     if (!req.session.patientID) {
@@ -34,84 +37,19 @@ app.get('/schedule/:id', async (req, res) => {
   });
 
 
-// app.get('/doctorDashboard', async (req, res) => {
-//     // console.log(req.session.doctorID)
-//     if (!req.session.doctorID) {
-//         return res.redirect('/doctorlogin');
-//       }
-//     const doctor = doctors.find((doctor) => doctor.id === req.session.doctorID);
-//     res.json({data: doctor})
-//   });
-
-
-
-app.post('/patientsignup', async (req, res) => {
-  const formData = req.body;
-  console.log(formData);
-  let data; 
-  //error handling for when the file doesn't exist
-  //if (fs.existsSync(filePath)) {
-  //  const jsonData = fs.readFileSync(filePath);
-  //  data = JSON.parse(jsonData);
-  //} else {
-  //  fs.writeFileSync(filePath, JSON.stringify(data));
-  //}
-
-  //error handling for when patients.json is empty so it wouldn't throw an error in parse module
-  //it should also be done in other posts it will catch the error if error handling is also done in other posts
-  //this still reads the whole databse with each submission. I couldn't find a better way to do it? 
-
-  const patient = patients.find((patient) => patient.email === formData.email);
-  if (patient) {
-      console.log("Patient alrady exist")
-      res.json(null)
-      return;
-  }
-
-  try {
-    let jsonData = fs.readFileSync('../halodoc/src/database/patients.json');
-    data  = JSON.parse(jsonData);
-
-  } catch (error) {
-    data = [];
-    console.log('New database initialized.');
-  }
-  let lastPatientId = data.length > 0 ? parseInt(data[data.length-1].id): 0;
-  let newPatientId = lastPatientId + 1; 
-
-  const newPatient = {
-    id: newPatientId.toString(),
-    ...formData
-  }
-  data.push(newPatient);
-  fs.writeFileSync('../halodoc/src/database/patients.json', JSON.stringify(data, null, 2) + '\n');
-  res.send('Form submitted successfully!')
-  
-});
-
 app.post('/doctorsignup', async (req, res) => {
   const formData = req.body;
-  console.log(formData);
+  // console.log(formData);
   let data; 
-  //error handling for when the file doesn't exist
-  //if (fs.existsSync(filePath)) {
-  //  const jsonData = fs.readFileSync(filePath);
-  //  data = JSON.parse(jsonData);
-  //} else {
-  //  fs.writeFileSync(filePath, JSON.stringify(data));
-  //}
-
-  //error handling for when doctors.json is empty so it wouldn't throw an error in parse module
-  //it should also be done in other posts it will catch the error if error handling is also done in other posts
-  //this still reads the whole databse with each submission. I couldn't find a better way to do it?
   
   //Handle case where user existed
   const doctor = doctors.find((doctor) => doctor.email === formData.email);
   if (doctor) {
-      console.log("Doctor alrady exist")
+      console.log("Doctor already exist")
       res.json(null)
       return;
   }
+
   try {
     let jsonData = fs.readFileSync('../halodoc/src/database/doctors.json');
     data  = JSON.parse(jsonData);

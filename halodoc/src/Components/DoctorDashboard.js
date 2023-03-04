@@ -3,22 +3,17 @@ import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 
 
-
 const DoctorDashboard = () => {
     let navigate = useNavigate();
     const [backendData, setBackendData] = useState({})
+
     useEffect(() => {
-    fetch("/doctorDashboard").then(
-      response => response.json()
-    ).then(
-      data => {
-        setBackendData(data)
-      }
-    )
-    }, [])
+      axios.get('/doctorDashboard').then(function (response) {
+      setBackendData(response.data)
+    })})
+
 
     const handleLogout= async (e) => {
-       
       e.preventDefault();
       console.log('Click logout')
       try {
@@ -30,9 +25,7 @@ const DoctorDashboard = () => {
       }
     };
 
-
     return(
-      
         <div>
             {(typeof backendData.data === 'undefined') ? (
                 <div style={{textAlign: "center"}}>
@@ -40,33 +33,11 @@ const DoctorDashboard = () => {
                   <img src={require("../Styles/img/loading.gif")} alt="" width="300px"/> 
                 </div>
             ) : (
-              <div>
+              <div >
 
+                <h1> {backendData.data.firstName} {backendData.data.lastName} </h1> 
+                <button onClick={handleLogout}> Log out </button>
 
-
-
-
-
-
-
-
-
-
-
-
-              <h1> {backendData.data.firstName} {backendData.data.lastName} </h1> 
-              <button onClick={handleLogout}> Log out </button>
-              
-                
-
-
-
-
-
-
-
-
-                
               </div>  
             )}
         </div>

@@ -3,7 +3,7 @@ const router = express.Router();
 const patients = require('../../halodoc/src/database/patients.json');
 
 router.get('/', (req, res) => {
-  console.log('redirect to patientlogin')
+  res.redirect('/patientlogin')
 });
 
 router.post('/', async (req, res) => {
