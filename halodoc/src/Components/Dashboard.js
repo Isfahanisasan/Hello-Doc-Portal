@@ -3,6 +3,7 @@ import Navbar from './Navbar';
 import PatientUpcomingAppt from './Appointments/PatientUpcomingAppt';
 import doctorsJson from '../database/doctors.json'
 import { useNavigate } from "react-router-dom";
+import axios from 'axios';
 
 
 
@@ -10,15 +11,12 @@ const Dashboard = () => {
     const navigate = useNavigate();    
     const doctors = JSON.parse(JSON.stringify(doctorsJson));
     const [backendData, setBackendData] = useState({})
+
+  
     useEffect(() => {
-    fetch("/dashboard").then(
-      response => response.json()
-    ).then(
-      data => {
-        setBackendData(data)
-      }
-    )
-    }, [])
+      axios.get('/dashboard').then((response) => {
+      setBackendData(response.data)
+    })})
 
 
     return(
@@ -32,6 +30,8 @@ const Dashboard = () => {
                 </div>
             ) : (
               <div>
+                <img src={(`https://xsgames.co/randomusers/assets/avatars/${backendData.data}/${backendData.data.id}.jpg?w=50`)}></img>
+                
                 <Navbar name={backendData.data.firstName + ' ' + backendData.data.lastName} email={backendData.data.email}/>
                 <PatientUpcomingAppt patientId={backendData.data.id} />
                 <p> Find doctors </p>
