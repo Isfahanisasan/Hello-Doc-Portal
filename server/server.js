@@ -1,21 +1,24 @@
 const express = require('express');
-const session = require("express-session");
+const session = require('express-session');
 const fs = require('fs');
 const path = require('path')
 const patients = require('../halodoc/src/database/patients.json');
 const doctors = require('../halodoc/src/database/doctors.json');
 
-
 const app = express();
-app.use(express.json())
+app.use(express.json());
 
-app.use(session({
+app.use(
+  session({
     secret: 'mySecretKey', // replace with your own secret key
     resave: false,
-    saveUninitialized: true
-  }));
+    saveUninitialized: true,
+  })
+);
 
-app.get('/api', (req, res) => {res.json({msg: 'Hello World'})});
+app.get('/api', (req, res) => {
+  res.json({ msg: 'Hello World' });
+});
 
 app.use('/patientlogin', require('./routes/patientlogin'));
 app.use('/doctorlogin', require('./routes/doctorlogin'));
@@ -27,6 +30,12 @@ app.use('/patientsignup', require('./routes/patientsignup'));
 app.use('/review', require('./routes/review'));
 app.use('/makeappointment', require('./routes/makeappointment'));
 
+<<<<<<< HEAD
+app.get('/schedule/:id', async (req, res) => {
+  if (!req.session.patientID) {
+    return res.redirect('/patientlogin');
+  }
+=======
 
 app.get('/schedule/:id', (req, res) => {
   
@@ -41,37 +50,55 @@ app.get('/schedule/:id', (req, res) => {
 
     res.json({data: patient, doctorSchedule: doctorSchedule})
   });
+>>>>>>> origin/main
 
+  const patient = patients.find(
+    (patient) => patient.id === req.session.patientID
+  );
+  res.json({ data: patient });
+});
 
 app.post('/doctorsignup', (req, res) => {
   const formData = req.body;
   // console.log(formData);
-  let data; 
-  
+  let data;
+
   //Handle case where user existed
   const doctor = doctors.find((doctor) => doctor.email === formData.email);
   if (doctor) {
-      console.log("Doctor already exist")
-      res.json(null)
-      return;
+    console.log('Doctor already exist');
+    res.json(null);
+    return;
   }
 
   try {
     let jsonData = fs.readFileSync('../halodoc/src/database/doctors.json');
-    data  = JSON.parse(jsonData);
-
+    data = JSON.parse(jsonData);
   } catch (error) {
     data = [];
     console.log('New database initialized.');
   }
-  let lastDoctorId = data.length > 0 ? parseInt(data[data.length-1].id): 0;
-  let newDoctorId = lastDoctorId + 1; 
+  let lastDoctorId = data.length > 0 ? parseInt(data[data.length - 1].id) : 0;
+  let newDoctorId = lastDoctorId + 1;
 
   const newDoctor = {
     id: newDoctorId.toString(),
-    ...formData
-  }
+    ...formData,
+  };
   data.push(newDoctor);
+<<<<<<< HEAD
+  fs.writeFileSync(
+    '../halodoc/src/database/doctors.json',
+    JSON.stringify(data, null, 2) + '\n'
+  );
+  res.send('Form submitted successfully!');
+});
+
+const PORT = process.env.PORT || 8888;
+app.listen(PORT, () => {
+  console.log(`server starting on port ${PORT}`);
+});
+=======
   fs.writeFileSync('../halodoc/src/database/doctors.json', JSON.stringify(data, null, 2) + '\n');
   const newFile = '../halodoc/src/database/appointment/doctor/' + newDoctor.id + '.json'
   fs.writeFile(newFile, JSON.stringify([]), err => {
@@ -86,3 +113,4 @@ app.post('/doctorsignup', (req, res) => {
   
 const PORT = process.env.PORT || 8888;
 app.listen(PORT, () => {console.log(`server starting on port ${PORT}`)});
+>>>>>>> origin/main
