@@ -38,7 +38,6 @@ app.get('/schedule/:id', (req, res) => {
     const fileName = '../halodoc/src/database/appointment/doctor/' + req.params.id + '.json';
     const doctorSchedule = JSON.parse(fs.readFileSync(fileName));
 
-
     res.json({data: patient, doctorSchedule: doctorSchedule})
   });
 
