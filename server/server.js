@@ -27,6 +27,20 @@ app.use('/patientsignup', require('./routes/patientsignup'));
 app.use('/review', require('./routes/review'));
 
 
+
+app.get('/docschedule/:id', (req, res) =>{
+
+  if(req.session.doctorID != req.params.id || !req.session.doctorID){
+    console.log("Doctor not authorized/Doctor not logged in");
+    return res.redirect('/doctorlogin');
+  }
+  const fileName = '../halodoc/src/database/appointment/doctor/' + req.params.id + '.json';
+  const doctorSchedule = JSON.parse(fs.readFileSync(fileName));
+  res.json({doctorSchedule: doctorSchedule});
+
+})
+
+
 app.get('/schedule/:id', (req, res) => {
   
     if (!req.session.patientID) {

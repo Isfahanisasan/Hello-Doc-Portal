@@ -15,6 +15,9 @@ import DoctorProfile from './Components/DoctorProfile';
 import Review from './Components/Review';
 import Schedule from './Components/Appointments/Schedule';
 import RunSearch from './Components/Search/RunSearch';
+import DocSchedule from './Components/Appointments/DocSchedule';
+
+
 
 function App() {
   return (
@@ -32,7 +35,9 @@ function App() {
         <Route path='/doctorsignup' element={<DoctorSignUp />}></Route>
         <Route path='/doctors/:id' element={<DoctorProfile />} />
         <Route path='/review/doctor/:id' element={<Review />} />
-        <Route path='/schedule/:id' element={<Schedule />} />
+        <Route path='/schedule/' element={<Schedule />} />
+        <Route path='/docschedule/:id' element={<DocSchedule />} />
+    
       </Routes>
     </Router>
   );
