@@ -3,6 +3,7 @@ import doctorsJson from '../database/doctors.json';
 import doctorReview from '../database/doctorReviews.json';
 import { useNavigate } from 'react-router-dom';
 import '../Styles/container.scss';
+import '../Styles/Search.scss';
 
 import * as React from 'react';
 import Button from '@mui/material/Button';
@@ -30,25 +31,36 @@ const DoctorProfile = () => {
   };
 
   return (
-    <div className='container'>
-      <header>
+    <div>
+        <header>
         <img
           src={require('../Styles/img/HelloDoc_Logo.png')}
           alt=''
           width='300px'
         />
       </header>
+
+    <div className='container' className='card text-center'>
+      
+      <h1>
+        <img
+            src={info.ava_url}
+             alt=''
+            className='round-img'
+            style={{ width: '200px' }}
+        />
+      </h1>
+
       <h1>
         {' '}
         {info.firstName} {info.lastName}{' '}
       </h1>
       <h1> Specialty: {info.specialty} </h1>
       {reviewObject && <h1> Rating: {reviewObject.rating} </h1>}
-      <h1> Phone Number: {info.phoneNumber} </h1>
+      <h1> Phone Number: {info.number} </h1>
 
-     
       <ButtonGroup variant='outlined' aria-label='outlined button group'>
-        <Button onClick={handleSchedule} >Make appointment</Button>
+        <Button onClick={handleSchedule}>Make appointment</Button>
         <Button onClick={handleReview}>Review</Button>
       </ButtonGroup>
 
@@ -63,6 +75,7 @@ const DoctorProfile = () => {
             </div>
           );
         })}
+    </div>
     </div>
   );
 };

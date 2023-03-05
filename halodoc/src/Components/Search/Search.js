@@ -29,8 +29,11 @@ export class Search extends Component {
     const { showClear, clearUsers } = this.props;
 
     return (
-      <div className='search'>
-        <h3>Search Medical Service!</h3>
+      <div className='search'  >
+        <dic className='all-center'>
+        <div style={{ margin: '30px' }}></div>
+        <h2>Search for Medical Service!</h2>
+        <div style={{ margin: '10px' }}></div>
         <form onSubmit={this.onSubmit} className='form'>
           <div className='searchBox'>
             <div className='textInput'>
@@ -57,6 +60,7 @@ export class Search extends Component {
             Clear
           </button>
         )}
+        </dic>
         </div>
     );
   }
