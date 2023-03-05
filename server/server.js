@@ -25,6 +25,7 @@ app.use('/dashboard', require('./routes/dashboard'));
 app.use('/doctorDashboard', require('./routes/doctorDashboard'));
 app.use('/patientsignup', require('./routes/patientsignup'));
 app.use('/review', require('./routes/review'));
+app.use('/makeappointment', require('./routes/makeappointment'));
 
 
 app.get('/schedule/:id', (req, res) => {

@@ -43,6 +43,7 @@ const compareDates = (d1, d2) => {
 
 const Schedule = () => {
     let { id } = useParams();
+    const navigate = useNavigate();
 
     //Get the doctor database, his/her opening time, closing time, appointment intervals and day offs in the week.
     const doctors = JSON.parse(JSON.stringify(doctorsJson));
@@ -121,6 +122,34 @@ const Schedule = () => {
     const handleThisWeekClick = () => {
         setCurrentWeekStartDate(new Date());
     }
+
+    const handleSubmit = async () => {
+        let submitData;
+        if(pickTime && pickDate) {
+            submitData = {
+                "doctor_id": id,
+                "patient_id": backendData.data.id,
+                "startTime": pickTime,
+                "date": pickDate            
+            };
+        }
+        if(submitData) {
+            console.log(submitData);
+            try {
+                const response = await axios.post('/makeappointment', submitData);
+                console.log(response.data);
+                navigate(response.data.data);
+                if(response.status === 200) {
+                  console.log('successful');
+                } else {
+                  console.log("Error Make Appointment");
+                }
+            }
+            catch (err) {
+                console.error(err);
+            }
+        }
+    };
     
     const generateWeeklyDates = () => {
         const dates = [];
@@ -154,7 +183,6 @@ const Schedule = () => {
                     </div>
                     <h1> {pickTime} </h1>
                     <h1> {pickDate} </h1>
-                    <form>
                         {weeklyDates.map(date => (
                             <td key={date}>
             
@@ -182,19 +210,10 @@ const Schedule = () => {
                                 
                             </td>
                         ))}
-                        <button> SUBMIT </button>
-                    </form>
-                    
-                    
+                        <button onClick={handleSubmit}> SUBMIT </button>
                 </div>
             )}
         </div>
-        
-
-
-
-
-        
     )
 }
 
