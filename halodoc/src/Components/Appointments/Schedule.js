@@ -18,6 +18,7 @@ function createTimeArray(startTime, endTime, interval) {
   
     let hour = startHour;
     let minute = startMinute;
+
   
     while (hour < endHour || (hour === endHour && minute <= endMinute)) {
       timeArray.push(`${hour.toString().padStart(2, "0")}:${minute.toString().padStart(2, "0")}`);
@@ -53,6 +54,8 @@ const Schedule = () => {
     
 
     const [backendData, setBackendData] = useState({})
+    const [pickTime, setPickTime] = useState("");
+    const [pickDate, setPickDate] = useState("");
 
     // When the page renders, get /schedule/:id from server.js and set the backend data.
     // get /schdule/:id response: {data: patient, doctorSchedule: doctorSchedule}
@@ -86,8 +89,10 @@ const Schedule = () => {
         const tempHours = [...hours];
         for (let i = 0; i < backendData.doctorSchedule.length; i++){
             if (compareDates(date, backendData.doctorSchedule[i].date)){
-                // console.log(ackendData.doctorSchedule[i].date)
-                tempHours.splice(tempHours.indexOf(backendData.doctorSchedule[i].startTime), 1);
+                tempHours.splice(tempHours.indexOf(backendData.doctorSchedule[i].startTime), 1)
+                // tempHours.splice(tempHours.indexOf(backendData.doctorSchedule[i].startTime), 1, 
+                // "patientID" + backendData.doctorSchedule[i].patient_id)
+                    
             }
         }
         return tempHours
@@ -147,32 +152,38 @@ const Schedule = () => {
                         <button onClick={handleLastWeekClick}> prev </button>
                         <button onClick={handleNextWeekClick}> next </button>
                     </div>
-                    
-                    {weeklyDates.map(date => (
-                        <td key={date}>
-                            
-                            <td>{days[date.getDay()]} {date.getMonth()+1}/{date.getDate()}</td>
+                    <h1> {pickTime} </h1>
+                    <h1> {pickDate} </h1>
+                    <form>
+                        {weeklyDates.map(date => (
+                            <td key={date}>
+            
+                                <td>{days[date.getDay()]} {date.getMonth()+1}/{date.getDate()}</td>
 
-                            {/* Generate all the eligible time slot */}
-                            {selectedTimeSlot(date).map(hour => ( 
-                                <div>
-                                    {new Date() < date &&
-                                        <div>
-                                            <input   type="radio" id="" name="hours" value="" className='timeRadioInput'/>
-                                            <label>{hour}</label>
-                                        </div>
-                                    }
+                                {/* Generate all the eligible time slot */}
+                                {selectedTimeSlot(date).map(hour => ( 
+                                    <div onChange={(e) => {setPickTime(e.target.value);setPickDate((date.getMonth()+1)+"/"+date.getDate()+"/"+date.getFullYear())}}>
+                                        {new Date() < date &&
+                                            <div>
+                                                <input type="radio" id="" name="hours" value={hour} className='timeRadioInput'/>
+                                                <label>{hour}</label>
+                                            </div>
+                                        }
 
-                                    {new Date() >= date &&
-                                        <div>
-                                            <input type="radio" id="" name="hours" value="" className='timeRadioInput' disabled/>
-                                            <label>{hour}</label>
-                                        </div>
-                                    }
-                                </div>
-                            ))}
-                        </td>
-                    ))}
+                                        {new Date() >= date &&
+                                            <div>
+                                                <input type="radio" id="" name="hours" value={hour} className='timeRadioInput' disabled/>
+                                                <label>{hour}</label>
+                                            </div>
+                                        }
+                                    </div>
+                                ))}
+
+                                
+                            </td>
+                        ))}
+                        <button> SUBMIT </button>
+                    </form>
                     
                     
                 </div>
