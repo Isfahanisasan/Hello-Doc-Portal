@@ -26,7 +26,7 @@ const Navbar = ({name, email,patientID}) => {
         <div>
         
             <Link to='/dashboard'> 
-                <img src={require("../Styles/img/HelloDoc_Logo.png")} alt="" width="300px" />
+                <img src={require("../Styles/img/HelloDoc_Logo.png")} alt="" width="300px" style={{marginTop:"20px", marginLeft:"50px"}} />
             </Link>
             <div className='account'>
             <p className='name'> {name} </p>
@@ -36,7 +36,7 @@ const Navbar = ({name, email,patientID}) => {
             <img src={(`https://xsgames.co/randomusers/assets/avatars/pixel/${patientID}.jpg`)} alt={`Avatar for patient ${patientID}`} className='profile'></img>
             </div>
             <div className='buttonStyle'>
-            <button onClick={handleLogout} > Log out </button>
+            <button onClick={handleLogout} className='LogOut'> Log out </button>
             </div>
             
             

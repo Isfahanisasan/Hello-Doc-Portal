@@ -35,9 +35,8 @@ class RunSearch extends Component {
   render() {
     const { users, user, loading } = this.state;
     return (
-      <div className='App'>
-        <div className='container'>
-          <Navbar />
+      <div className='RunSearch'>
+        <div className='container1'>
           <Alert alert={this.state.alert} />
           <Search
             searchUsers={this.searchUsers}
@@ -46,7 +45,6 @@ class RunSearch extends Component {
             setAlert={this.setAlert}
           />
           <Users loading={loading} users={users} />
-          <h1>This is the Home Page!</h1>
         </div>
       </div>
     );
