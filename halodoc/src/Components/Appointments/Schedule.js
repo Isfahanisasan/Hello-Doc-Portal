@@ -162,7 +162,7 @@ const Schedule = () => {
 
                                 {/* Generate all the eligible time slot */}
                                 {selectedTimeSlot(date).map(hour => ( 
-                                    <div onChange={(e) => {setPickTime(e.target.value);setPickDate((date.getMonth()+1)+"/"+date.getDate()+"/"+date.getFullYear())}}>
+                                    <div onChange={(e) => {setPickTime(e.target.value); setPickDate((date.getMonth()+1)+"/"+date.getDate()+"/"+date.getFullYear())}}>
                                         {new Date() < date &&
                                             <div>
                                                 <input type="radio" id="" name="hours" value={hour} className='timeRadioInput'/>

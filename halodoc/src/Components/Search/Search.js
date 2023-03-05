@@ -29,7 +29,7 @@ export class Search extends Component {
     const { showClear, clearUsers } = this.props;
 
     return (
-      <div>
+      <div className='search'>
         <h3>Search Medical Service!</h3>
         <form onSubmit={this.onSubmit} className='form'>
           <div className='searchBox'>
@@ -42,7 +42,7 @@ export class Search extends Component {
                 onChange={this.onChange}
               />
           </div>
-          <div classNmae='submitButton'>
+          <div className='submitButton'>
             <input
               type='submit'
               name='Search'

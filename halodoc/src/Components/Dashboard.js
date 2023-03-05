@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import Navbar from './Navbar';
 import PatientUpcomingAppt from './Appointments/PatientUpcomingAppt';
 import doctorsJson from '../database/doctors.json'
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
 import '../Styles/Styles.Dashboard.scss'
 import RunSearch from './Search/RunSearch';
@@ -42,16 +42,18 @@ const Dashboard = () => {
                   </div>
                   <div className="search">
                   <img src={require("../Styles/img/background1.jpg")} alt="" width="500px" style={{marginTop:"20px", marginLeft:"20px"}} />
-                    <RunSearch/>
-                    <div className='doctorName'>
-                    {doctors.map(function(item, i){
-                    return (
-                        <div className='items'>
-                        <h3 onClick={() => navigate(`/doctors/${item?.id}`)}> {item.firstName} </h3>
-                        </div>
-                    )
-                  })}
-                  </div>
+
+                  {/* <RunSearch/> */}
+                  <Link to='/searchdoctor'> <button className='items'> Click here to search for Doctors </button> </Link>
+                  {/* <div className='doctorName'> */}
+                  {/* {doctors.map(function(item, i){
+                  return (
+                      <div className='items'>
+                      <h3 onClick={() => navigate(`/doctors/${item?.id}`)}> {item.firstName} </h3>
+                      </div>
+                  )
+                  })} */}
+                  {/* </div> */}
                   </div>
                   </div>
 
