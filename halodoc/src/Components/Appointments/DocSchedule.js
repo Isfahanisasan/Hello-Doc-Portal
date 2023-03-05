@@ -1,9 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import doctorsJson from '../../database/doctors.json'
-import { useNavigate } from "react-router-dom";
-import {useParams} from "react-router-dom";
 import axios from 'axios';
-import scheduleJson from '../../database/schedules.json'
 import patients from '../../database/patients.json';
 
 
@@ -15,7 +11,7 @@ function createTimeArray(startTime, endTime, interval) {
     const timeArray = [];
   
     const [startHour, startMinute] = startTime.split(":").map(Number);
-    const [endHour, endMinute] = endTime.split(":").map(Number);
+    const [endHour, endMinute] = endTime?.split(":").map(Number);
   
     let hour = startHour;
     let minute = startMinute;
@@ -31,6 +27,8 @@ function createTimeArray(startTime, endTime, interval) {
     return timeArray;
   }
 
+  //this function takes in a patientID and return the patient's name
+
 // This function takes in 2 dates format mm/dd/yyyy and compare if they are the same dates
 const compareDates = (d1, d2) => {
     let date1 = new Date(d1).getTime();
@@ -41,30 +39,78 @@ const compareDates = (d1, d2) => {
     return false
 };
 
-const Schedule = () => {
-    
-let { id } = useParams();
-    //Get the doctor database, his/her opening time, closing time, appointment intervals and day offs in the week.
-    const doctors = JSON.parse(JSON.stringify(doctorsJson));
-    const doctor = doctors.find((doctor) => doctor.id === id)
-    const startTime = doctor.startTime;
-    const endTime = doctor.endTime;
-    const interval = doctor.appointmentInterval;
-    const dayOff = doctor.dayOffs;
-    
+
+//const docInfoToSchedule
+
+const DocSchedule = () => {
 
     const [backendData, setBackendData] = useState({})
+    const [loading, setLoading] = useState(true);
+    
+
+    
+
+
+
+    useEffect(() => {
+        axios.get(`/docschedule`)
+        .then(({data}) => {
+            setBackendData(data)
+            //console.log(data)
+            setLoading(false)
+            
+          
+        })
+        .catch((err) => {   
+            console.log(err);
+            setLoading(false);
+        });
+    }, [])
+    console.log(backendData);
+    // var doctor = {};
+
+    var startTime = "9:00"
+    var endTime = "17:00"
+    var interval = 30
+    var dayOff = [1,2]
+    var doctor = {}
+    var doctorSchedule = [];
+    
+    
+   
+
+    //Get the doctor database, his/her opening time, closing time, appointment intervals and day offs in the week.
+    // const doctors = JSON.parse(JSON.stringify(doctorsJson));
+    // // const doctor = doctors.find((doctor) => doctor.id === id)
+    // if(backendData){
+        if(!loading)
+        {
+            doctor = backendData.currentDoctor;
+        //console.log(doctor);
+        // //console.log(doctor);
+        
+            startTime = doctor.startTime;
+            endTime = doctor.endTime;
+            interval = doctor.appointmentInterval;
+            dayOff = doctor.dayOffs;
+            doctorSchedule = backendData.doctorSchedule;
+
+
+        }
+        
+
+    
+    
+    
+    
+
+    
 
     // When the page renders, get /schedule/:id from server.js and set the backend data.
     // get /schdule/:id response: {data: patient, doctorSchedule: doctorSchedule}
     // to get patient info: e.g. backendData.data.firstName
     // to get doctor schedule info: e.g  backendData.doctorSchedule[0].date 
-    useEffect(() => {
-        axios.get(`/docschedule/${id}`)
-        .then(({data}) => {
-            setBackendData(data)
-        })
-    }, []) // Make sure to have [] here to avoid being render infinitely.
+     // Make sure to have [] here to avoid being render infinitely.
 
 
     const days = ["Sunday", "Monday", "Tuesday", "Wednesday","Thursday", "Friday","Saturday"]
@@ -76,31 +122,61 @@ let { id } = useParams();
 
     //Go through each time slot in the date and compare with the data in doctor/{id}.json
     //and check if there is an apointment at that time slot
-
     const getPatientName = (patientID) => {
-        const patient = patients.find((patient) => patient.id === patientID);
-        return `${patient.firstName} ${patient.lastName}`;
-        
+        console.log('patientid:' + patientID)
 
+        const patient = patients.find((patient) => patient.id === patientID);
+        if(patient != null){
+            return `${patient.firstName} ${patient.lastName}`;
+    
+        }
+        return ""
+        
     }
+    
+    
+    
 
     const selectedTimeSlot = (date) => {
+        let tempHours = hours.slice();
         
         for (let i = 0; i < dayOff.length; i++){
             if (date.getDay() === dayOff[i])
                 return []
         }
+
+        console.log(doctorSchedule)
         
-        const tempHours = [...hours];
-        for (let i = 0; i < backendData.doctorSchedule.length; i++){
-            if (compareDates(date, backendData.doctorSchedule[i].date)){
-                // console.log(ackendData.doctorSchedule[i].date)
-                //tempHours.splice(tempHours.indexOf(backendData.doctorSchedule[i].startTime), 1);
-                tempHours.replace(backendData.doctorSchedule[i].startTime, getPatientName(backendData.doctorSchedule[i].patientID));
+        // const [hoursInAday, sethoursInAday] = useState(hours);
+        
+            for (let i = 0; i < doctorSchedule.length; i++){
+                if (compareDates(date, doctorSchedule[i].date)){
+                    // console.log(ackendData.doctorSchedule[i].date)
+                    
+                    tempHours.splice(tempHours.indexOf(doctorSchedule[i].startTime), 1,
+                    doctorSchedule[i].startTime + ' with' +
+                    getPatientName(doctorSchedule[i].patient_id));
+                        console.log(i)
+
+                        // for(let j = 0; j < tempHours.length; j++){
+                        //     if(tempHours[j] == doctorSchedule[i].startTime){
+                        //         tempHours[j] = getPatientName(doctorSchedule[i].patient_id);
+                        //     }
+                        // }
+                        // console.log(getPatientName(doctorSchedule[i].patient_id));
+                        
+                        // console.log(tempHours[tempHours.indexOf(doctorSchedule[i].startTime)])
+                }
             }
-        }
+
+
+            console.log(tempHours)
+
+    
+       
         return tempHours
     }
+
 
 
     const handleNextWeekClick = () => {
@@ -139,14 +215,14 @@ let { id } = useParams();
 
     return (
         <div>
-            {(typeof backendData.data === 'undefined') ? (
+            {loading ? (
             <div style={{textAlign: "center"}}>
               
               <h2> Loading </h2> <br/>
             </div>
             ):(
                 <div>
-                    <h1> Doctor {doctor.firstName} {doctor.lastName}'s schedule </h1>
+                    <h1>{doctor.firstName} {doctor.lastName}'s schedule </h1>
 
 
                     <h1> {months[currentWeekStartDate.getMonth()]} {currentWeekStartDate.getFullYear()} </h1>
@@ -167,7 +243,8 @@ let { id } = useParams();
                                 <div>
                                     {new Date() < date &&
                                         <div>
-                                            <input   type="radio" id="" name="hours" value="" className='timeRadioInput'/>
+                                            <input   type="radio" id="" name="hours" value="" className='timeRadioInput'
+                                            disabled ={hour.length > 5}/>
                                             <label>{hour}</label>
                                         </div>
                                     }
@@ -196,4 +273,5 @@ let { id } = useParams();
     )
 }
 
-export default Schedule
+
+export default DocSchedule

@@ -23,20 +23,21 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path='/' element={<Introduction/>}></Route>
-        <Route path='/dashboard' element={<Dashboard />}></Route>
-        <Route path='/Introduction' element={<Introduction />}></Route>
-        <Route path='/RunSearch' element={<RunSearch />}></Route>
-        <Route path='/dashboard' element={<Dashboard />}></Route>
-        <Route path='/doctorDashboard' element={<DoctorDashboard />}></Route>
-        <Route path='/patientLogin' element={<PatientLogin />}></Route>
-        <Route path='/doctorLogin' element={<DoctorLogin />}></Route>
-        <Route path='/patientsignup' element={<PatientSignup />}></Route>
-        <Route path='/doctorsignup' element={<DoctorSignUp />}></Route>
+        <Route path='/' element={<Introduction/>}/>
+        <Route path='/dashboard' element={<Dashboard />}/>
+        <Route path='/Introduction' element={<Introduction />}/>
+        <Route path='/RunSearch' element={<RunSearch />}/>
+        <Route path='/dashboard' element={<Dashboard />}/>
+        <Route path='/doctorDashboard' element={<DoctorDashboard />}/>
+        <Route path='/patientLogin' element={<PatientLogin />}/>
+        <Route path='/doctorLogin' element={<DoctorLogin />}/>
+        <Route path='/patientsignup' element={<PatientSignup />}/>
+        <Route path='/doctorsignup' element={<DoctorSignUp />}/>
         <Route path='/doctors/:id' element={<DoctorProfile />} />
         <Route path='/review/doctor/:id' element={<Review />} />
-        <Route path='/schedule/' element={<Schedule />} />
-        <Route path='/docschedule/:id' element={<DocSchedule />} />
+        <Route path='/schedule/:id' element={<Schedule />} />
+        <Route path='/docschedule' element={<DocSchedule />} />
+
     
       </Routes>
     </Router>

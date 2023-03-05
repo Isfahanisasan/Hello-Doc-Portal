@@ -28,15 +28,25 @@ app.use('/review', require('./routes/review'));
 
 
 
-app.get('/docschedule/:id', (req, res) =>{
-
-  if(req.session.doctorID != req.params.id || !req.session.doctorID){
-    console.log("Doctor not authorized/Doctor not logged in");
+app.get('/docschedule', (req, res) =>{
+  
+  if (!req.session.doctorID) {
+    console.log('Not logged in');
     return res.redirect('/doctorlogin');
   }
-  const fileName = '../halodoc/src/database/appointment/doctor/' + req.params.id + '.json';
+  const fileName = '../halodoc/src/database/appointment/doctor/' + req.session.doctorID + '.json';
+ 
   const doctorSchedule = JSON.parse(fs.readFileSync(fileName));
-  res.json({doctorSchedule: doctorSchedule});
+  const doctorsJson = JSON.parse(JSON.stringify(doctors));
+  const currentDoctorJson = doctorsJson.find((doctor) => doctor.id === req.session.doctorID);
+  const currentDoctor = JSON.parse(JSON.stringify(currentDoctorJson));
+
+
+
+  
+  
+
+  res.json({currentDoctor: currentDoctor, doctorSchedule: doctorSchedule});
 
 })
 
@@ -98,5 +108,5 @@ app.post('/doctorsignup', (req, res) => {
   
 });
   
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8888;
 app.listen(PORT, () => {console.log(`server starting on port ${PORT}`)});
