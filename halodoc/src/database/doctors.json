@@ -6,7 +6,14 @@
     "specialty": "Orthodontist",
     "email": "johndoe@email.com",
     "password": "123456",
-    "phoneNumber": "0123456789"
+    "phoneNumber": "0123456789",
+    "startTime": "9:00",
+    "endTime": "17:00",
+    "appointmentInterval": 20,
+    "dayOffs": [
+      0,
+      6
+    ]
   },
   {
     "id": "2",
@@ -15,7 +22,14 @@
     "specialty": "OB-GYN",
     "email": "janedoe@email.com",
     "password": "123456",
-    "phoneNumber": "012301230123"
+    "phoneNumber": "012301230123",
+    "startTime": "9:00",
+    "endTime": "17:00",
+    "appointmentInterval": 60,
+    "dayOffs": [
+      0,
+      6
+    ]
   },
   {
     "id": "3",
@@ -24,7 +38,14 @@
     "specialty": "Orthopaedic",
     "email": "johnsmith@email.com",
     "password": "123456",
-    "phoneNumber": "123412341234"
+    "phoneNumber": "123412341234",
+    "startTime": "10:00",
+    "endTime": "17:00",
+    "appointmentInterval": 30,
+    "dayOffs": [
+      0,
+      6
+    ]
   },
   {
     "id": "4",
@@ -33,7 +54,14 @@
     "specialty": "ENT",
     "email": "janesmith@email.com",
     "password": "123456",
-    "phoneNumber": "1932934121"
+    "phoneNumber": "1932934121",
+    "startTime": "9:00",
+    "endTime": "15:00",
+    "appointmentInterval": 15,
+    "dayOffs": [
+      0,
+      6
+    ]
   },
   {
     "id": "5",
@@ -42,7 +70,14 @@
     "specialty": "Dentistry",
     "email": "maindoe@email.com",
     "password": "123456",
-    "phoneNumber": "12412235424"
+    "phoneNumber": "12412235424",
+    "startTime": "9:00",
+    "endTime": "17:00",
+    "appointmentInterval": 30,
+    "dayOffs": [
+      0,
+      6
+    ]
   },
   {
     "id": "6",
@@ -53,7 +88,14 @@
     "password": "12345",
     "number": "7147286064",
     "Bdate": "2000-08-24",
-    "gender": "Female"
+    "gender": "Female",
+    "startTime": "9:00",
+    "endTime": "17:00",
+    "appointmentInterval": 30,
+    "dayOffs": [
+      0,
+      6
+    ]
   },
   {
     "id": "7",
@@ -64,6 +106,24 @@
     "password": "dongle",
     "number": "17147285919",
     "Bdate": "1969-11-12",
-    "gender": "Male"
+    "gender": "Male",
+    "startTime": "9:00",
+    "endTime": "17:00",
+    "appointmentInterval": 30,
+    "dayOffs": [
+      0,
+      6
+    ]
+  },
+  {
+    "id": "8",
+    "firstName": "Thi Xuan Lan",
+    "lastName": "Vo",
+    "specialty": "Opthalmologist",
+    "email": "thixuanlanvo139@gmail.com",
+    "password": "123456",
+    "number": "17147286373",
+    "Bdate": "1969-09-14",
+    "gender": "Female"
   }
 ]
