@@ -15,6 +15,7 @@ import DoctorProfile from './Components/DoctorProfile';
 import Review from './Components/Review';
 import Schedule from './Components/Appointments/Schedule';
 import RunSearch from './Components/Search/RunSearch';
+import SearchDoctor from './Components/SearchDoctor';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Introduction/>}></Route>
         <Route path='/dashboard' element={<Dashboard />}></Route>
+        <Route path='/searchdoctor' element={<SearchDoctor />}></Route>
         <Route path='/Introduction' element={<Introduction />}></Route>
         <Route path='/RunSearch' element={<RunSearch />}></Route>
         <Route path='/dashboard' element={<Dashboard />}></Route>

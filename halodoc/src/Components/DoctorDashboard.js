@@ -34,7 +34,6 @@ const DoctorDashboard = () => {
                 </div>
             ) : (
               <div >
-
                 <h1> {backendData.data.firstName} {backendData.data.lastName} </h1> 
                 <button onClick={handleLogout}> Log out </button>
 
