@@ -92,21 +92,25 @@ p{
 }
 .doctorName
 {
-    margin-top: 10px;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
+    //justify-content: space-between;
+    gap:100px;
+    margin-top: 10px;
+    
 }
 .items
 {
-    flex-basis: calc(50% - 20px);
+    
     padding: 10px;
     border-radius: 10px;
     border: 1px solid darkgreen;
     margin-bottom: 20px;
+    width:200px;
     text-align: center;
     background-color:mintcream;
-    
+    margin-top: 50px;
+    font-size: 20px;
+    font-weight: bolder;
+    color:darkolivegreen;
 }
 }

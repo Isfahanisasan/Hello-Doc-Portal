@@ -18,7 +18,9 @@ class RunSearch extends Component {
   searchUsers = (text) => {
     const doctors = JSON.parse(JSON.stringify(Doctors));
 
-    const doctor = doctors.filter((doctor) => doctor.firstName.toLowerCase().includes(text.toLowerCase()));
+    const doctor = doctors.filter((doctor) =>
+      doctor.firstName.toLowerCase().includes(text.toLowerCase())
+    );
     // const doctor = doctors.filter((doctor) => doctor.firstName === text);
     this.setState({ users: doctor, loading: false });
     console.log(doctor);
@@ -34,14 +36,12 @@ class RunSearch extends Component {
     setTimeout(() => this.setState({ alert: null }), 3000);
   };
 
-  
-
   render() {
     const { users, user, loading } = this.state;
     // console.log("Hello");
     return (
-      <div className='RunSearch'>
-        <div className='container1'>
+      <div className='RunSearch' >
+        <div className='all-center' >
           <Alert alert={this.state.alert} />
           <Search
             searchUsers={this.searchUsers}
