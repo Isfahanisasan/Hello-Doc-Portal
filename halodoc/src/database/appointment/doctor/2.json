@@ -1,1 +1,56 @@
-[]
+[
+  {
+    "doctor_id": "2",
+    "patient_id": "2",
+    "startTime": "11:00",
+    "date": "3/8/2023"
+  },
+  {
+    "doctor_id": "2",
+    "patient_id": "2",
+    "startTime": "13:00",
+    "date": "3/10/2023"
+  },
+  {
+    "doctor_id": "2",
+    "patient_id": "2",
+    "startTime": "13:00",
+    "date": "3/10/2023"
+  },
+  {
+    "doctor_id": "2",
+    "patient_id": "2",
+    "startTime": "16:00",
+    "date": "3/8/2023"
+  },
+  {
+    "doctor_id": "2",
+    "patient_id": "2",
+    "startTime": "16:00",
+    "date": "3/9/2023"
+  },
+  {
+    "doctor_id": "2",
+    "patient_id": "2",
+    "startTime": "15:00",
+    "date": "3/10/2023"
+  },
+  {
+    "doctor_id": "2",
+    "patient_id": "2",
+    "startTime": "17:00",
+    "date": "3/9/2023"
+  },
+  {
+    "doctor_id": "2",
+    "patient_id": "2",
+    "startTime": "17:00",
+    "date": "3/10/2023"
+  },
+  {
+    "doctor_id": "2",
+    "patient_id": "2",
+    "startTime": "16:00",
+    "date": "3/7/2023"
+  }
+]
