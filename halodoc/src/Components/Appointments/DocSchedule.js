@@ -134,7 +134,7 @@ const DocSchedule = () => {
                 if (compareDates(date, doctorSchedule[i].date)){
                     
                     tempHours.splice(tempHours.indexOf(doctorSchedule[i].startTime), 1,
-                    doctorSchedule[i].startTime + ' with' +
+                    doctorSchedule[i].startTime + ' with ' +
                     getPatientName(doctorSchedule[i].patient_id));
                 }
             }
@@ -203,27 +203,29 @@ const DocSchedule = () => {
 
                             {/* Generate all the eligible time slot */}
                             {selectedTimeSlot(date).map(hour => ( 
-                                <div>
-                                    {new Date() < date &&
-                                        <div>
-                                            <input   type="radio" id="" name="hours" value="" className='timeRadioInput'
-                                            disabled ={hour.length > 5}/>
-                                            <label>{hour}</label>
-                                        </div>
-                                    }
-
-                                    {new Date() >= date &&
-                                        <div>
-                                            <input type="radio" id="" name="hours" value="" className='timeRadioInput' disabled/>
-                                            <label>{hour}</label>
-                                        </div>
-                                    }
+                                <div key={hour}>
+                                    {hour.length <= 5 ? (
+                                        new Date() < date ? (
+                                            <a href={`/makeAppointment/${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}/${hour}`} className="timeLink"> 
+                                                {hour}
+                                            </a>
+                                        ) : (
+                                            <div>{hour}</div>
+                                        )
+                                    ) : (
+                                        new Date() < date ? (
+                                            <a href={`/modifyAppointment/${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}/${hour}`} className="timeLink">
+                                                {hour}
+                                            </a>
+                                        ) : (
+                                            <div>{hour}</div>
+                                        )   
+                                    )}
                                 </div>
-                            ))}
+                            ))} 
                         </td>
                     ))}
-                    
-                    
+                
                 </div>
             )}
         </div>
