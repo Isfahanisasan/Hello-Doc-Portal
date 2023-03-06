@@ -40,8 +40,8 @@ class RunSearch extends Component {
     const { users, user, loading } = this.state;
     // console.log("Hello");
     return (
-      <div className='RunSearch'>
-        <div className='container1'>
+      <div className='RunSearch' >
+        <div className='all-center' >
           <Alert alert={this.state.alert} />
           <Search
             searchUsers={this.searchUsers}
