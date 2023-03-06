@@ -28,5 +28,29 @@
     "patient_id": "2",
     "startTime": "12:20",
     "date": "3/10/2023"
+  },
+  {
+    "doctor_id": "1",
+    "patient_id": "2",
+    "startTime": "17:00",
+    "date": "3/10/2023"
+  },
+  {
+    "doctor_id": "1",
+    "patient_id": "2",
+    "startTime": "17:00",
+    "date": "3/6/2023"
+  },
+  {
+    "doctor_id": "1",
+    "patient_id": "2",
+    "startTime": "09:00",
+    "date": "3/7/2023"
+  },
+  {
+    "doctor_id": "1",
+    "patient_id": "2",
+    "startTime": "16:40",
+    "date": "3/9/2023"
   }
 ]
