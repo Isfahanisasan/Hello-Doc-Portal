@@ -37,6 +37,30 @@ app.get('/schedule/:id', async (req, res) => {
   }
 =======
 
+
+app.get('/docschedule', (req, res) =>{
+  
+  if (!req.session.doctorID) {
+    console.log('Not logged in');
+    return res.redirect('/doctorlogin');
+  }
+  const fileName = '../halodoc/src/database/appointment/doctor/' + req.session.doctorID + '.json';
+ 
+  const doctorSchedule = JSON.parse(fs.readFileSync(fileName));
+  const doctorsJson = JSON.parse(JSON.stringify(doctors));
+  const currentDoctorJson = doctorsJson.find((doctor) => doctor.id === req.session.doctorID);
+  const currentDoctor = JSON.parse(JSON.stringify(currentDoctorJson));
+
+
+
+  
+  
+
+  res.json({currentDoctor: currentDoctor, doctorSchedule: doctorSchedule});
+
+})
+
+
 app.get('/schedule/:id', (req, res) => {
   
     if (!req.session.patientID) {
