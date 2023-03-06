@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
+import '../../Styles/Styles.design.scss'
 export class Search extends Component {
   state = {
     text: '',
@@ -29,21 +29,30 @@ export class Search extends Component {
     const { showClear, clearUsers } = this.props;
 
     return (
-      <div>
-        
+      <div className='search'  >
+        <dic className='all-center'>
+        <div style={{ margin: '30px' }}></div>
+        <h2>Search for Medical Service!</h2>
+        <div style={{ margin: '10px' }}></div>
         <form onSubmit={this.onSubmit} className='form'>
-          <input
-            type='text'
-            name='text'
-            placeholder='Search for Doctors...'
-            value={this.state.text}
-            onChange={this.onChange}
-          />
-          <input
-            type='submit'
-            name='Search'
-            className='btn btn-dark btn-block'
-          />
+          <div className='searchBox'>
+            <div className='textInput'>
+              <input
+                type='text'
+                name='text'
+                placeholder='Search for Doctors...'
+                value={this.state.text}
+                onChange={this.onChange}
+              />
+          </div>
+          <div className='submitButton'>
+            <input
+              type='submit'
+              name='Search'
+              className='btn btn-dark btn-block'
+            />
+          </div>
+        </div>
         </form>
 
         {showClear && (
@@ -51,8 +60,8 @@ export class Search extends Component {
             Clear
           </button>
         )}
-
-      </div>
+        </dic>
+        </div>
     );
   }
 }

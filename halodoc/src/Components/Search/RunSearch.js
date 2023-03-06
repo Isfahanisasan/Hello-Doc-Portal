@@ -17,7 +17,11 @@ class RunSearch extends Component {
 
   searchUsers = (text) => {
     const doctors = JSON.parse(JSON.stringify(Doctors));
-    const doctor = doctors.filter((doctor) => doctor.firstName === text);
+
+    const doctor = doctors.filter((doctor) =>
+      doctor.firstName.toLowerCase().includes(text.toLowerCase())
+    );
+    // const doctor = doctors.filter((doctor) => doctor.firstName === text);
     this.setState({ users: doctor, loading: false });
     console.log(doctor);
   };
@@ -34,10 +38,10 @@ class RunSearch extends Component {
 
   render() {
     const { users, user, loading } = this.state;
+    // console.log("Hello");
     return (
-      <div className='App'>
-        <div className='container'>
-          <Navbar />
+      <div className='RunSearch' >
+        <div className='all-center' >
           <Alert alert={this.state.alert} />
           <Search
             searchUsers={this.searchUsers}
@@ -46,7 +50,6 @@ class RunSearch extends Component {
             setAlert={this.setAlert}
           />
           <Users loading={loading} users={users} />
-          <h1>This is the Home Page!</h1>
         </div>
       </div>
     );

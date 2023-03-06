@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import {useParams} from "react-router-dom";
 import axios from 'axios';
 import scheduleJson from '../../database/schedules.json'
+import '../../Styles/Styles.Schedule.scss'
 
 
 // Since we have more data about the opening hours and closing hours and interval for each appointment,
@@ -18,6 +19,7 @@ function createTimeArray(startTime, endTime, interval) {
   
     let hour = startHour;
     let minute = startMinute;
+
   
     while (hour < endHour || (hour === endHour && minute <= endMinute)) {
       timeArray.push(`${hour.toString().padStart(2, "0")}:${minute.toString().padStart(2, "0")}`);
@@ -42,6 +44,7 @@ const compareDates = (d1, d2) => {
 
 const Schedule = () => {
     let { id } = useParams();
+    const navigate = useNavigate();
 
     //Get the doctor database, his/her opening time, closing time, appointment intervals and day offs in the week.
     const doctors = JSON.parse(JSON.stringify(doctorsJson));
@@ -53,6 +56,8 @@ const Schedule = () => {
     
 
     const [backendData, setBackendData] = useState({})
+    const [pickTime, setPickTime] = useState("");
+    const [pickDate, setPickDate] = useState("");
 
     // When the page renders, get /schedule/:id from server.js and set the backend data.
     // get /schdule/:id response: {data: patient, doctorSchedule: doctorSchedule}
@@ -86,8 +91,10 @@ const Schedule = () => {
         const tempHours = [...hours];
         for (let i = 0; i < backendData.doctorSchedule.length; i++){
             if (compareDates(date, backendData.doctorSchedule[i].date)){
-                // console.log(ackendData.doctorSchedule[i].date)
-                tempHours.splice(tempHours.indexOf(backendData.doctorSchedule[i].startTime), 1);
+                tempHours.splice(tempHours.indexOf(backendData.doctorSchedule[i].startTime), 1)
+                // tempHours.splice(tempHours.indexOf(backendData.doctorSchedule[i].startTime), 1, 
+                // "patientID" + backendData.doctorSchedule[i].patient_id)
+                    
             }
         }
         return tempHours
@@ -116,6 +123,34 @@ const Schedule = () => {
     const handleThisWeekClick = () => {
         setCurrentWeekStartDate(new Date());
     }
+
+    const handleSubmit = async () => {
+        let submitData;
+        if(pickTime && pickDate) {
+            submitData = {
+                "doctor_id": id,
+                "patient_id": backendData.data.id,
+                "startTime": pickTime,
+                "date": pickDate            
+            };
+        }
+        if(submitData) {
+            console.log(submitData);
+            try {
+                const response = await axios.post('/makeappointment', submitData);
+                console.log(response.data);
+                navigate(response.data.data);
+                if(response.status === 200) {
+                  console.log('successful');
+                } else {
+                  console.log("Error Make Appointment");
+                }
+            }
+            catch (err) {
+                console.error(err);
+            }
+        }
+    };
     
     const generateWeeklyDates = () => {
         const dates = [];
@@ -137,7 +172,7 @@ const Schedule = () => {
             </div>
             ):(
                 <div>
-                    <h1> Patient {backendData.data.firstName} making appointment with doctor {doctor.firstName} </h1>
+                    <h2> Patient {backendData.data.firstName} making appointment with doctor {doctor.firstName} </h2>
 
 
                     <h1> {months[currentWeekStartDate.getMonth()]} {currentWeekStartDate.getFullYear()} </h1>
@@ -147,43 +182,41 @@ const Schedule = () => {
                         <button onClick={handleLastWeekClick}> prev </button>
                         <button onClick={handleNextWeekClick}> next </button>
                     </div>
-                    
-                    {weeklyDates.map(date => (
-                        <td key={date}>
-                            
-                            <td>{days[date.getDay()]} {date.getMonth()+1}/{date.getDate()}</td>
+                    <p> You chose {pickTime+" "} {pickDate} </p>
+                        {weeklyDates.map(date => (
+                            <td key={date}>
+            
+                                <td>{days[date.getDay()]} {date.getMonth()+1}/{date.getDate()}</td>
+                                <div class="radio-wrapper">
+                                {/* Generate all the eligible time slot */}
+                                {selectedTimeSlot(date).map(hour => ( 
+                                    <div onChange={(e) => {setPickTime(e.target.value); setPickDate((date.getMonth()+1)+"/"+date.getDate()+"/"+date.getFullYear())}}>
+                                        {new Date() < date &&
+                                           
+                                            
+                                            <div className="square-radio">
+                                            <input type="radio" name="my-radio" value={hour} />
+                                            <label >{hour}</label>
+                                            </div>
+                                        }
 
-                            {/* Generate all the eligible time slot */}
-                            {selectedTimeSlot(date).map(hour => ( 
-                                <div>
-                                    {new Date() < date &&
-                                        <div>
-                                            <input   type="radio" id="" name="hours" value="" className='timeRadioInput'/>
-                                            <label>{hour}</label>
-                                        </div>
-                                    }
+                                        {new Date() >= date &&
+                                            <div>
+                                                <input type="radio" id="" name="hours" value={hour} className='timeRadioInput' disabled/>
+                                                <label>{hour}</label>
+                                            </div>
+                                        }
+                                    </div>
+                                ))}
 
-                                    {new Date() >= date &&
-                                        <div>
-                                            <input type="radio" id="" name="hours" value="" className='timeRadioInput' disabled/>
-                                            <label>{hour}</label>
-                                        </div>
-                                    }
                                 </div>
-                            ))}
-                        </td>
-                    ))}
-                    
-                    
+                                
+                            </td>
+                        ))}
+                        <button onClick={handleSubmit}> SUBMIT </button>
                 </div>
             )}
         </div>
-        
-
-
-
-
-        
     )
 }
 
