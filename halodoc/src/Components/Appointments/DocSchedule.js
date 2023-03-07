@@ -46,11 +46,6 @@ const DocSchedule = () => {
 
     const [backendData, setBackendData] = useState({})
     const [loading, setLoading] = useState(true);
-    
-
-    
-
-
 
     useEffect(() => {
         axios.get(`/docschedule`)
@@ -66,8 +61,6 @@ const DocSchedule = () => {
             setLoading(false);
         });
     }, [])
-    console.log(backendData);
-    // var doctor = {};
 
     var startTime = "9:00"
     var endTime = "17:00"
@@ -77,26 +70,19 @@ const DocSchedule = () => {
     var doctorSchedule = [];
     
     
-   
+   /*Whereever you need to use the data from the backend, you should use the following code
+   to block reading from null while the data is being loaded from the backend.*/
 
-    //Get the doctor database, his/her opening time, closing time, appointment intervals and day offs in the week.
-    // const doctors = JSON.parse(JSON.stringify(doctorsJson));
-    // // const doctor = doctors.find((doctor) => doctor.id === id)
-    // if(backendData){
-        if(!loading)
-        {
-            doctor = backendData.currentDoctor;
-        //console.log(doctor);
-        // //console.log(doctor);
-        
-            startTime = doctor.startTime;
-            endTime = doctor.endTime;
-            interval = doctor.appointmentInterval;
-            dayOff = doctor.dayOffs;
-            doctorSchedule = backendData.doctorSchedule;
+    if(!loading)
+    {
+        doctor = backendData.currentDoctor;
 
-
-        }
+        startTime = doctor.startTime;
+        endTime = doctor.endTime;
+        interval = doctor.appointmentInterval;
+        dayOff = doctor.dayOffs;
+        doctorSchedule = backendData.doctorSchedule;
+    }
         
 
     
@@ -144,40 +130,17 @@ const DocSchedule = () => {
             if (date.getDay() === dayOff[i])
                 return []
         }
-
-        console.log(doctorSchedule)
-        
-        // const [hoursInAday, sethoursInAday] = useState(hours);
-        
             for (let i = 0; i < doctorSchedule.length; i++){
                 if (compareDates(date, doctorSchedule[i].date)){
-                    // console.log(ackendData.doctorSchedule[i].date)
                     
                     tempHours.splice(tempHours.indexOf(doctorSchedule[i].startTime), 1,
-                    doctorSchedule[i].startTime + ' with' +
+                    doctorSchedule[i].startTime + ' with ' +
                     getPatientName(doctorSchedule[i].patient_id));
-                        console.log(i)
-
-                        // for(let j = 0; j < tempHours.length; j++){
-                        //     if(tempHours[j] == doctorSchedule[i].startTime){
-                        //         tempHours[j] = getPatientName(doctorSchedule[i].patient_id);
-                        //     }
-                        // }
-                        // console.log(getPatientName(doctorSchedule[i].patient_id));
-                        
-                        // console.log(tempHours[tempHours.indexOf(doctorSchedule[i].startTime)])
                 }
             }
 
-
-            console.log(tempHours)
-
-    
-       
         return tempHours
     }
-
-
 
     const handleNextWeekClick = () => {
         setCurrentWeekStartDate(() => {
@@ -240,27 +203,29 @@ const DocSchedule = () => {
 
                             {/* Generate all the eligible time slot */}
                             {selectedTimeSlot(date).map(hour => ( 
-                                <div>
-                                    {new Date() < date &&
-                                        <div>
-                                            <input   type="radio" id="" name="hours" value="" className='timeRadioInput'
-                                            disabled ={hour.length > 5}/>
-                                            <label>{hour}</label>
-                                        </div>
-                                    }
-
-                                    {new Date() >= date &&
-                                        <div>
-                                            <input type="radio" id="" name="hours" value="" className='timeRadioInput' disabled/>
-                                            <label>{hour}</label>
-                                        </div>
-                                    }
+                                <div key={hour}>
+                                    {hour.length <= 5 ? (
+                                        new Date() < date ? (
+                                            <a href={`/makeAppointment/${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}/${hour}`} className="timeLink"> 
+                                                {hour}
+                                            </a>
+                                        ) : (
+                                            <div>{hour}</div>
+                                        )
+                                    ) : (
+                                        new Date() < date ? (
+                                            <a href={`/modifyAppointment/${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}/${hour}`} className="timeLink">
+                                                {hour}
+                                            </a>
+                                        ) : (
+                                            <div>{hour}</div>
+                                        )   
+                                    )}
                                 </div>
-                            ))}
+                            ))} 
                         </td>
                     ))}
-                    
-                    
+                
                 </div>
             )}
         </div>
