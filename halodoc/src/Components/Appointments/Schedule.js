@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import {useParams} from "react-router-dom";
 import axios from 'axios';
 import scheduleJson from '../../database/schedules.json'
+import '../../Styles/Styles.Schedule.scss'
 
 
 // Since we have more data about the opening hours and closing hours and interval for each appointment,
@@ -171,7 +172,7 @@ const Schedule = () => {
             </div>
             ):(
                 <div>
-                    <h1> Patient {backendData.data.firstName} making appointment with doctor {doctor.firstName} </h1>
+                    <h2> Patient {backendData.data.firstName} making appointment with doctor {doctor.firstName} </h2>
 
 
                     <h1> {months[currentWeekStartDate.getMonth()]} {currentWeekStartDate.getFullYear()} </h1>
@@ -181,20 +182,21 @@ const Schedule = () => {
                         <button onClick={handleLastWeekClick}> prev </button>
                         <button onClick={handleNextWeekClick}> next </button>
                     </div>
-                    <h1> {pickTime} </h1>
-                    <h1> {pickDate} </h1>
+                    <p> You chose {pickTime+" "} {pickDate} </p>
                         {weeklyDates.map(date => (
                             <td key={date}>
             
                                 <td>{days[date.getDay()]} {date.getMonth()+1}/{date.getDate()}</td>
-
+                                <div class="radio-wrapper">
                                 {/* Generate all the eligible time slot */}
                                 {selectedTimeSlot(date).map(hour => ( 
                                     <div onChange={(e) => {setPickTime(e.target.value); setPickDate((date.getMonth()+1)+"/"+date.getDate()+"/"+date.getFullYear())}}>
                                         {new Date() < date &&
-                                            <div>
-                                                <input type="radio" id="" name="hours" value={hour} className='timeRadioInput'/>
-                                                <label>{hour}</label>
+                                           
+                                            
+                                            <div className="square-radio">
+                                            <input type="radio" name="my-radio" value={hour} />
+                                            <label >{hour}</label>
                                             </div>
                                         }
 
@@ -207,6 +209,7 @@ const Schedule = () => {
                                     </div>
                                 ))}
 
+                                </div>
                                 
                             </td>
                         ))}

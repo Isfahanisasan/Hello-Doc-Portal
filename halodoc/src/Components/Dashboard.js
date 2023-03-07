@@ -41,10 +41,16 @@ const Dashboard = () => {
                     <PatientUpcomingAppt patientId={backendData.data.id} firstName={backendData.data.firstName} lastName={backendData.data.lastName}/>
                   </div>
                   <div className="search">
-                  <img src={require("../Styles/img/background1.jpg")} alt="" width="500px" style={{marginTop:"20px", marginLeft:"20px"}} />
 
+                  <img src={require("../Styles/img/background1.jpg")} alt="" width="500px" style={{marginTop:"20px", marginLeft:"20px"}} />
+                  <h2>Easy Making appointment!</h2>
+                  <p>Click to make appointment for medical service </p>
+                  <div className='doctorName'>
+                    <Link to='/searchdoctor'> <button className='items'> Search Doctor</button> </Link>
+                    <Link to='/searchdoctor'> <button className='items'> Doctor List</button> </Link> 
+                  </div>
                   {/* <RunSearch/> */}
-                  <Link to='/searchdoctor'> <button className='items'> Click here to search for Doctors </button> </Link>
+                  
                   {/* <div className='doctorName'> */}
                   {/* {doctors.map(function(item, i){
                   return (

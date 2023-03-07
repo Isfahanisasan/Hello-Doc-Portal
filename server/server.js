@@ -30,12 +30,26 @@ app.use('/patientsignup', require('./routes/patientsignup'));
 app.use('/review', require('./routes/review'));
 app.use('/makeappointment', require('./routes/makeappointment'));
 
-<<<<<<< HEAD
-app.get('/schedule/:id', async (req, res) => {
-  if (!req.session.patientID) {
-    return res.redirect('/patientlogin');
+
+app.get('/docschedule', (req, res) =>{
+  
+  if (!req.session.doctorID) {
+    console.log('Not logged in');
+    return res.redirect('/doctorlogin');
   }
-=======
+  const fileName = '../halodoc/src/database/appointment/doctor/' + req.session.doctorID + '.json';
+ 
+  const doctorSchedule = JSON.parse(fs.readFileSync(fileName));
+  const doctorsJson = JSON.parse(JSON.stringify(doctors));
+  const currentDoctorJson = doctorsJson.find((doctor) => doctor.id === req.session.doctorID);
+  const currentDoctor = JSON.parse(JSON.stringify(currentDoctorJson));
+
+
+
+  res.json({currentDoctor: currentDoctor, doctorSchedule: doctorSchedule});
+
+})
+
 
 app.get('/schedule/:id', (req, res) => {
   
@@ -50,13 +64,8 @@ app.get('/schedule/:id', (req, res) => {
 
     res.json({data: patient, doctorSchedule: doctorSchedule})
   });
->>>>>>> origin/main
 
-  const patient = patients.find(
-    (patient) => patient.id === req.session.patientID
-  );
-  res.json({ data: patient });
-});
+ 
 
 app.post('/doctorsignup', (req, res) => {
   const formData = req.body;
@@ -86,19 +95,6 @@ app.post('/doctorsignup', (req, res) => {
     ...formData,
   };
   data.push(newDoctor);
-<<<<<<< HEAD
-  fs.writeFileSync(
-    '../halodoc/src/database/doctors.json',
-    JSON.stringify(data, null, 2) + '\n'
-  );
-  res.send('Form submitted successfully!');
-});
-
-const PORT = process.env.PORT || 8888;
-app.listen(PORT, () => {
-  console.log(`server starting on port ${PORT}`);
-});
-=======
   fs.writeFileSync('../halodoc/src/database/doctors.json', JSON.stringify(data, null, 2) + '\n');
   const newFile = '../halodoc/src/database/appointment/doctor/' + newDoctor.id + '.json'
   fs.writeFile(newFile, JSON.stringify([]), err => {
@@ -113,4 +109,3 @@ app.listen(PORT, () => {
   
 const PORT = process.env.PORT || 8888;
 app.listen(PORT, () => {console.log(`server starting on port ${PORT}`)});
->>>>>>> origin/main
