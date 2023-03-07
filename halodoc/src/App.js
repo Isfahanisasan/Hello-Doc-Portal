@@ -18,6 +18,7 @@ import RunSearch from './Components/Search/RunSearch';
 
 import DocSchedule from './Components/Appointments/DocSchedule';
 import SearchDoctor from './Components/SearchDoctor';
+import MakeAppointment from './Components/Appointments/MakeAppointment';
 
 
 function App() {
@@ -40,6 +41,11 @@ function App() {
         <Route path='/review/doctor/:id' element={<Review />} />
         <Route path='/schedule/:id' element={<Schedule />} />
         <Route path='/docschedule' element={<DocSchedule />} />
+        <Route path='/makeappointment/:date/:hour' element={<MakeAppointment />} />
+
+        
+
+       
 
     
       </Routes>

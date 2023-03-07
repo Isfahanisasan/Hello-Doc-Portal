@@ -130,9 +130,16 @@
     "specialty": "Opthalmologist",
     "email": "thixuanlanvo139@gmail.com",
     "password": "123456",
-    "number": "17147286373",
-    "Bdate": "1969-09-14",
-    "gender": "Female"
+    "number": "17147285919",
+    "Bdate": "1969-11-12",
+    "gender": "Male",
+    "startTime": "9:00",
+    "endTime": "17:00",
+    "appointmentInterval": 30,
+    "dayOffs": [
+      0,
+      6
+    ]
   },
   {
     "ava_url": "https://avatars.githubusercontent.com/u/9?v=4",
@@ -142,8 +149,15 @@
     "specialty": "mental",
     "email": "eric7788@haha.com",
     "password": "123456",
-    "number": "6262563736",
-    "Bdate": "2010-09-14",
-    "gender": "Male"
+    "number": "17147285919",
+    "Bdate": "1969-11-12",
+    "gender": "Male",
+    "startTime": "9:00",
+    "endTime": "17:00",
+    "appointmentInterval": 30,
+    "dayOffs": [
+      0,
+      6
+    ]
   }
 ]
