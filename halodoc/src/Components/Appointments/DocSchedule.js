@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import patients from '../../database/patients.json';
+import '../../Styles/Styles.DocSchedule.scss'
 
 
 // Since we have more data about the opening hours and closing hours and interval for each appointment,
@@ -76,7 +77,6 @@ const DocSchedule = () => {
     if(!loading)
     {
         doctor = backendData.currentDoctor;
-
         startTime = doctor.startTime;
         endTime = doctor.endTime;
         interval = doctor.appointmentInterval;
@@ -130,14 +130,17 @@ const DocSchedule = () => {
             if (date.getDay() === dayOff[i])
                 return []
         }
-            for (let i = 0; i < doctorSchedule.length; i++){
-                if (compareDates(date, doctorSchedule[i].date)){
-                    
-                    tempHours.splice(tempHours.indexOf(doctorSchedule[i].startTime), 1,
-                    doctorSchedule[i].startTime + ' with ' +
-                    getPatientName(doctorSchedule[i].patient_id));
+            if(doctorSchedule != null){
+                for (let i = 0; i < doctorSchedule.length; i++){
+                    if (compareDates(date, doctorSchedule[i].date)){
+                        
+                        tempHours.splice(tempHours.indexOf(doctorSchedule[i].startTime), 1,
+                        doctorSchedule[i].startTime + ' with ' +
+                        getPatientName(doctorSchedule[i].patient_id));
+                    }
                 }
             }
+
 
         return tempHours
     }
@@ -185,7 +188,9 @@ const DocSchedule = () => {
             </div>
             ):(
                 <div>
-                    <h1>{doctor.firstName} {doctor.lastName}'s schedule </h1>
+                    <h1 style={{fontSize: "24px", fontWeight: "bold"}}>
+                    {doctor.firstName} {doctor.lastName}'s schedule 
+                    </h1>
 
 
                     <h1> {months[currentWeekStartDate.getMonth()]} {currentWeekStartDate.getFullYear()} </h1>
@@ -199,14 +204,14 @@ const DocSchedule = () => {
                     {weeklyDates.map(date => (
                         <td key={date}>
                             
-                            <td>{days[date.getDay()]} {date.getMonth()+1}/{date.getDate()}</td>
+                            <div>{days[date.getDay()]} {date.getMonth()+1}/{date.getDate()}</div>
 
                             {/* Generate all the eligible time slot */}
                             {selectedTimeSlot(date).map(hour => ( 
                                 <div key={hour}>
                                     {hour.length <= 5 ? (
                                         new Date() < date ? (
-                                            <a href={`/makeAppointment/${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}/${hour}`} className="timeLink"> 
+                                            <a href={`/makeappointment/${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}/${hour}`} className="timeLink"> 
                                                 {hour}
                                             </a>
                                         ) : (
@@ -214,7 +219,7 @@ const DocSchedule = () => {
                                         )
                                     ) : (
                                         new Date() < date ? (
-                                            <a href={`/modifyAppointment/${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}${hour}`} className="timeLink">
+                                            <a href={`/modifyappointment/${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}/${hour}`} className="timeLink">
                                                 {hour}
                                             </a>
                                         ) : (
@@ -229,11 +234,6 @@ const DocSchedule = () => {
                 </div>
             )}
         </div>
-        
-
-
-
-
         
     )
 }

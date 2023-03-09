@@ -5,6 +5,7 @@ const path = require('path')
 const patients = require('../halodoc/src/database/patients.json');
 const doctors = require('../halodoc/src/database/doctors.json');
 
+
 const app = express();
 app.use(express.json());
 
@@ -79,6 +80,58 @@ app.post('/cancelAppointment', (req, res) => {
   res.json({data: '/dashboard'})
 })
 
+
+
+app.post('/makeappointment/:date/:hour', (req, res) => {
+
+  if(!req.session.doctorID){
+    console.log('Not logged in')
+    return res.redirect('/doctorlogin');
+  }
+
+  const formData = req.body;
+  let dateObj = new Date(req.params.date);
+  console.log(dateObj)
+  
+  const patient = patients.find((patient) => patient.firstName == formData.firstName && patient.lastName == formData.lastName);
+  const newAppointment = {
+    "doctor_id": req.session.doctorID,
+    "patient_id": patient.id,
+    "startTime": req.params.hour,
+    "date": dateObj.toLocaleDateString('en-US', {year: 'numeric', month: '2-digit', day: '2-digit'}),
+  };
+  const doctorFileName = '../halodoc/src/database/appointment/doctor/' + req.session.doctorID + '.json';
+  const patientFileName = '../halodoc/src/database/appointment/patient/' + patient.id + '.json';
+
+  //write the appointment into both files (doctor and patient)
+  try {
+    let doctorJsonData = fs.readFileSync(doctorFileName);
+    var doctorData = JSON.parse(doctorJsonData);
+  } catch (error) {
+    var doctorData = [];
+    console.log('New database initialized.');
+  }
+  console.log(newAppointment);
+  doctorData.push(newAppointment);
+  fs.writeFileSync(doctorFileName, JSON.stringify(doctorData, null, 2));
+  
+
+  try {
+    let patientJsonData = fs.readFileSync(patientFileName);
+    var patientData = JSON.parse(patientJsonData);
+  } catch (error) {
+    var patientData = [];
+    console.log('New database initialized for patient.');
+  }
+  console.log(newAppointment);
+  patientData.push(newAppointment);
+  fs.writeFileSync(patientFileName, JSON.stringify(patientData, null, 2));
+
+  res.send('Appointment submitted successfully!');
+
+})
+
+
 app.get('/docschedule', (req, res) =>{
   
   if (!req.session.doctorID) {
@@ -86,8 +139,25 @@ app.get('/docschedule', (req, res) =>{
     return res.redirect('/doctorlogin');
   }
   const fileName = '../halodoc/src/database/appointment/doctor/' + req.session.doctorID + '.json';
+  
+  if (!fs.existsSync(fileName)) {
+    // If the file doesn't exist, create an empty array and write it to the file
+    const data = [];
+    fs.writeFileSync(fileName, JSON.stringify(data));
+    console.log('File created successfully');
+  }
  
-  const doctorSchedule = JSON.parse(fs.readFileSync(fileName));
+  try{
+    var doctorSchedule = JSON.parse(fs.readFileSync(fileName));
+
+  }catch(err)
+  {
+    var doctorSchedule = [];
+    console.log('No schedule found');
+  }
+
+
+  
   const doctorsJson = JSON.parse(JSON.stringify(doctors));
   const currentDoctorJson = doctorsJson.find((doctor) => doctor.id === req.session.doctorID);
   const currentDoctor = JSON.parse(JSON.stringify(currentDoctorJson));
