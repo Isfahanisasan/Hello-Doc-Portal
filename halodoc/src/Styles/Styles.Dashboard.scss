@@ -1,116 +1,31 @@
 .Dashboard{
-.account
-{
-    text-align: right;
-    margin-top: -100px;
-    margin-right: 50px;
-}
-// .account1
-// {
-//     margin-right:150px;
-// }
-.name
-{
+    h1{
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-size: 40px;
+        color: darkslategrey;
+        margin-top: 60px;
+    }
     
-    margin-right: 75px;
     
-}
-.email
-{
-    margin-top: -10px;
-}
-.picture1
-{
-    text-align: right;
-    margin-right: 200px;
-    margin-top: -45px;
-
-}
-.profile
-{
-    width:5%;
-    margin-bottom: 10px;
-    border: 1px solid grey;
-    border-radius: 50%;
+    h3{
+        width:70%;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        color:darkcyan;
+        margin-top: 20px;
+    }
     
-}
-.buttonStyle
-{
-    text-align: right;
-    margin-right: 200px;
-    margin-top: -15px;
-}
-.LogOut
-{
-    border: none;
-    color:aliceblue;
-    padding: 2px 5px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 10px;
-    margin: 2px 2px;
-    cursor: pointer;
-    border-radius: 5px;
-    background-color: darksalmon;
-}
-p{
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-.container
-{
-    display: flex;
-    justify-content: space-between;
-    gap:-5px;
-    margin-top: 10px;
-}
-.appointment
-{
-    padding: 30px;
-    text-align: left;
-    border-style:hidden;
-    border-radius: 10px;
-    width: 50%;
-    position: relative;
-    margin-left: -30px;
-    height: 100%;
+    .button1
+    {
+        width: 90%;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        display: inline-block;
+        font-size: 16px;
+        margin-top: 30px;
+        cursor: pointer;
+        background-color:olivedrab
+    }
     
-
-}
-.search
-{
-    margin-top:4px;
-    margin-right: 20px;
-    padding: 2px;
-    border-radius: 10px;
-    text-align: left;
-    border-style:hidden;
-    width: 45%;
-    position: relative;
-    height: 100%;
-
-}
-.doctorName
-{
-    display: flex;
-    //justify-content: space-between;
-    gap:100px;
-    margin-top: 10px;
-    
-}
-.items
-{
-    
-    padding: 10px;
-    border-radius: 10px;
-    border: 1px solid darkgreen;
-    margin-bottom: 20px;
-    width:200px;
-    text-align: center;
-    background-color:mintcream;
-    margin-top: 50px;
-    font-size: 20px;
-    font-weight: bolder;
-    color:darkolivegreen;
-}
 }

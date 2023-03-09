@@ -15,12 +15,17 @@ import DoctorProfile from './Components/DoctorProfile';
 import Review from './Components/Review';
 import Schedule from './Components/Appointments/Schedule';
 import RunSearch from './Components/Search/RunSearch';
+
+import DocSchedule from './Components/Appointments/DocSchedule';
 import SearchDoctor from './Components/SearchDoctor';
+import MakeAppointment from './Components/Appointments/MakeAppointment';
+
 
 function App() {
   return (
     <Router>
       <Routes>
+
         <Route path='/' element={<Introduction/>}></Route>
         <Route path='/dashboard' element={<Dashboard />}></Route>
         <Route path='/searchdoctor' element={<SearchDoctor />}></Route>
@@ -35,6 +40,15 @@ function App() {
         <Route path='/doctors/:id' element={<DoctorProfile />} />
         <Route path='/review/doctor/:id' element={<Review />} />
         <Route path='/schedule/:id' element={<Schedule />} />
+        <Route path='/docschedule' element={<DocSchedule />} />
+        <Route path='/makeappointment/:date/:hour' element={<MakeAppointment />} />
+
+        
+
+       
+
+
+    
       </Routes>
     </Router>
   );
