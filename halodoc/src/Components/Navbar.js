@@ -33,7 +33,7 @@ const Navbar = ({name, email,patientID}) => {
             <p className='email'> {email} </p>
             </div>
             <div className='picture1'>
-            <img src={(`https://xsgames.co/randomusers/assets/avatars/pixel/${patientID}.jpg`)} alt={`Avatar for patient ${patientID}`} className='profile'></img>
+                <img src={(`https://xsgames.co/randomusers/assets/avatars/pixel/${patientID}.jpg`)} alt={`Avatar for patient ${patientID}`} className='profile'></img>
             </div>
             <div className='buttonStyle'>
             <button onClick={handleLogout} className='LogOut'> Log out </button>
