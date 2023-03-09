@@ -214,7 +214,7 @@ const DocSchedule = () => {
                                         )
                                     ) : (
                                         new Date() < date ? (
-                                            <a href={`/modifyAppointment/${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}/${hour}`} className="timeLink">
+                                            <a href={`/modifyAppointment/${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}${hour}`} className="timeLink">
                                                 {hour}
                                             </a>
                                         ) : (

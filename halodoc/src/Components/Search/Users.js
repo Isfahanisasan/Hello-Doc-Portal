@@ -27,9 +27,10 @@ Users.propTypes = {
 }
 
 const userStyle = {
+  margin: '30px 30px 30px 30px',
   display: 'grid',
   gridTemplateColumns: 'repeat(3,1fr)',
-  gridGap: '1rem',
+  gridGap: '0.7rem'
 };
 
 export default Users;

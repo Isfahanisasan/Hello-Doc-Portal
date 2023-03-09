@@ -1,42 +1,49 @@
 .patientsignup{
-    header{
-        width: 100%;
-        margin-top: 20px;
-        text-align: left;
-    }
-    body{
-        background-color:white;
-    }
-    section{
-        display: flex;
-    }
-    .signUp{
-        padding: 2px;
-        text-align: center;
-        border-style:hidden;
-        border-radius: 20px;
-        background-color:cornsilk;
-        width: 40%;
-        height: 70%;
-        position: relative;
-        left: 55%;
-        margin-top: -20px;
-    }
-    .text1
-    {
-        width: 45%;
-        margin-top: -400px;
-        margin-left: 40px;
-        font-size: 70%;
-        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-        text-align: center;
-        color:darkslategrey;
+    
+    h1{
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-size: 40px;
+        color: darkslategrey;
         
     }
+    
+    .text1{
+        margin-top: 50px;
+        margin-left: 5%;;
+        .text2{
 
+            line-height: 2;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            color:darkcyan;
+        }
+        .picture{
+            text-align: center;
+        }
+    }
+    .signUp{    
+        background-color:cornsilk;
+        text-align: center;
+        border-radius: 5%;
+        margin-left: 5%;
 
-    input[type=text],[type=date],[type=email],select,[type=password]{
+        h1{
+            text-align: center;
+        }
+    }
+
+    .signupContent{
+        display: inline-block;
         width: 80%;
+        text-align: left;
+    }
+
+
+    
+
+   
+
+    input, select{
+        width: 100%;
         padding: 10px 10px;
         margin: 0px 0;
         display: inline-block;
@@ -46,7 +53,7 @@
     }
     button
     {
-        width: 80%;
+        width: 100%;
         padding: 10px 10px;
         margin: 8px 0;
         display: inline-block;

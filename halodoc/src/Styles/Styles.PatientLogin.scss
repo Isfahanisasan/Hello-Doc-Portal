@@ -1,60 +1,47 @@
+$min-resolution: 1200px;
+$min-width: 800px;
 .patientlogin{
-  * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: sans-serif;
+
+  html{
+    padding: 30px;
   }
-  
-  body {
-    max-width: 1200px;
-    margin: 0 auto;
+  .patient-login-info{
+    margin-left: 10%;
   }
-  
-  header img {
-    max-width: 300px;
-    width: 100%;
-    margin: 20px 0;
+
+  .picture{
+      margin-top: 60px;
+      
+      text-align: center;
   }
-  
-  .container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 800px;
-    margin: 0 auto;
-    margin-top: 60px;
+
+  h1{
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      font-size: 40px;
+      color: darkslategrey;
+      margin-top: 60px;
   }
-  
-  .patient-login-info {
-    display: flex;
-    flex-direction: column;
-    margin: 40px 0 0;
+
+  input{
+    margin-top: 20px;
+    width: 80%;
+    height: 60px;
+    padding: 30px;
   }
-  
-  .patient-login-info input {
-    padding: 18px;
-    margin: 5px 0;
-  }
-  
-  .patient-login-info button {
-    padding: 18px;
-    margin: 20px 0;
-    background-color: #5fb0ad;
+  button{
+    width: 35%;
     border: none;
     color: white;
+    padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    margin: 30px 0;
+    cursor: pointer;
+    background-color:darkcyan
   }
+
   
-  .patient-login h1 {
-    font-size: 42px;
-  }
-  
-  .patient-login a {
-    color: #3959c2;
-    text-decoration: none;
-  }
-  
-  .patient-login p {
-    font-weight: 600;
-  }
 }
+  
+

@@ -2,7 +2,7 @@
   {
     "ava_url": "https://avatars.githubusercontent.com/u/1?v=4",
     "id": "1",
-    "firstName": "Doctor John",
+    "firstName": "John",
     "lastName": "Doe",
     "specialty": "Orthodontist",
     "email": "johndoe@email.com",
@@ -19,7 +19,7 @@
   {
     "ava_url": "https://avatars.githubusercontent.com/u/2?v=4",
     "id": "2",
-    "firstName": "Doctor Jane",
+    "firstName": "Jane",
     "lastName": "Doe",
     "specialty": "OB-GYN",
     "email": "janedoe@email.com",
@@ -36,7 +36,7 @@
   {
     "ava_url": "https://avatars.githubusercontent.com/u/3?v=4",
     "id": "3",
-    "firstName": "Doctor John",
+    "firstName": "John",
     "lastName": "Smith",
     "specialty": "Orthopaedic",
     "email": "johnsmith@email.com",
@@ -53,7 +53,7 @@
   {
     "ava_url": "https://avatars.githubusercontent.com/u/4?v=4",
     "id": "4",
-    "firstName": "Doctor Jane",
+    "firstName": "Jane",
     "lastName": "Smith",
     "specialty": "ENT",
     "email": "janesmith@email.com",
@@ -70,7 +70,7 @@
   {
     "ava_url": "https://avatars.githubusercontent.com/u/5?v=4",
     "id": "5",
-    "firstName": "Doctor Main",
+    "firstName": "Main",
     "lastName": "Doe",
     "specialty": "Dentistry",
     "email": "maindoe@email.com",
@@ -87,7 +87,7 @@
   {
     "ava_url": "https://avatars.githubusercontent.com/u/6?v=4",
     "id": "6",
-    "firstName": "Doctor Ashley",
+    "firstName": "Ashley",
     "lastName": "Le",
     "specialty": "Opthalmologist",
     "email": "ashleyle248@gmail.com",

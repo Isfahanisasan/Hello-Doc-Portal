@@ -27,15 +27,6 @@
     "gender": "male"
   },
   {
-    "id": "4",
-    "firstName": "Jane",
-    "lastName": "Smith",
-    "email": "janesmith@email.com",
-    "password": "123456",
-    "phoneNumber": "1932934121",
-    "gender": "female"
-  },
-  {
     "id": "5",
     "firstName": "Main",
     "lastName": "Doe",
@@ -73,5 +64,15 @@
     "number": "7147286064",
     "Bdate": "2000-08-24",
     "gender": "Female"
+  },
+  {
+    "id": "9",
+    "firstName": "Vu",
+    "lastName": "Le",
+    "email": "vle29931@gmail.com",
+    "password": "123456",
+    "number": "17147286064",
+    "Bdate": "2003-09-16",
+    "gender": "Male"
   }
 ]
