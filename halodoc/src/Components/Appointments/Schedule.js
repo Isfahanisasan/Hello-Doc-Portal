@@ -3,6 +3,7 @@ import doctorsJson from '../../database/doctors.json'
 import { useNavigate } from "react-router-dom";
 import {useParams} from "react-router-dom";
 import axios from 'axios';
+import Navbar from '../Navbar';
 import scheduleJson from '../../database/schedules.json'
 import '../../Styles/Styles.Schedule.scss'
 
@@ -165,6 +166,7 @@ const Schedule = () => {
 
     return (
         <div>
+            
             {(typeof backendData.data === 'undefined') ? (
             <div style={{textAlign: "center"}}>
               
@@ -172,6 +174,8 @@ const Schedule = () => {
             </div>
             ):(
                 <div>
+                    <Navbar name={backendData.data.firstName + ' ' + backendData.data.lastName} email={backendData.data.email} patientID={backendData.data.id}/>
+                    <div className='container'>
                     <h2> Patient {backendData.data.firstName} making appointment with doctor {doctor.firstName} </h2>
 
 
@@ -214,6 +218,7 @@ const Schedule = () => {
                             </td>
                         ))}
                         <button onClick={handleSubmit}> SUBMIT </button>
+                        </div>
                 </div>
             )}
         </div>

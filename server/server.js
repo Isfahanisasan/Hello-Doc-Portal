@@ -31,6 +31,54 @@ app.use('/patientsignup', require('./routes/patientsignup'));
 app.use('/review', require('./routes/review'));
 app.use('/makeappointment', require('./routes/makeappointment'));
 
+app.get('/patientUpcoming/:id', (req, res) => {
+  if (!req.session.patientID) {
+    console.log('Not logged in');
+    return res.redirect('/doctorlogin');
+  }
+  const fileName = '../halodoc/src/database/appointment/patient/' + req.params.id + '.json';
+  const patientSchedule = JSON.parse(fs.readFileSync(fileName));
+  
+  const futureDates = patientSchedule.filter(entry => {
+    const entryDate = new Date(entry.date);
+    return entryDate >= new Date();
+  });
+
+  const filteredScheduleWithDoctorNames = futureDates.map((appointments,i) => {
+    const doctor = doctors.find(doctor => doctor.id === appointments.doctor_id)
+    const doctorName = `${doctor.firstName} ${doctor.lastName}`;
+    const doctorSpecialty = `${doctor.specialty}`;
+    return { ...appointments, doctorName, doctorSpecialty };
+  })
+  
+  res.json({patientSchedule: filteredScheduleWithDoctorNames})
+
+})
+
+app.post('/cancelAppointment', (req, res) => {
+  
+  if (!req.session.patientID) {
+    console.log('Not logged in');
+    return res.redirect('/patientlogin');
+  }
+  const fileName = '../halodoc/src/database/appointment/patient/' + req.session.patientID + '.json';
+  const patientSchedule = JSON.parse(fs.readFileSync(fileName));
+  patientSchedule.splice(req.body.pos, 1);
+  fs.writeFileSync(fileName, JSON.stringify(patientSchedule, null, 2) + '\n');
+  
+  const fileNameDoctor = '../halodoc/src/database/appointment/doctor/' + req.body.doctor_id + '.json';
+  
+  let doctorSchedule = JSON.parse(fs.readFileSync(fileNameDoctor));
+
+  doctorSchedule = doctorSchedule.filter(item => {
+    return !(item.patient_id === req.session.patientID && item.startTime === req.body.startTime && item.date === req.body.date);
+  });
+
+  fs.writeFileSync(fileNameDoctor, JSON.stringify(doctorSchedule, null, 2) + '\n');
+
+  
+  res.json({data: '/dashboard'})
+})
 
 
 

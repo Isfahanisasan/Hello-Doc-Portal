@@ -1,3 +1,18 @@
+.Schedule{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  /* Additional styles */
+  width: 100%;
+  max-width: 1200px;
+  .schedule-body{
+    display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  /* Additional styles */
+  width: 100%;
+  max-width: 1200px;
+  }
 .radio-wrapper {
     display: flex;
     flex-wrap: wrap;
@@ -91,3 +106,4 @@
     display: block;
   }
   
+}

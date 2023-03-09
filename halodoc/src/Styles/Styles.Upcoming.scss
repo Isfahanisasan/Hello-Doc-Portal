@@ -1,0 +1,26 @@
+.information {
+    
+    .row{
+        padding: 10px;
+        background-color: cornsilk;
+        width: 80%;
+        border-radius: 10px;
+        border: 1px solid grey
+    }
+
+    .dropdown-menu{
+        p{
+            padding: 10px;
+            cursor: pointer;
+           
+        }
+        p:hover{
+            padding: 10px;
+            cursor: pointer;
+            color: white;
+            background-color: grey;
+        }
+        
+
+    }
+}

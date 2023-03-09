@@ -4,15 +4,16 @@ import doctorReview from '../database/doctorReviews.json';
 import { useNavigate } from 'react-router-dom';
 import '../Styles/container.scss';
 import '../Styles/Search.scss';
+import Navbar from './Navbar';
 
 import * as React from 'react';
 import Button from '@mui/material/Button';
 import { ButtonGroup } from '@mui/material';
 
 import { styled } from '@mui/material/styles';
-import Grid from '@mui/material/Grid';
+
 import Paper from '@mui/material/Paper';
-import Box from '@mui/material/Box';
+
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -23,7 +24,7 @@ const Item = styled(Paper)(({ theme }) => ({
   }));
 
 
-const DoctorProfile = () => {
+  const DoctorProfile = () => {
   let { id } = useParams();
   const navigate = useNavigate();
 
@@ -48,15 +49,8 @@ const DoctorProfile = () => {
 
   return (
     <div>
-      <header>
-        <img
-          src={require('../Styles/img/HelloDoc_Logo.png')}
-          alt=''
-          width='300px'
-        />
-      </header>
-
-      <div className='container' className='card text-center'>
+      <Navbar />
+      <div className='container card text-center'>
         <h1>
           <img
             src={info.ava_url}
@@ -75,12 +69,15 @@ const DoctorProfile = () => {
         <h2> Specialty: {info.specialty} </h2>
         {reviewObject && <h2> Rating: {reviewObject.rating} </h2>}
         <h2> Phone Number: {info.number} </h2>
-        <div style={{ margin: '30px' }}></div>
 
-        <ButtonGroup variant='outlined' aria-label='outlined button group'>
+        <div style={{ margin: '30px' }}>
+        <ButtonGroup variant='outlined' aria-label='outlined button group' >
           <Button onClick={handleSchedule}>Make appointment</Button>
           <Button onClick={handleReview}>Review</Button>
         </ButtonGroup>
+        </div>
+
+        
 
         {reviewObject &&
           reviewObject.reviews.map(function (item, i) {

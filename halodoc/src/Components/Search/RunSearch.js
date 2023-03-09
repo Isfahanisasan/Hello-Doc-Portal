@@ -19,7 +19,7 @@ class RunSearch extends Component {
     const doctors = JSON.parse(JSON.stringify(Doctors));
 
     const doctor = doctors.filter((doctor) =>
-      doctor.firstName.toLowerCase().includes(text.toLowerCase())
+      (doctor.firstName+doctor.lastName+doctor.specialty).toLowerCase().includes(text.toLowerCase())
     );
     // const doctor = doctors.filter((doctor) => doctor.firstName === text);
     this.setState({ users: doctor, loading: false });

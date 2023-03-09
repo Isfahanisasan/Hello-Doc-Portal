@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import '../../Styles/Styles.design.scss'
+import '../../Styles/Styles.PatientUpcoming.scss'
 export class Search extends Component {
   state = {
     text: '',

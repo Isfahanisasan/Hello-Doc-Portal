@@ -4,8 +4,7 @@ import doctorsJson from '../database/doctors.json'
 import StarRating from './Extra-components/starRating';
 import axios from 'axios';
 import '../Styles/Styles.Review.scss'
-
-
+import Navbar from './Navbar';
 const Review = () => {
     const doctors = JSON.parse(JSON.stringify(doctorsJson));
     let { id } = useParams();
@@ -23,10 +22,6 @@ const Review = () => {
             const response = await axios.post('/review', { id, email, rating, review });
             console.log(response.data)
             setAlert(response.data)
-            // console.log(id)
-            // console.log(email)
-            // console.log(rating)
-            // console.log(review)
         } 
         
           catch (err) {
@@ -37,7 +32,11 @@ const Review = () => {
 
 
     return (
+        <div>
+             <Navbar/>
+        
         <div className='review'>
+           
             <form onSubmit={handleSubmit}>
                 <h1> Review for {info.firstName} </h1>
                 <h1> Specialty {info.specialty} </h1>
@@ -52,6 +51,7 @@ const Review = () => {
                 <button type='submit'> Submit </button>
                 <p>{alert}</p>
             </form>
+        </div>
         </div>
     )
 }

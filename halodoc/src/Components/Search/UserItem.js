@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import '../../Styles/Styles.design.scss';
+import '../../Styles/Styles.PatientUpcoming.scss'
 
 const UserItem = ({
-  user: { firstName, email, number, id, specialty, ava_url },
+  user: { firstName, lastName, email, number, id, specialty, ava_url },
 }) => {
   return (
     <div className='listInfo'>
@@ -16,20 +16,15 @@ const UserItem = ({
         style={{ width: '60px' }}
       />
 
-      <h3>{firstName}</h3>
+      <h3>{firstName} {lastName} </h3>
       <h3> email: {email}</h3>
       <h3>phone: {number}</h3>
-      <h3>Specialty:specialty</h3>
+      <h3>Specialty: {specialty}</h3>
       <Link to={`/doctors/${id}`}>
         <button className='profile2'>More</button>
       </Link>
       <div style={{ margin: '10px' }}></div>
 
-      {/* <div>
-        <Link to={`/user/${firstname}`} className='btn btn-dark btn-sm my-1'>
-          More
-        </Link>
-      </div> */}
     </div>
   );
 };
