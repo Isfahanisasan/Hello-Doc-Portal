@@ -84,7 +84,7 @@ app.post('/cancelAppointment', (req, res) => {
 
 
 
-app.post('/makeappointment/:date/:hour', (req, res) => {
+app.post('/makeappointmentbydoctor/:date/:hour', (req, res) => {
 
   if(!req.session.doctorID){
     console.log('Not logged in')
@@ -94,8 +94,15 @@ app.post('/makeappointment/:date/:hour', (req, res) => {
   const formData = req.body;
   let dateObj = new Date(req.params.date);
   console.log(dateObj)
+  
 
-  const patient = patients.find((patient) => patient.firstName == formData.firstName && patient.lastName == formData.lastName);
+
+    const patient = patients.find((patient) => patient.firstName == formData.firstName && patient.lastName == formData.lastName && patient.Bdate == formData.Bdate);
+    if(!patient){
+      console.log('Patient not found');
+      return res.redirect('/docschedule');
+    }
+    
   const newAppointment = {
     "doctor_id": req.session.doctorID,
     "patient_id": patient.id,

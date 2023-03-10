@@ -211,7 +211,7 @@ const DocSchedule = () => {
                                 <div key={hour}>
                                     {hour.length <= 5 ? (
                                         new Date() < date ? (
-                                            <a href={`/makeappointment/${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}/${hour}`} className="timeLink"> 
+                                            <a href={`/makeappointmentbydoctor/${date}/${hour}`} className="timeLink"> 
                                                 {hour}
                                             </a>
                                         ) : (
