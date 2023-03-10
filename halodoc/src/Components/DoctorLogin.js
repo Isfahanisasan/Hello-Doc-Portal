@@ -44,9 +44,13 @@ const DoctorLogin = () => {
               <img src={require("../Styles/img/HelloDoc_Logo.png")} alt="" width="300px" />
           </header>
           <div className="container">
+          <div className="row">
+            <div className="col-lg-7">
               <div className="surgeon-image">
                   <img src={require("../Styles/img/patient.png")} alt="" width="300px"/>
               </div>
+            </div>
+            <div className="col-lg-5">
               <div className="patient-login">
                   <h1> Doctor login</h1>
                   <div className="patient-login-info">
@@ -58,6 +62,8 @@ const DoctorLogin = () => {
                   <p> Don't have an account?  <Link to ='/doctorsignup'><button className="button button2">Sign up</button></Link></p>
               </div>
           </div> 
+        </div>
+      </div>
       </div>
         
     )

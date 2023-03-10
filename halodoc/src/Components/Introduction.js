@@ -1,5 +1,3 @@
-
-
 import React from 'react';
 import '../Styles/Styles.Introduction.scss';
 import { Link } from 'react-router-dom';
@@ -21,6 +19,10 @@ const Introduction = () => {
               <p className='text2' style={{ color: 'darkcyan' }}> Skip calling and make appointments with your doctors just through a few clicks </p>
               <Link to='/patientLogin'> <button className='button button1'> Sign In</button> </Link>
               <Link to='/patientsignup'> <button className='button button2'>Sign up</button> </Link>
+              <p>Are you a provider</p>
+              <Link to='/DoctorLogin'>
+                <p>Click Here!</p>
+              </Link>
             </div>
             
           </div>

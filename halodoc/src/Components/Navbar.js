@@ -7,7 +7,7 @@ import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 
 
-const Navbar = ({name, email,patientID}) => {
+const Navbar = ({name, email,patientID,gender}) => {
   let navigate = useNavigate();
 
   const handleLogout= async (e) => {
@@ -44,7 +44,7 @@ const Navbar = ({name, email,patientID}) => {
 
             <div className="dropdown ">
               <button className="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img src={(`https://xsgames.co/randomusers/assets/avatars/pixel/${patientID}.jpg`)} alt={`Avatar for patient ${patientID}`} className='profile' style={{ borderRadius: '50%', width:'50px' }}></img>
+                <img src={`('../Styles/img/${gender}.png')`} alt={`Avatar for patient ${gender}`} className='profile' style={{ borderRadius: '50%', width:'50px' }}></img>
               </button>
 
               <div className="dropdown-menu dropdown-menu-end dropdown-menu-right" aria-labelledby="dropdownMenuButton">
