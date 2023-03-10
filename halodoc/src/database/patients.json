@@ -6,6 +6,7 @@
     "email": "johndoe@email.com",
     "password": "123456",
     "phoneNumber": "0123456789",
+    "Bdate": "2000-08-24",
     "gender": "male"
   },
   {
@@ -15,6 +16,7 @@
     "email": "janedoe@email.com",
     "password": "123456",
     "phoneNumber": "012301230123",
+    "Bdate": "2000-08-24",
     "gender": "female"
   },
   {
@@ -24,6 +26,7 @@
     "email": "johnsmith@email.com",
     "password": "123456",
     "phoneNumber": "123412341234",
+    "Bdate": "2000-08-24",
     "gender": "male"
   },
   {
@@ -33,6 +36,7 @@
     "email": "maindoe@email.com",
     "password": "123456",
     "phoneNumber": "12412235424",
+    "Bdate": "2000-08-24",
     "gender": "male"
   },
   {
