@@ -44,7 +44,7 @@ const Navbar = ({name, email,patientID,gender}) => {
 
             <div className="dropdown ">
               <button className="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img src={`('../Styles/img/${gender}.png')`} alt={`Avatar for patient ${gender}`} className='profile' style={{ borderRadius: '50%', width:'50px' }}></img>
+                <img src={require(`../Styles/img/${gender}.png`)} alt={`Avatar for patient ${gender}`} className='profile' style={{ borderRadius: '50%', width:'50px' }}></img>
               </button>
 
               <div className="dropdown-menu dropdown-menu-end dropdown-menu-right" aria-labelledby="dropdownMenuButton">
