@@ -193,6 +193,45 @@ app.get('/schedule/:id', (req, res) => {
   });
 
 
+app.post('/editavailability', (req, res) => {
+  if(!req.session.doctorID){
+    console.log('Not logged in')
+    return res.redirect('/doctorlogin');
+  }
+
+  const { newStartHour, newStartMinute, newEndHour, newEndMinute, newInterval, newDaysOff } = req.body;
+  const doctorID = req.session.doctorID;
+  // doctor.startTime = `${hour.padStart(2, '0')}:${minute.padStart(2, '0')}`;
+
+  try{
+    
+    doctorsData = fs.readFileSync('../halodoc/src/database/doctors.json');
+    let doctors = JSON.parse(doctorsData);
+    const doctorIndex = doctors.findIndex((doctor) => doctor.id === doctorID);
+    const doctor = doctors[doctorIndex]
+
+
+    doctor.startTime = `${newStartHour.padStart(2, '0')}:${newStartMinute.padStart(2, '0')}`;
+    doctor.endTime = `${newEndHour.padStart(2, '0')}:${newEndMinute.padStart(2, '0')}`;
+    doctor.appointmentInterval = parseInt(newInterval);
+    doctor.dayOffs = newDaysOff;
+
+    console.log(1)
+    console.log(doctor)
+
+    fs.writeFileSync('../halodoc/src/database/doctors.json', JSON.stringify(doctors, null, 2) + '\n');
+
+    res.json('success');
+  }
+  catch(err)
+  {
+    console.log(err)
+    res.json('fail');
+  }
+});
+
+
+
 
 app.post('/doctorsignup', (req, res) => {
   const formData = req.body;
