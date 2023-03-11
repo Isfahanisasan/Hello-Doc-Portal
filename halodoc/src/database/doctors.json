@@ -8,12 +8,11 @@
     "email": "johndoe@email.com",
     "password": "123456",
     "number": "0123456789",
-    "startTime": "04:40",
-    "endTime": "05:40",
+    "startTime": "13:00",
+    "endTime": "18:00",
     "appointmentInterval": 30,
     "dayOffs": [
-      2,
-      6
+      3
     ]
   },
   {
@@ -25,12 +24,11 @@
     "email": "janedoe@email.com",
     "password": "123456",
     "number": "012301230123",
-    "startTime": "9:00",
-    "endTime": "17:00",
+    "startTime": "13:00",
+    "endTime": "18:00",
     "appointmentInterval": 60,
     "dayOffs": [
-      0,
-      6
+      3
     ]
   },
   {

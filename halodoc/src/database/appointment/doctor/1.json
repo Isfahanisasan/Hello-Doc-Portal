@@ -16,5 +16,17 @@
     "patient_id": "2",
     "startTime": "09:40",
     "date": "3/14/2023"
+  },
+  {
+    "doctor_id": "1",
+    "patient_id": "1",
+    "startTime": "14:30",
+    "date": "03/14/2023"
+  },
+  {
+    "doctor_id": "1",
+    "patient_id": "1",
+    "startTime": "13:00",
+    "date": "3/11/2023"
   }
 ]

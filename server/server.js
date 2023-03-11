@@ -148,13 +148,12 @@ app.get('/docschedule', (req, res) =>{
     return res.redirect('/doctorlogin');
   }
   const fileName = '../halodoc/src/database/appointment/doctor/' + req.session.doctorID + '.json';
-
-  if (!fs.existsSync(fileName)) {
-    // If the file doesn't exist, create an empty array and write it to the file
-    const data = [];
-    fs.writeFileSync(fileName, JSON.stringify(data));
-    console.log('File created successfully');
-  }
+  // if (!fs.existsSync(fileName)) {
+  //   // If the file doesn't exist, create an empty array and write it to the file
+  //   const data = [];
+  //   fs.writeFileSync(fileName, JSON.stringify(data));
+  //   console.log('File created successfully');
+  // }
 
   try{
     var doctorSchedule = JSON.parse(fs.readFileSync(fileName));
@@ -165,13 +164,8 @@ app.get('/docschedule', (req, res) =>{
     console.log('No schedule found');
   }
 
-
-
-  const doctorsJson = JSON.parse(JSON.stringify(doctors));
-  const currentDoctorJson = doctorsJson.find((doctor) => doctor.id === req.session.doctorID);
+  const currentDoctorJson = doctors.find((doctor) => doctor.id === req.session.doctorID);
   const currentDoctor = JSON.parse(JSON.stringify(currentDoctorJson));
-
-
 
   res.json({currentDoctor: currentDoctor, doctorSchedule: doctorSchedule});
 
