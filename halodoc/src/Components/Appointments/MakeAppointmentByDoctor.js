@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
-import { useNavigate } from "react-router-dom";
+//import { useNavigate } from "react-router-dom";
 import {useParams} from "react-router-dom";
 import axios from 'axios';
 
 
 
-const MakeAppointment = () => {
+const MakeAppointmentByDoctor = () => {
     // let{day} = useParams();
     // let{month} = useParams();
     // let{year} = useParams();
@@ -16,9 +16,13 @@ const MakeAppointment = () => {
     const [formValues, setFormValues] = useState({
         firstName: '',
         lastName: '',
+        Bdate: '',
+
     });
     const [error, setError] = useState('');
 
+
+    // a generic function to handle input change
     const handleInputChange = (e) => {
         const {name, value} = e.target;
         setFormValues({
@@ -35,7 +39,7 @@ const MakeAppointment = () => {
         e.preventDefault(); 
 
         try{
-          const response = await axios.post(`/makeappointment/${dateObj}/${hour}`, formValues);
+          const response = await axios.post(`/makeappointmentbydoctor/${dateObj}/${hour}`, formValues);
 
           console.log(dateObj);
           console.log(response.data);
@@ -52,9 +56,6 @@ const MakeAppointment = () => {
     
       };
 
-
-
-
         return(
 
             <div>
@@ -67,6 +68,9 @@ const MakeAppointment = () => {
 
                   <label htmlFor="lastName">Last name:</label><br />
                   <input type="text" id="lastName" name="lastName" placeholder="Your last name"value={formValues.lastName} onChange={handleInputChange} required/><br />
+
+                  <label htmlFor="Bdate">Birthday:</label><br />
+                  <input type="date" id="Bdate" name="Bdate" placeholder="Birthdate:" value={formValues.Bdate} onChange={handleInputChange} required /><br />
                   <button type="submit">Submit</button>
                 </form>
               </div>
@@ -93,4 +97,4 @@ const MakeAppointment = () => {
         )
 }
 
-export default MakeAppointment;
+export default MakeAppointmentByDoctor;
