@@ -3,7 +3,7 @@ import axios from 'axios';
 import patients from '../../database/patients.json';
 import '../../Styles/Styles.DocSchedule.scss'
 import DoctorNavbar from '../DoctorNavbar';
-
+import { useNavigate } from 'react-router-dom';
 // Since we have more data about the opening hours and closing hours and interval for each appointment,
 // this function is just to create an array of all the available time slots.
 // For example: 9:00 to 12:00 with interval 30 minutes:
@@ -44,7 +44,7 @@ const compareDates = (d1, d2) => {
 //const docInfoToSchedule
 
 const DocSchedule = () => {
-
+    const navigate = useNavigate();
     const [backendData, setBackendData] = useState({})
     const [loading, setLoading] = useState(true);
 
@@ -212,12 +212,12 @@ const DocSchedule = () => {
                                                         
                                                         {hour.length > 5 ? (
                                                                 
-                                                                <a href={`/makeappointmentbydoctor/${date}/${hour}`} className="timeLink"> 
+                                                                <a onClick={() => {navigate(`/makeappointmentbydoctor/${date}/${hour}`)}}  className="timeLink"> 
                                                                     <div className='hour occupied'> {hour}</div>
                                                                 </a>
                                                             
                                                             ):(
-                                                                <a href={`/makeappointmentbydoctor/${date}/${hour}`} className="timeLink"> 
+                                                                <a onClick={() => {navigate(`/makeappointmentbydoctor/${date}/${hour}`)}}  className="timeLink"> 
                                                                     <div className='hour'> {hour}</div>
                                                                 </a>
                                                             )}

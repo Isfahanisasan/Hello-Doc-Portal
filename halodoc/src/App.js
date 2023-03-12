@@ -42,8 +42,8 @@ function App() {
         <Route path='/review/doctor/:id' element={<Review />} />
         <Route path='/schedule/:id' element={<Schedule />} />
         <Route path='/docschedule' element={<DocSchedule />} />
-        <Route path='/makeappointmentbydoctor/:date/:hour' element={<MakeAppointmentByDoctor />} />
-        <Route path='/editavailability' element={<EditAvailbility />} />
+        <Route path='/makeappointmentbydoctor/:date/:hour' key='1' element={<MakeAppointmentByDoctor />} />
+        <Route path='/editavailability'  element={<EditAvailbility />} />
 
         
 
