@@ -9,9 +9,14 @@ $min-width: 800px;
     .text{
         margin-left: 0px;
     }
+    .container
+    {
+        margin-top: 50px;
+    }
     
     .picture{
         text-align: center;
+        margin-top: 100px;
            
     }
     
@@ -47,9 +52,16 @@ $min-width: 800px;
     .button2
     {
         background-color:steelblue;
-        
 
     }
+    .button3
+    {
+        background-color:darkseagreen;
+        border-radius: 10px;
+        font-size: 10px;
+        padding: 5px 10px;
+    }
+    
  
 }
 
