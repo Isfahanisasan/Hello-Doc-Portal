@@ -1,16 +1,10 @@
 import React, {useState} from 'react';
-//import { useNavigate } from "react-router-dom";
 import {useParams} from "react-router-dom";
 import axios from 'axios';
 
 
 
 const MakeAppointmentByDoctor = () => {
-    // let{day} = useParams();
-    // let{month} = useParams();
-    // let{year} = useParams();
-    // let{hour} = useParams();
-
     let{date, hour} = useParams(); 
 
     const [formValues, setFormValues] = useState({
@@ -57,34 +51,33 @@ const MakeAppointmentByDoctor = () => {
       };
 
         return(
-
             <div>
-            <section>
-              <div className="makeAppt">
-                <h1 >Appointee Patient </h1>
-                <form onSubmit={handleSubmit}>
-                  <label htmlFor="firstName">First name:</label><br />
-                  <input type="text" id="firstName" name="firstName" placeholder="Appintee first name" value={formValues.firstName} onChange={handleInputChange} required/><br />
+              <section>
+                <div className="makeAppt">
+                  <h1 >Appointee Patient </h1>
+                  <form onSubmit={handleSubmit}>
+                    <label htmlFor="firstName">First name:</label><br />
+                    <input type="text" id="firstName" name="firstName" placeholder="Appintee first name" value={formValues.firstName} onChange={handleInputChange} required/><br />
 
-                  <label htmlFor="lastName">Last name:</label><br />
-                  <input type="text" id="lastName" name="lastName" placeholder="Your last name"value={formValues.lastName} onChange={handleInputChange} required/><br />
+                    <label htmlFor="lastName">Last name:</label><br />
+                    <input type="text" id="lastName" name="lastName" placeholder="Your last name"value={formValues.lastName} onChange={handleInputChange} required/><br />
 
-                  <label htmlFor="Bdate">Birthday:</label><br />
-                  <input type="date" id="Bdate" name="Bdate" placeholder="Birthdate:" value={formValues.Bdate} onChange={handleInputChange} required /><br />
-                  <button type="submit">Submit</button>
-                </form>
-              </div>
-            </section>
+                    <label htmlFor="Bdate">Birthday:</label><br />
+                    <input type="date" id="Bdate" name="Bdate" placeholder="Birthdate:" value={formValues.Bdate} onChange={handleInputChange} required /><br />
+                    <button type="submit">Submit</button>
+                  </form>
+                </div>
+              </section>
 
-            <section>
-              <div className ="text1">
-              <h1>Provide strightforwad,fast medical appointment service</h1>
-              <br/><br/>
-              <h2>Save your Time and checky your appointment calendar Conveniently </h2> <br/>
+              <section>
+                <div className ="text1">
+                <h1>Provide strightforwad,fast medical appointment service</h1>
+                <br/><br/>
+                <h2>Save your Time and checky your appointment calendar Conveniently </h2> <br/>
 
 
-              </div>
-            </section>     
+                </div>
+              </section>     
 
           </div>
 

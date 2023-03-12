@@ -175,7 +175,8 @@ const Schedule = () => {
             </div>
             ):(
                 <div>
-                    <Navbar name={backendData.data.firstName + ' ' + backendData.data.lastName} email={backendData.data.email} patientID={backendData.data.id}/>                    <div className='container'>
+                    <Navbar name={backendData.data.firstName + ' ' + backendData.data.lastName} email={backendData.data.email} patientID={backendData.data.id} gender={backendData.data.gender}/>                    
+                    <div className='container'>
                     <div className='title'>
                         <h2> Patient {backendData.data.firstName} making appointment with doctor {doctor.firstName} </h2>
                         <h2> {months[currentWeekStartDate.getMonth()]} {currentWeekStartDate.getFullYear()} </h2>

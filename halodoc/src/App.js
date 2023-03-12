@@ -1,7 +1,5 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { Switch } from 'react-router';
-
 
 import Introduction from './Components/Introduction';
 import PatientLogin from './Components/PatientLogin';
@@ -42,14 +40,8 @@ function App() {
         <Route path='/review/doctor/:id' element={<Review />} />
         <Route path='/schedule/:id' element={<Schedule />} />
         <Route path='/docschedule' element={<DocSchedule />} />
-        <Route path='/makeappointmentbydoctor/:date/:hour' key='1' element={<MakeAppointmentByDoctor />} />
+        <Route path='/makeappointmentbydoctor/:date/:hour' element={<MakeAppointmentByDoctor />} />
         <Route path='/editavailability'  element={<EditAvailbility />} />
-
-        
-
-       
-
-
     
       </Routes>
     </Router>

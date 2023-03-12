@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import '../Styles/Styles.PatientSignup.scss'; //it's better to change this style to signup as used for both
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 
 const DoctorSignup = () => {
+  let navigate = useNavigate();
   const [formValues, setFormValues] = useState({
     firstName: '',
     lastName: '',
@@ -29,12 +31,7 @@ const DoctorSignup = () => {
     e.preventDefault();
     try {
       const response = await axios.post('/doctorsignup', formValues);
-      console.log(response.data);
-      if (response.status == 200) {
-        console.log('successful')
-      } else {
-        setError('There was an error with your signup')
-      }
+      navigate(response.data.data)
     }
     catch (err) {
       console.error(err);
@@ -91,8 +88,8 @@ const DoctorSignup = () => {
                 <label htmlFor="gender">Gender:</label><br />
                 <select id="gender" name="gender" value={formValues.gender} onChange={handleInputChange} required>
                   <option value="">Select Gender</option>
-                  <option value="Female">Female</option>
-                  <option value="Male">Male</option>
+                  <option value="female">female</option>
+                  <option value="male">male</option>
                   <option value="Other">Other</option>
                 </select><br />
 

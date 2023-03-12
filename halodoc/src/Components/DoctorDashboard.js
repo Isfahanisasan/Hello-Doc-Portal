@@ -69,7 +69,7 @@ const DoctorDashboard = () => {
                             </div>
 
                             <div className='col'> 
-                              <button className="btn btn-light " onClick={() => navigate('/editavailability')}> Edit your information 
+                              <button className="btn btn-light " onClick={() => navigate('/editavailability')}> Edit working hour 
                                 <img src={require("../Styles/img/information.png") } width='100%'/>
                               </button>
                             </div>

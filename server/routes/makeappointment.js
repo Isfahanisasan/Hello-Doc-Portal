@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const fs = require('fs');
-const patients = require('../../halodoc/src/database/patients.json');
 
 router.post('/', (req, res) => {
   const appointment = req.body;

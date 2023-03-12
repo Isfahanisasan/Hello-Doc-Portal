@@ -39,7 +39,7 @@ const PatientUpcomingAppt = ({patientId,firstName,lastName}) => {
             <h3> Upcoming Appointments </h3>
             <div className='grid'>
                 {(typeof backendData.patientSchedule === 'undefined') ? (
-                    <p> Hello</p>
+                    <p> No upcoming appointments </p>
             
                 ):(
                     <div>

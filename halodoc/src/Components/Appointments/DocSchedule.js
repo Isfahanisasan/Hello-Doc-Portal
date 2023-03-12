@@ -52,13 +52,11 @@ const DocSchedule = () => {
         axios.get(`/docschedule`)
         .then(({data}) => {
             setBackendData(data)
-            console.log(data)
             setLoading(false)
             
           
         })
         .catch((err) => {   
-            console.log(err);
             setLoading(false);
         });
     }, [])
@@ -82,8 +80,7 @@ const DocSchedule = () => {
         interval = doctor.appointmentInterval;
         dayOff = doctor.dayOffs;
         doctorSchedule = backendData.doctorSchedule;
-        console.log(startTime)
-        console.log(endTime)
+       
     }
     
 
@@ -98,14 +95,12 @@ const DocSchedule = () => {
     const months = ["January","February","March","April","May","June","July", "August","September","October","November","December"]
 
     const hours = createTimeArray(startTime, endTime, interval);
-    const [currentWeekStartDate, setCurrentWeekStartDate] = useState(new Date());
+    const [currentWeekStartDate, setCurrentWeekStartDate] = useState(new Date(new Date().toLocaleDateString()));
 
 
     //Go through each time slot in the date and compare with the data in doctor/{id}.json
     //and check if there is an apointment at that time slot
     const getPatientName = (patientID) => {
-        console.log('patientid:' + patientID)
-
         const patient = patients.find((patient) => patient.id === patientID);
         if(patient != null){
             return `${patient.firstName} ${patient.lastName}`;
@@ -119,7 +114,7 @@ const DocSchedule = () => {
     
 
     const selectedTimeSlot = (date) => {
-        let tempHours = hours.slice();
+        let tempHours = createTimeArray(startTime, endTime, interval);
         
         for (let i = 0; i < dayOff.length; i++){
             if (date.getDay() === dayOff[i])
@@ -128,10 +123,11 @@ const DocSchedule = () => {
             if(doctorSchedule != null){
                 for (let i = 0; i < doctorSchedule.length; i++){
                     if (compareDates(date, doctorSchedule[i].date)){
-                        if (tempHours.includes(doctorSchedule.startTime)) {
+                        if (hours.includes(doctorSchedule[i].startTime)) {
                             tempHours.splice(tempHours.indexOf(doctorSchedule[i].startTime), 1,
                             doctorSchedule[i].startTime + ' with ' + getPatientName(doctorSchedule[i].patient_id));
-                        } else {
+                        } 
+                        else {
                             tempHours.push(doctorSchedule[i].startTime + ' with ' + getPatientName(doctorSchedule[i].patient_id));
                         }
                         
@@ -156,14 +152,14 @@ const DocSchedule = () => {
             if (currentWeekStartDate > new Date())
                 lastWeekStartDate = new Date(currentWeekStartDate.getFullYear(), currentWeekStartDate.getMonth(), currentWeekStartDate.getDate() - 7);
             else
-                lastWeekStartDate = new Date()
+                lastWeekStartDate = new Date(new Date().toLocaleDateString())
             
             return lastWeekStartDate;
         })
     }
     
     const handleThisWeekClick = () => {
-        setCurrentWeekStartDate(new Date());
+        setCurrentWeekStartDate(new Date(new Date().toLocaleDateString()));
     }
     
     const generateWeeklyDates = () => {
