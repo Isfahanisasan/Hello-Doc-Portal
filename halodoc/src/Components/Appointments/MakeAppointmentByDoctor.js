@@ -1,34 +1,52 @@
 import React, {useState} from 'react';
 import {useParams} from "react-router-dom";
+import Select from 'react-select';
 import axios from 'axios';
+const patients = require('../../database/patients.json');
 
 
 
 const MakeAppointmentByDoctor = () => {
     let{date, hour} = useParams(); 
 
+    const patientOptions = [];
+
+    const patientsData = JSON.parse(JSON.stringify(patients));
+        for (let patient of patientsData){ //important the difference between and in in 
+            const option = { value: `${patient.id}`, label: `${patient.firstName} ${patient.lastName} ${patient.Bdate}`}
+            patientOptions.push(option);
+        
+      } 
+
+
     const [formValues, setFormValues] = useState({
-        firstName: '',
-        lastName: '',
-        Bdate: '',
+        patientID: '',
 
     });
+
+
+    
     const [error, setError] = useState('');
 
 
     // a generic function to handle input change
-    const handleInputChange = (e) => {
-        const {name, value} = e.target;
-        setFormValues({
-            ...formValues,
-            [name]: value
-        });
+    // const handleInputChange = (e) => {
+    //     const {name, value} = e.target;
+    //     setFormValues({
+    //         ...formValues,
+    //         [name]: value
+    //     });
 
+    // };
+
+    const handleSelectedPatient = (selectedOptions) => {
+      const selectedValue = selectedOptions.value;
+      setFormValues({ patientID : `${selectedValue}`, });
     };
+
+
     let dateObj = new Date(date);
-
-
-
+    
     const handleSubmit = async (e) => {
         e.preventDefault(); 
 
@@ -54,38 +72,16 @@ const MakeAppointmentByDoctor = () => {
             <div>
               <section>
                 <div className="makeAppt">
-                  <h1 >Appointee Patient </h1>
+                  <h1 >Add appointment to {dateObj.getMonth() + 1}/{dateObj.getDate()}/{dateObj.getFullYear()} at {hour} </h1>
                   <form onSubmit={handleSubmit}>
-                    <label htmlFor="firstName">First name:</label><br />
-                    <input type="text" id="firstName" name="firstName" placeholder="Appintee first name" value={formValues.firstName} onChange={handleInputChange} required/><br />
-
-                    <label htmlFor="lastName">Last name:</label><br />
-                    <input type="text" id="lastName" name="lastName" placeholder="Your last name"value={formValues.lastName} onChange={handleInputChange} required/><br />
-
-                    <label htmlFor="Bdate">Birthday:</label><br />
-                    <input type="date" id="Bdate" name="Bdate" placeholder="Birthdate:" value={formValues.Bdate} onChange={handleInputChange} required /><br />
+                    <label>Choose a patient</label>
+                      <Select options={patientOptions} onChange={handleSelectedPatient} required/>
                     <button type="submit">Submit</button>
                   </form>
                 </div>
-              </section>
-
-              <section>
-                <div className ="text1">
-                <h1>Provide strightforwad,fast medical appointment service</h1>
-                <br/><br/>
-                <h2>Save your Time and checky your appointment calendar Conveniently </h2> <br/>
-
-
-                </div>
-              </section>     
+              </section>  
 
           </div>
-
-
-
-
-
-
 
         )
 }
