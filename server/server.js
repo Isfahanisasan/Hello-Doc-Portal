@@ -73,7 +73,7 @@ app.post('/cancelAppointment', (req, res) => {
   let doctorSchedule = JSON.parse(fs.readFileSync(fileNameDoctor));
 
   doctorSchedule = doctorSchedule.filter(item => {
-    return !(item.patient_id === req.session.patientID && item.startTime === req.body.startTime && item.date === req.body.date);
+    return !(item.patient_id === req.session.patientID && item.startTime === req.body.startTime && (new Date(item.date)).getTime() === (new Date(req.body.date)).getTime());
   });
 
   doctorSchedule.sort((a, b) =>  (a.startTime < b.startTime )? 1 : -1).sort((a, b) => (new Date(a.date) > new Date(b.date)) ? 1 : -1)

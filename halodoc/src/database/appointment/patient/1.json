@@ -6,6 +6,18 @@
     "date": "3/12/2023"
   },
   {
+    "doctor_id": "1",
+    "patient_id": "1",
+    "startTime": "15:20",
+    "date": "3/12/2023"
+  },
+  {
+    "doctor_id": "1",
+    "patient_id": "1",
+    "startTime": "17:20",
+    "date": "3/12/2023"
+  },
+  {
     "doctor_id": "3",
     "patient_id": "1",
     "startTime": "10:00",

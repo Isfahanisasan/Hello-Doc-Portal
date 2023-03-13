@@ -1,18 +1,21 @@
 import { useParams } from 'react-router-dom';
+
 import doctorsJson from '../database/doctors.json';
 import doctorReview from '../database/doctorReviews.json';
 import { useNavigate } from 'react-router-dom';
 import '../Styles/container.scss';
 import '../Styles/Search.scss';
 import Navbar from './Navbar';
+import axios from 'axios';
 
-import * as React from 'react';
 import Button from '@mui/material/Button';
 import { ButtonGroup } from '@mui/material';
 
 import { styled } from '@mui/material/styles';
 
 import Paper from '@mui/material/Paper';
+import React, {useState, useEffect} from 'react';
+
 
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -25,6 +28,7 @@ const Item = styled(Paper)(({ theme }) => ({
 
 
   const DoctorProfile = () => {
+  const [backendData, setBackendData] = useState({})
   let { id } = useParams();
   const navigate = useNavigate();
 
@@ -37,6 +41,10 @@ const Item = styled(Paper)(({ theme }) => ({
   const reviewObject = reviewsJson.find((item) => item.doctor_id === id);
 
 
+  useEffect(() => {
+    axios.get('/dashboard').then((response) => {
+    setBackendData(response.data)
+  })})
 
   //When click handleReview, go to /review/doctor/id
   const handleReview = () => {
@@ -49,7 +57,15 @@ const Item = styled(Paper)(({ theme }) => ({
 
   return (
     <div>
-      <Navbar />
+      {(typeof backendData.data === 'undefined') ? (
+                <div style={{textAlign: "center"}}>
+                  <Navbar/>
+                  <h3> Please try logging in again</h3> <br/>
+                  <img src={require("../Styles/img/loading.gif")} alt="" width="300px"/>
+                </div>
+            ) : (
+      <div>
+      <Navbar name={backendData.data.firstName + ' ' + backendData.data.lastName} email={backendData.data.email} patientID={backendData.data.id} gender={backendData.data.gender}/>
       <div className='container card text-center'>
         <h1>
           <img
@@ -91,6 +107,7 @@ const Item = styled(Paper)(({ theme }) => ({
             );
           })}
       </div>
+      </div>)}
     </div>
   );
 };
