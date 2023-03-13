@@ -1,1 +1,14 @@
-[]
+[
+  {
+    "doctor_id": "2",
+    "patient_id": "1",
+    "startTime": "09:00",
+    "date": "03/14/2023"
+  },
+  {
+    "doctor_id": "2",
+    "patient_id": "2",
+    "startTime": "09:25",
+    "date": "03/14/2023"
+  }
+]

@@ -18,16 +18,8 @@ import React, {useState, useEffect} from 'react';
 
 
 
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: 'center',
-  color: theme.palette.text.secondary,
-}));
-
-
   const DoctorProfile = () => {
+  const [backendData, setBackendData] = useState();
   let { id } = useParams();
   const navigate = useNavigate();
 
@@ -59,30 +51,26 @@ const Item = styled(Paper)(({ theme }) => ({
 
       <Navbar />
       <div className='container card text-center'>
-          </div>
-          <div className='col-lg-5' style={{ marginTop: "50px" }}>
-            <h1>
-              {info.firstName} {info.lastName}
-            </h1>
-            <h3>
-              <img src={require("../Styles/img/doctorIcon.png")} width="25px" />
-              {info.specialty}
-            </h3>
-            {reviewObject && <h3>
+        <div className='col' style={{ marginTop: "50px" }}>
+          <h1>
+            {info.firstName} {info.lastName}
+          </h1>
+          <h3>
+            <img src={require("../Styles/img/doctorIcon.png")} width="25px" />
+            {info.specialty}
+          </h3>
+          {reviewObject && <h3>
               <img src={require("../Styles/img/star.png")} width="30px" />{reviewObject.rating} </h3>}
-            <p> contact: {info.number} | {info.email} </p>
+          <p> contact: {info.number} | {info.email} </p>
 
-            <div style={{ margin: '20px' }}>
-              <ButtonGroup variant='outlined' aria-label='outlined button group' >
-                <Button onClick={handleSchedule}>Make appointment</Button>
-                <Button onClick={handleReview}>Review</Button>
-              </ButtonGroup>
-            </div>
+          <div style={{ margin: '20px' }}>
+            <ButtonGroup variant='outlined' aria-label='outlined button group' >
+              <Button onClick={handleSchedule}>Make appointment</Button>
+              <Button onClick={handleReview}>Review</Button>
+            </ButtonGroup>
           </div>
-        </div>
-        <div className="row">
-        </div>
-        <div className="container text-start" >
+          
+          <div className="container text-start" >
           {reviewObject &&
             reviewObject.reviews.map(function (item, i) {
               return (
@@ -104,8 +92,9 @@ const Item = styled(Paper)(({ theme }) => ({
             })}
 
         </div>
+        </div>
       </div>
-      </div>)}
+      
 
     </div>
   );
