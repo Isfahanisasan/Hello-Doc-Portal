@@ -57,12 +57,14 @@ app.get('/patientUpcoming/:id', (req, res) => {
 
 })
 
+
 app.post('/cancelAppointment', (req, res) => {
 
   if (!req.session.patientID) {
     console.log('Not logged in');
     return res.redirect('/patientlogin');
   }
+  console.log(req.body);
   const fileName = '../halodoc/src/database/appointment/patient/' + req.session.patientID + '.json';
   const patientSchedule = JSON.parse(fs.readFileSync(fileName));
   patientSchedule.splice(req.body.pos, 1);
@@ -84,6 +86,53 @@ app.post('/cancelAppointment', (req, res) => {
 })
 
 
+app.post('/doctorCancelAppointment', (req, res) => {
+
+  if (!req.session.doctorID) {
+    console.log('Not logged innnn');
+    return res.redirect('/doctorlogin');
+  }
+  console.log(req.body);
+  const patient = JSON.parse(fs.readFileSync('../halodoc/src/database/patients.json'))
+  .find(patient => patient.firstName === req.body.patient_name.split(" ")[0] && patient.lastName === req.body.patient_name.split(" ")[1]);
+  const fileName = '../halodoc/src/database/appointment/patient/' + patient.id + '.json';
+  console.log(patient.id)
+
+  let patientSchedule = JSON.parse(fs.readFileSync(fileName));
+
+  
+  patientSchedule = patientSchedule.filter(item => {
+    return !(item.startTime === req.body.startTime && (new Date(item.date)).getTime() === (new Date(req.body.date)).getTime() && item.doctor_id === req.session.doctorID);
+    });
+  console.log('patinet schedule filtered')
+  console.log(patientSchedule)
+  fs.writeFileSync(fileName, JSON.stringify(patientSchedule, null, 2) + '\n');
+
+  const fileNameDoctor = '../halodoc/src/database/appointment/doctor/' + req.session.doctorID + '.json';
+
+  let doctorSchedule = JSON.parse(fs.readFileSync(fileNameDoctor));
+  console.log('doctor schedule')
+  console.log(doctorSchedule)
+  doctorSchedule = doctorSchedule.filter(item => {
+
+    console.log(item.startTime)
+    console.log(req.body.startTime)
+
+    console.log(item.date)
+    console.log(req.body.date)
+
+    console.log(item.patient_id)
+    console.log(patient.id)
+  return !(item.startTime === req.body.startTime && (new Date(item.date)).getTime() === (new Date(req.body.date)).getTime() && item.patient_id === patient.id);
+  });
+  console.log('doctor schedule filtered')
+
+  console.log(doctorSchedule)
+  fs.writeFileSync(fileNameDoctor, JSON.stringify(doctorSchedule, null, 2) + '\n');
+
+
+  res.send('/dashboard');
+})
 
 app.post('/makeappointmentbydoctor/:date/:hour', (req, res) => {
   let patients = JSON.parse(fs.readFileSync('../halodoc/src/database/patients.json'))
