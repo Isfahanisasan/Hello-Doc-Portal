@@ -126,6 +126,7 @@ const DocSchedule = () => {
                         if (hours.includes(doctorSchedule[i].startTime)) {
                             tempHours.splice(tempHours.indexOf(doctorSchedule[i].startTime), 1,
                             doctorSchedule[i].startTime + ' with ' + getPatientName(doctorSchedule[i].patient_id));
+                            
                         } 
                         else {
                             tempHours.push(doctorSchedule[i].startTime + ' with ' + getPatientName(doctorSchedule[i].patient_id));
@@ -172,6 +173,28 @@ const DocSchedule = () => {
         return dates;
     }
     const weeklyDates = generateWeeklyDates();
+    function refreshPage() {
+        setTimeout(()=>{
+            window.location.reload(false);
+        }, 500);
+        console.log('page to reload')
+    }
+
+    const handleCancel = async (appointment) => {
+        console.log(appointment)
+        try {
+            const response = await axios.post('/doctorCancelAppointment', appointment).then(refreshPage);
+            
+            if(response.status === 200) {
+                console.log('successful');
+            } else {
+                console.log("Error Make Appointment");
+            }
+        }
+        catch (err) {
+            console.error(err);
+        }
+    }
 
     return (
         <div className='DocSchedule'>
@@ -208,9 +231,19 @@ const DocSchedule = () => {
                                                         
                                                         {hour.length > 5 ? (
                                                                 
-                                                                <a onClick={() => {navigate(`/makeappointmentbydoctor/${date}/${hour}`)}}  className="timeLink"> 
+                                                                // <a onClick={() => {navigate(`/makeappointmentbydoctor/${date}/${hour}`)}}  className="timeLink"> 
+                                                                //     <div className='hour occupied'> {hour}</div>
+                                                                // </a>
+                                                                <div className="dropdown ">
                                                                     <div className='hour occupied'> {hour}</div>
-                                                                </a>
+                                                                        <button className="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                            Modify
+                                                                        </button>
+                                                                
+                                                                        <div className="dropdown-menu dropdown-menu-end dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                                                                            <p onClick={() => handleCancel({ patient_name: hour.slice(11), date: date.toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }), startTime: hour.slice(0,5)})}>Cancel Appointment</p>
+                                                                        </div>
+                                                                </div>
                                                             
                                                             ):(
                                                                 <a onClick={() => {navigate(`/makeappointmentbydoctor/${date}/${hour}`)}}  className="timeLink"> 
