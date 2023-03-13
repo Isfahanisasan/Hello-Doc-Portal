@@ -91,26 +91,18 @@ app.post('/makeappointmentbydoctor/:date/:hour', (req, res) => {
     return res.redirect('/doctorlogin');
   }
 
-  const formData = req.body;
+  const patient_id = req.body.patientID;
   let dateObj = new Date(req.params.date);
-  console.log(dateObj)
+  // console.log(patient_id)
   
-
-
-  const patient = patients.find((patient) => patient.firstName == formData.firstName && patient.lastName == formData.lastName && patient.Bdate == formData.Bdate);
-  if(!patient){
-    console.log('Patient not found');
-    return res.redirect('/docschedule');
-  }
-    
   const newAppointment = {
     "doctor_id": req.session.doctorID,
-    "patient_id": patient.id,
+    "patient_id": patient_id,
     "startTime": req.params.hour,
     "date": dateObj.toLocaleDateString('en-US', {year: 'numeric', month: '2-digit', day: '2-digit'}),
   };
   const doctorFileName = '../halodoc/src/database/appointment/doctor/' + req.session.doctorID + '.json';
-  const patientFileName = '../halodoc/src/database/appointment/patient/' + patient.id + '.json';
+  const patientFileName = '../halodoc/src/database/appointment/patient/' + patient_id + '.json';
 
   //write the appointment into both files (doctor and patient)
   try {
@@ -123,7 +115,6 @@ app.post('/makeappointmentbydoctor/:date/:hour', (req, res) => {
   console.log(newAppointment);
   doctorData.push(newAppointment);
   fs.writeFileSync(doctorFileName, JSON.stringify(doctorData, null, 2));
-
 
   try {
     let patientJsonData = fs.readFileSync(patientFileName);
