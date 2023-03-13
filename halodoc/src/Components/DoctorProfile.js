@@ -26,7 +26,6 @@ const Item = styled(Paper)(({ theme }) => ({
   }));
 
   const DoctorProfile = () => {
-  const [backendData, setBackendData] = useState();
   let { id } = useParams();
   const navigate = useNavigate();
 
@@ -51,7 +50,6 @@ const Item = styled(Paper)(({ theme }) => ({
 
   return (
     <div>
-
       <Navbar/>
       <div className='container card text-center'>
       <div className="row">
@@ -89,7 +87,7 @@ const Item = styled(Paper)(({ theme }) => ({
         </div>
         </div>
       </div>
-
+      
       </div>
       <div className="container text-start">
         {reviewObject &&
@@ -113,7 +111,6 @@ const Item = styled(Paper)(({ theme }) => ({
           })}
           </div>
       </div>
-    </div>
   );
 };
 
