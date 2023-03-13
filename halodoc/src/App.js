@@ -18,6 +18,7 @@ import DocSchedule from './Components/Appointments/DocSchedule';
 import SearchDoctor from './Components/SearchDoctor';
 import MakeAppointmentByDoctor from './Components/Appointments/MakeAppointmentByDoctor';
 import EditAvailbility  from './Components/EditAvailability';
+import ShowAllPatient  from './Components/ShowAllPatient';
 import AddPatient from './Components/AddPatient';
 import PatientProfile from './Components/PatientProfile';
 import DoctorProfileDocSide from './Components/DoctorProfileDocSide';
@@ -42,6 +43,7 @@ function App() {
         <Route path='/schedule/:id' element={<Schedule />} />
         <Route path='/docschedule' element={<DocSchedule />} />
         <Route path='/makeappointmentbydoctor/:date/:hour' element={<MakeAppointmentByDoctor />} />
+        <Route path='/showallpatient'  element={<EditAvailbility />} />
         <Route path='/editavailability'  element={<EditAvailbility />} />
         <Route path= '/addpatient' element={<AddPatient/>}/>
         <Route path='/patientprofile/:id' element={<PatientProfile />} />

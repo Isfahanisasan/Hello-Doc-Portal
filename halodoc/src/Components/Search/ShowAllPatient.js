@@ -5,12 +5,12 @@ import axios from 'axios';
 import '../Styles/Styles.DoctorDashboard.scss'
 import DoctorNavbar from './DoctorNavbar'
 
-const DoctorDashboard = () => {
+const ShowAllPatient = () => {
     let navigate = useNavigate();
     const [backendData, setBackendData] = useState({})
 
     useEffect(() => {
-      axios.get('/doctorDashboard').then(function (response) {
+      axios.get('/showAllPatient').then(function (response) {
       setBackendData(response.data)
       console.log(backendData)
     })}, [])
@@ -31,52 +31,6 @@ const DoctorDashboard = () => {
                      
                     </div>
                     <div className='col-lg-8'>
-
-                      {/* Greeting box (Good morning...) */}
-                      <div className='Greetings'>
-                        <div className='row'>
-                          <div className='col-sm-9'>
-                            <div className='greet-text'>
-                            <h1> Good morning, <br/> Dr {backendData.data.firstName} {backendData.data.lastName}</h1>
-                            <p> Have a nice day! </p>
-                            </div>
-                          </div>
-                          <div className='col-sm-3'>
-                            <img src={require("../Styles/img/doctor.png")} alt='' width='100%'></img>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* All features that doctor can redirect to - contains: all schedule, all patients, and edit info */}
-                      <div className='DoctorDashboardInfo'>
-                        <h2> Information </h2>
-                        <div className='container'>
-                          <div className='row'>
-                            <div className='col'>
-                              <button className="btn btn-light " onClick={() => navigate('/docschedule')}>  See your schedule 
-                                <img src={require("../Styles/img/calendar_icon.png")} width='100%'/> 
-                              </button> 
-                              
-                            </div>
-
-                            <div className='col'> 
-                                <button className="btn btn-light" onClick={() => navigate('/showallpatient')}> 
-                                
-                                  Show all patients 
-                                  <img src={require("../Styles/img/patient.png") } width='100%'/>
-                                  
-                                </button>
-                            </div>
-
-                            <div className='col'> 
-                              <button className="btn btn-light " onClick={() => navigate('/editavailability')}> Edit working hour 
-                                <img src={require("../Styles/img/information.png") } width='100%'/>
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-
-                        </div>
 
                         {/* Today appointment */}
                         <div className='TodayAppointment'>
@@ -111,12 +65,8 @@ const DoctorDashboard = () => {
                             ))}
                     
                         </div>
-                      </div>
-                    </div>
-
-
-                      
-
+                        </div>
+                    </div>                    
                     <div className='col-lg-2'> 
                       
                     </div>

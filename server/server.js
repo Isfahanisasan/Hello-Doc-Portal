@@ -25,6 +25,7 @@ app.use('/patientlogout', require('./routes/patientlogout'));
 app.use('/doctorlogout', require('./routes/doctorlogout'));
 app.use('/dashboard', require('./routes/dashboard'));
 app.use('/doctorDashboard', require('./routes/doctorDashboard'));
+app.use('/showAllPatient', require('./routes/showAllPatient'));
 app.use('/patientsignup', require('./routes/patientsignup'));
 app.use('/review', require('./routes/review'));
 app.use('/makeappointment', require('./routes/makeappointment'));
