@@ -2,11 +2,15 @@ import React, {useState} from 'react';
 import {useParams} from "react-router-dom";
 import Select from 'react-select';
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 const patients = require('../../database/patients.json');
 
 
 
+
 const MakeAppointmentByDoctor = () => {
+
+  let navigate = useNavigate(); 
     let{date, hour} = useParams(); 
 
     const patientOptions = [];
@@ -57,6 +61,7 @@ const MakeAppointmentByDoctor = () => {
           console.log(response.data);
           if(response.status === 200){
             console.log('successful')
+            navigate('/docschedule');
           } else {
             setError('There was an error with your signup')
           }
