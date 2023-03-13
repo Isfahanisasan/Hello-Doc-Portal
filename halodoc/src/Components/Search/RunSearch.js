@@ -41,7 +41,8 @@ class RunSearch extends Component {
     // console.log("Hello");
     return (
       <div className='RunSearch' >
-        <div className='all-center' >
+        <div className='container' >
+          <div className='row'>
           <Alert alert={this.state.alert} />
           <Search
             searchUsers={this.searchUsers}
@@ -49,7 +50,10 @@ class RunSearch extends Component {
             showClear={users.length > 0 ? true : false}
             setAlert={this.setAlert}
           />
+          </div>
+          <div name='row'>
           <Users loading={loading} users={users} />
+          </div>
         </div>
       </div>
     );

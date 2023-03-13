@@ -17,8 +17,6 @@ const UserItem = ({
       />
 
       <h3>{firstName} {lastName} </h3>
-      <h3> email: {email}</h3>
-      <h3>phone: {number}</h3>
       <h3>Specialty: {specialty}</h3>
       <Link to={`/doctors/${id}`}>
         <button className='profile2'>More</button>

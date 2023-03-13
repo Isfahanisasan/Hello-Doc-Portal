@@ -2,6 +2,7 @@ import React from 'react';
 import UserItem from './UserItem';
 import Spinner from './Spinner';
 import PropTypes from 'prop-types'
+import '../../Styles/Styles.PatientUpcoming.scss'
 
 
 const Users = ({ users, loading }) => {
@@ -9,28 +10,28 @@ const Users = ({ users, loading }) => {
     return <Spinner />
   } else {
     return (
-      <div style={userStyle}>
-        {users.map(user => (
-          <div>
-            <UserItem key={user.id} user={user} />
+      <div className='userStyle'>
+        <div className="container text-center">
+          <div className='row justify-content-center'>
+            {users.map(user => (
+              <div className='col-lg-4'>
+                <UserItem key={user.id} user={user} />
+              </div>
+            ))}
           </div>
-          
-        ))}
+        </div>
+
+
       </div>
     );
   }
 };
 
 Users.propTypes = {
-    users: PropTypes.array.isRequired,
-    loading: PropTypes.bool.isRequired
+  users: PropTypes.array.isRequired,
+  loading: PropTypes.bool.isRequired
 }
 
-const userStyle = {
-  margin: '30px 30px 30px 30px',
-  display: 'grid',
-  gridTemplateColumns: 'repeat(3,1fr)',
-  gridGap: '0.7rem'
-};
+
 
 export default Users;

@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom';
 import doctorsJson from '../database/doctors.json';
 import doctorReview from '../database/doctorReviews.json';
 import { useNavigate } from 'react-router-dom';
-import '../Styles/container.scss';
+import { FaStar } from 'react-icons/fa';
 import '../Styles/Search.scss';
 import Navbar from './Navbar';
 
@@ -16,15 +16,15 @@ import Paper from '@mui/material/Paper';
 
 
 const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-  }));
+  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: 'center',
+  color: theme.palette.text.secondary,
+}));
 
 
-  const DoctorProfile = () => {
+const DoctorProfile = () => {
   let { id } = useParams();
   const navigate = useNavigate();
 
@@ -50,46 +50,64 @@ const Item = styled(Paper)(({ theme }) => ({
   return (
     <div>
       <Navbar />
-      <div className='container card text-center'>
-        <h1>
-          <img
-            src={info.ava_url}
-            alt=''
-            className='round-img'
-            style={{ width: '200px' }}
-          />
-        </h1>
 
-        <h1>
-          {info.firstName} {info.lastName}
-        </h1>
+      <div className='container text-start' style={{ marginTop: "50px" }}>
+        <div className="row justify-content-center">
+          <div className='col-lg-4'>
+            <h1>
+              <img
+                src={info.ava_url}
+                alt=''
+                className='round-img'
+                style={{ width: '300px', borderRadius: "50%" }}
+              />
+            </h1>
 
+          </div>
+          <div className='col-lg-5' style={{ marginTop: "50px" }}>
+            <h1>
+              {info.firstName} {info.lastName}
+            </h1>
+            <h3>
+              <img src={require("../Styles/img/doctorIcon.png")} width="25px" />
+              {info.specialty}
+            </h3>
+            {reviewObject && <h3>
+              <img src={require("../Styles/img/star.png")} width="30px" />{reviewObject.rating} </h3>}
+            <p> contact: {info.number} | {info.email} </p>
 
-
-        <h2> Specialty: {info.specialty} </h2>
-        {reviewObject && <h2> Rating: {reviewObject.rating} </h2>}
-        <h2> Phone Number: {info.number} </h2>
-
-        <div style={{ margin: '30px' }}>
-        <ButtonGroup variant='outlined' aria-label='outlined button group' >
-          <Button onClick={handleSchedule}>Make appointment</Button>
-          <Button onClick={handleReview}>Review</Button>
-        </ButtonGroup>
+            <div style={{ margin: '20px' }}>
+              <ButtonGroup variant='outlined' aria-label='outlined button group' >
+                <Button onClick={handleSchedule}>Make appointment</Button>
+                <Button onClick={handleReview}>Review</Button>
+              </ButtonGroup>
+            </div>
+          </div>
         </div>
+        <div className="row">
+        </div>
+        <div className="container text-start" >
+          {reviewObject &&
+            reviewObject.reviews.map(function (item, i) {
+              return (
+                <div className="card">
+                  <div className="card-header">
+                    Review
+                  </div>
+                  <div className='card-body'>
+                    <p className='card-title'> {item.email} </p>
+                    <p> Rating:
+                      {[...Array(item.rating)].map((_, index) => (
+                        <FaStar key={index} />
+                      ))}
+                    </p>
+                    <p className='card-text'> " {item.review} "</p>
+                  </div>
+                </div>
+              );
+            })}
 
-        
-
-        {reviewObject &&
-          reviewObject.reviews.map(function (item, i) {
-            return (
-              <div>
-                <p> ----------------- </p>
-                <p> {item.email} </p>
-                <p> {item.rating} </p>
-                <h3> {item.review} </h3>
-              </div>
-            );
-          })}
+        </div>
       </div>
     </div>
   );
