@@ -5,8 +5,10 @@ import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 import Navbar from './Navbar';
 import { margin } from '@mui/system';
+import { useNavigate } from 'react-router-dom';
 
 const Introduction = () => {
+  const navigate = useNavigate();
   return (
     <div className='introduction'>
       <Navbar/>
@@ -18,8 +20,8 @@ const Introduction = () => {
             <div className='text'>
               <h1> Appointment with your doctors made easy! </h1>
               <p className='text2' style={{ color: 'darkcyan' }}> Skip calling and make appointments with your doctors just through a few clicks </p>
-              <Link to='/patientLogin'> <button className='button button1'> Sign In</button> </Link>
-              <Link to='/patientsignup'> <button className='button button2'>Sign up</button> </Link>
+              <button className='button button1' onClick={() => navigate('/patientLogin')}> Sign In</button>
+              <button className='button button2' onClick={() => navigate('/patientsignup')}> Sign up</button>
               <div style={{ display: 'flex', alignItems: 'center',marginTop:"50px", gap:"10px"}}>
                 <p style={{color:"darkgreen",marginTop:"45px"}}>Are you a doctor?</p>
                 <Link to='/DoctorLogin'>

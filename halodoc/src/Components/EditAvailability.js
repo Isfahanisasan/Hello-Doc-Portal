@@ -102,7 +102,7 @@ const EditAvailbility = () => {
                 </div>
             ) : (
               <div>
-        <DoctorNavbar name= {backendData.data.firstName + backendData.data.lastName} />
+              <DoctorNavbar name= {backendData.data.firstName + backendData.data.lastName} id={backendData.data.id} url={backendData.data.ava_url} />
 
         <div className='container'>
             <section>

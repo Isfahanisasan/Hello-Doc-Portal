@@ -1,6 +1,6 @@
 [
   {
-    "ava_url": "https://avatars.githubusercontent.com/u/1?v=4",
+    "ava_url": "https://xsgames.co/randomusers/assets/avatars/male/1.jpg",
     "id": "1",
     "firstName": "John",
     "lastName": "Doe",
@@ -8,13 +8,16 @@
     "email": "johndoe@email.com",
     "password": "123456",
     "number": "0123456789",
-    "startTime": "09:20",
+    "startTime": "12:20",
     "endTime": "18:20",
-    "appointmentInterval": 120,
-    "dayOffs": []
+    "appointmentInterval": 15,
+    "dayOffs": [
+      6,
+      0
+    ]
   },
   {
-    "ava_url": "https://avatars.githubusercontent.com/u/2?v=4",
+    "ava_url": "https://xsgames.co/randomusers/assets/avatars/female/2.jpg",
     "id": "2",
     "firstName": "Jane",
     "lastName": "Doe",
@@ -30,7 +33,7 @@
     ]
   },
   {
-    "ava_url": "https://avatars.githubusercontent.com/u/3?v=4",
+    "ava_url": "https://xsgames.co/randomusers/assets/avatars/male/3.jpg",
     "id": "3",
     "firstName": "John",
     "lastName": "Smith",
@@ -47,7 +50,7 @@
     ]
   },
   {
-    "ava_url": "https://avatars.githubusercontent.com/u/4?v=4",
+    "ava_url": "https://xsgames.co/randomusers/assets/avatars/female/4.jpg",
     "id": "4",
     "firstName": "Jane",
     "lastName": "Smith",
@@ -55,7 +58,7 @@
     "email": "janesmith@email.com",
     "password": "123456",
     "number": "1932934121",
-    "startTime": "9:00",
+    "startTime": "09:00",
     "endTime": "15:00",
     "appointmentInterval": 15,
     "dayOffs": [
@@ -64,7 +67,7 @@
     ]
   },
   {
-    "ava_url": "https://avatars.githubusercontent.com/u/5?v=4",
+    "ava_url": "https://xsgames.co/randomusers/assets/avatars/male/5.jpg",
     "id": "5",
     "firstName": "Main",
     "lastName": "Doe",
@@ -72,7 +75,7 @@
     "email": "maindoe@email.com",
     "password": "123456",
     "number": "12412235424",
-    "startTime": "9:00",
+    "startTime": "09:00",
     "endTime": "17:00",
     "appointmentInterval": 30,
     "dayOffs": [
@@ -81,7 +84,7 @@
     ]
   },
   {
-    "ava_url": "https://avatars.githubusercontent.com/u/6?v=4",
+    "ava_url": "https://xsgames.co/randomusers/assets/avatars/female/6.jpg",
     "id": "6",
     "firstName": "Ashley",
     "lastName": "Le",
@@ -91,7 +94,7 @@
     "number": "7147286064",
     "Bdate": "2000-08-24",
     "gender": "female",
-    "startTime": "9:00",
+    "startTime": "09:00",
     "endTime": "17:00",
     "appointmentInterval": 30,
     "dayOffs": [
@@ -100,7 +103,7 @@
     ]
   },
   {
-    "ava_url": "https://avatars.githubusercontent.com/u/7?v=4",
+    "ava_url": "https://xsgames.co/randomusers/assets/avatars/male/7.jpg",
     "id": "7",
     "firstName": "Xuan",
     "lastName": "Le",
@@ -110,7 +113,7 @@
     "number": "17147285919",
     "Bdate": "1969-11-12",
     "gender": "male",
-    "startTime": "9:00",
+    "startTime": "09:00",
     "endTime": "17:00",
     "appointmentInterval": 30,
     "dayOffs": [
@@ -119,7 +122,7 @@
     ]
   },
   {
-    "ava_url": "https://avatars.githubusercontent.com/u/8?v=4",
+    "ava_url": "https://xsgames.co/randomusers/assets/avatars/female/8.jpg",
     "id": "8",
     "firstName": "Thi Xuan Lan",
     "lastName": "Vo",
@@ -129,7 +132,7 @@
     "number": "17147285919",
     "Bdate": "1969-11-12",
     "gender": "male",
-    "startTime": "9:00",
+    "startTime": "09:00",
     "endTime": "17:00",
     "appointmentInterval": 30,
     "dayOffs": [
@@ -138,7 +141,7 @@
     ]
   },
   {
-    "ava_url": "https://avatars.githubusercontent.com/u/9?v=4",
+    "ava_url": "https://xsgames.co/randomusers/assets/avatars/male/9.jpg",
     "id": "9",
     "firstName": "Eric",
     "lastName": "Ren",
@@ -148,7 +151,7 @@
     "number": "17147285919",
     "Bdate": "1969-11-12",
     "gender": "male",
-    "startTime": "9:00",
+    "startTime": "09:00",
     "endTime": "17:00",
     "appointmentInterval": 30,
     "dayOffs": [
@@ -157,6 +160,7 @@
     ]
   },
   {
+    "ava_url": "https://xsgames.co/randomusers/assets/avatars/male/10.jpg",
     "id": "10",
     "firstName": "Vu Huy",
     "lastName": "Le",
@@ -166,7 +170,7 @@
     "number": "7147286064",
     "Bdate": "2003-09-16",
     "gender": "male",
-    "startTime": "9:00",
+    "startTime": "09:00",
     "endTime": "17:00",
     "appointmentInterval": 30,
     "dayOffs": [
@@ -175,6 +179,7 @@
     ]
   },
   {
+    "ava_url": "https://xsgames.co/randomusers/assets/avatars/male/12.jpg",
     "id": "11",
     "firstName": "Xuan",
     "lastName": "Le",
@@ -184,7 +189,64 @@
     "number": "17147285919",
     "Bdate": "1969-01-01",
     "gender": "male",
-    "startTime": "9:00",
+    "startTime": "09:00",
+    "endTime": "17:00",
+    "appointmentInterval": 30,
+    "dayOffs": [
+      0,
+      6
+    ]
+  },
+  {
+    "ava_url": "https://xsgames.co/randomusers/assets/avatars/male/12.jpg",
+    "id": "12",
+    "firstName": "My",
+    "lastName": "Le",
+    "specialty": "OB-GYN",
+    "email": "myle@email.com",
+    "password": "123456",
+    "number": "123456789",
+    "Bdate": "1987-01-01",
+    "gender": "Other",
+    "startTime": "09:00",
+    "endTime": "17:00",
+    "appointmentInterval": 30,
+    "dayOffs": [
+      0,
+      6
+    ]
+  },
+  {
+    "ava_url": "https://xsgames.co/randomusers/assets/avatars/pixel/13.jpg",
+    "id": "13",
+    "firstName": "Jasmine",
+    "lastName": "Paul",
+    "specialty": "Nutritionist",
+    "email": "jasminepaul@email.com",
+    "password": "12345678",
+    "number": "123456789",
+    "Bdate": "1983-01-01",
+    "gender": "Other",
+    "startTime": "09:00",
+    "endTime": "17:00",
+    "appointmentInterval": 30,
+    "dayOffs": [
+      0,
+      6
+    ]
+  },
+  {
+    "ava_url": "https://xsgames.co/randomusers/assets/avatars/female/14.jpg",
+    "id": "14",
+    "firstName": "Sejeong",
+    "lastName": "Kim",
+    "specialty": "Urology",
+    "email": "kimsejeong@email.com",
+    "password": "123456",
+    "number": "17147286064",
+    "Bdate": "1996-01-01",
+    "gender": "female",
+    "startTime": "09:00",
     "endTime": "17:00",
     "appointmentInterval": 30,
     "dayOffs": [

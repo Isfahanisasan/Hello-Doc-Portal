@@ -200,12 +200,11 @@ const DocSchedule = () => {
         <div className='DocSchedule'>
             {loading ? (
                 <div className='loading'>
-                  <h2 className='loading-text'> Loading </h2>
                   <img src={require("../../Styles/img/loading.gif")} alt="" width="300px"/> 
                 </div>
             ) : (
                 <div>
-                    <DoctorNavbar name= {doctor.firstName + doctor.lastName} id={doctor.id}/>
+                    <DoctorNavbar name= {doctor.firstName + doctor.lastName} id={doctor.id} url={doctor.ava_url} />
                     <div className='container'>
                         <div className='title'>
                             <h1> {doctor.firstName} {doctor.lastName}'s schedule  </h1>
@@ -236,7 +235,8 @@ const DocSchedule = () => {
                                                                 //     <div className='hour occupied'> {hour}</div>
                                                                 // </a>
                                                                 <div className="dropdown ">
-                                                                    <div className='hour occupied'> {hour}</div>
+                                                                    <div className='hour occupied'> 
+                                                                        <p> {hour} </p>
                                                                         <button className="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                                             Modify
                                                                         </button>
@@ -244,6 +244,7 @@ const DocSchedule = () => {
                                                                         <div className="dropdown-menu dropdown-menu-end dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                                                                             <p onClick={() => handleCancel({ patient_name: hour.slice(11), date: date.toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }), startTime: hour.slice(0,5)})}>Cancel Appointment</p>
                                                                         </div>
+                                                                    </div>
                                                                 </div>
                                                             
                                                             ):(

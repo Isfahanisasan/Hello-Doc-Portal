@@ -12,19 +12,19 @@ const DoctorDashboard = () => {
     useEffect(() => {
       axios.get('/doctorDashboard').then(function (response) {
       setBackendData(response.data)
+      console.log(backendData)
     })}, [])
 
     return(
         <div>
             {(typeof backendData.data === 'undefined') ? (
                 <div className='loading'>
-                  <h2 className='loading-text'> Loading </h2>
                   <img src={require("../Styles/img/loading.gif")} alt="" width="300px"/> 
                 </div>
             ) : (
               
               <div className='DoctorDashboard' >
-                <DoctorNavbar name= {backendData.data.firstName + backendData.data.lastName} id={backendData.data.id} />
+                <DoctorNavbar name= {backendData.data.firstName + backendData.data.lastName} id={backendData.data.id} url={backendData.data.ava_url} />
                 <div className='container'>
                   <div className='row'>
                     <div className='col-lg-2'>

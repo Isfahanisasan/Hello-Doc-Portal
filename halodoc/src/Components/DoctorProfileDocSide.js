@@ -54,12 +54,11 @@ const DoctorProfileDocSide = () => {
     <div>
       {(typeof backendData.data === 'undefined') ? (
                 <div className='loading'>
-                  <h2 className='loading-text'> Loading </h2>
                   <img src={require("../Styles/img/loading.gif")} alt="" width="300px"/> 
                 </div>
             ) : (
       <div>
-        <DoctorNavbar name= {backendData.data.firstName + backendData.data.lastName} id={backendData.data.id} />
+        <DoctorNavbar name= {backendData.data.firstName + backendData.data.lastName} id={backendData.data.id} url={backendData.data.ava_url} />
         <div className='container card text-center'>
           <h1>
             <img

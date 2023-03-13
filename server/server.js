@@ -28,6 +28,8 @@ app.use('/doctorDashboard', require('./routes/doctorDashboard'));
 app.use('/patientsignup', require('./routes/patientsignup'));
 app.use('/review', require('./routes/review'));
 app.use('/makeappointment', require('./routes/makeappointment'));
+app.use('/addNewPatient', require('./routes/addNewPatient'));
+
 
 
 
@@ -286,12 +288,24 @@ app.post('/doctorsignup', (req, res) => {
     console.log('New database initialized.');
   }
   let lastDoctorId = data.length > 0 ? parseInt(data[data.length - 1].id) : 0;
-  let newDoctorId = lastDoctorId + 1;
+  let newDoctorId = (lastDoctorId + 1).toString();
+  let link = ''
+  if (formData.gender === 'male'){
+    link= `https://xsgames.co/randomusers/assets/avatars/male/${newDoctorId}.jpg`
+  }
+  else if (formData.gender === 'female'){
+    link= `https://xsgames.co/randomusers/assets/avatars/female/${newDoctorId}.jpg`
+  }
+  else{
+    link=`https://xsgames.co/randomusers/assets/avatars/pixel/${newDoctorId}.jpg`
+  }
+
 
   const newDoctor = {
-    id: newDoctorId.toString(),
+    ava_url: link,
+    id: newDoctorId,
     ...formData,
-    startTime: "9:00",
+    startTime: "09:00",
     endTime: "17:00",
     appointmentInterval: 30,
     dayOffs: [
@@ -308,7 +322,7 @@ app.post('/doctorsignup', (req, res) => {
       return;
     }
   })
-  res.json({data: '/'})
+  res.json({data: '/doctorlogin'})
 
 });
 

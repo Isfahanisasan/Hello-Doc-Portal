@@ -218,5 +218,33 @@
     "number": "7147285919",
     "Bdate": "1976-02-13",
     "gender": "male"
+  },
+  {
+    "id": "24",
+    "firstName": "Taylor",
+    "lastName": "Swift",
+    "email": "taylorswift@email.com",
+    "phoneNumber": "7147286064",
+    "Bdate": "1989-12-13",
+    "gender": "female"
+  },
+  {
+    "id": "25",
+    "firstName": "Vo Diem Hang",
+    "lastName": "Le",
+    "email": "vle255@email.com",
+    "phoneNumber": "17147286064",
+    "Bdate": "2000-08-24",
+    "gender": "female"
+  },
+  {
+    "id": "26",
+    "firstName": "selena",
+    "lastName": "gomez",
+    "email": "selenagomez@email.com",
+    "password": "123456",
+    "number": "17147285919",
+    "Bdate": "1989-09-09",
+    "gender": "female"
   }
 ]

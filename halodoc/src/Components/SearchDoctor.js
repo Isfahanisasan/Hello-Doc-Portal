@@ -17,7 +17,6 @@ const SearchDoctor = () => {
             {(typeof backendData.data === 'undefined') ? (
                 <div style={{textAlign: "center"}}>
                   <Navbar/>
-                  <h3> Please try logging in again</h3> <br/>
                   <img src={require("../Styles/img/loading.gif")} alt="" width="300px"/>
                 </div>
             ) : (

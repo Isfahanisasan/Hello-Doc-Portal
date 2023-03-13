@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import '../Styles/Styles.Dashboard.scss';
 
-const DoctorNavbar = ({name, email, id}) => {
+const DoctorNavbar = ({name, email, id, url}) => {
   let navigate = useNavigate(); 
 
   const handleLogout= async (e) => {
@@ -41,7 +41,7 @@ const DoctorNavbar = ({name, email, id}) => {
 
             <div className="dropdown ">
               <button className="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img src={(`https://xsgames.co/randomusers/assets/avatars/pixel/1.jpg`)} alt='' className='profile' style={{ borderRadius: '50%', width:'50px' }}></img>
+                <img src={url} alt='' className='profile' style={{ borderRadius: '50%', width:'50px' }}></img>
                 
               </button>
 

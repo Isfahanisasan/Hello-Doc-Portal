@@ -50,20 +50,8 @@
   {
     "doctor_id": "1",
     "patient_id": "2",
-    "startTime": "09:00",
-    "date": "3/14/2023"
-  },
-  {
-    "doctor_id": "1",
-    "patient_id": "2",
-    "startTime": "09:20",
-    "date": "3/14/2023"
-  },
-  {
-    "doctor_id": "1",
-    "patient_id": "2",
-    "startTime": "09:40",
-    "date": "3/14/2023"
+    "startTime": "13:20",
+    "date": "3/13/2023"
   },
   {
     "doctor_id": "1",
@@ -79,14 +67,14 @@
   },
   {
     "doctor_id": "1",
-    "patient_id": "1",
-    "startTime": "11:20",
-    "date": "3/17/2023"
-  },
-  {
-    "doctor_id": "1",
     "patient_id": "6",
     "startTime": "09:20",
     "date": "03/18/2023"
+  },
+  {
+    "doctor_id": "1",
+    "patient_id": "2",
+    "startTime": "12:50",
+    "date": "03/14/2023"
   }
 ]
