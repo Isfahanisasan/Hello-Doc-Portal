@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const fs = require('fs');
+// const bcrypt = require('bcrypt');
+const hashHelper = require('../helper/hashHelper.js');
 
 
 router.post('/', async (req, res) => {
@@ -40,11 +42,15 @@ router.post('/', async (req, res) => {
 
   let lastPatientId = data.length > 0 ? parseInt(data[data.length-1].id): 0;
   let newPatientId = lastPatientId + 1; 
+  const secPass = await hashHelper.hashPassword(formData.password) 
 
-  const newPatient = {
+  let newPatient = await {
     id: newPatientId.toString(),
-    ...formData
+    ...formData,
+    password: secPass
+    
   }
+  console.log(newPatient);
   data.push(newPatient);
   fs.writeFileSync('../halodoc/src/database/patients.json', JSON.stringify(data, null, 2) + '\n');
 

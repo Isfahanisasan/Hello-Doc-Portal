@@ -4,8 +4,8 @@
     "firstName": "John",
     "lastName": "Doe",
     "email": "johndoe@email.com",
-    "password": "123456",
-    "phoneNumber": "0123456789",
+    "password": "$2b$05$yHgsG5GhUgoyYjzXod5sfeVzUh7bQ6v/TyHsEdftHUkvc7x3GoEw2",
+    "phoneNumber": "0$2b$05$yHgsG5GhUgoyYjzXod5sfeVzUh7bQ6v/TyHsEdftHUkvc7x3GoEw2789",
     "Bdate": "2000-08-24",
     "gender": "male"
   },
@@ -14,7 +14,7 @@
     "firstName": "Jane",
     "lastName": "Doe",
     "email": "janedoe@email.com",
-    "password": "123456",
+    "password": "$2b$05$yHgsG5GhUgoyYjzXod5sfeVzUh7bQ6v/TyHsEdftHUkvc7x3GoEw2",
     "phoneNumber": "012301230123",
     "Bdate": "2000-08-24",
     "gender": "female"
@@ -24,7 +24,7 @@
     "firstName": "John",
     "lastName": "Smith",
     "email": "johnsmith@email.com",
-    "password": "123456",
+    "password": "$2b$05$yHgsG5GhUgoyYjzXod5sfeVzUh7bQ6v/TyHsEdftHUkvc7x3GoEw2",
     "phoneNumber": "123412341234",
     "Bdate": "2000-08-24",
     "gender": "male"
@@ -34,7 +34,7 @@
     "firstName": "Main",
     "lastName": "Doe",
     "email": "maindoe@email.com",
-    "password": "123456",
+    "password": "$2b$05$yHgsG5GhUgoyYjzXod5sfeVzUh7bQ6v/TyHsEdftHUkvc7x3GoEw2",
     "phoneNumber": "12412235424",
     "Bdate": "2000-08-24",
     "gender": "male"
@@ -44,7 +44,7 @@
     "firstName": "Ashley",
     "lastName": "Le",
     "email": "lediemhang87@gmail.com",
-    "password": "123456",
+    "password": "$2b$05$yHgsG5GhUgoyYjzXod5sfeVzUh7bQ6v/TyHsEdftHUkvc7x3GoEw2",
     "number": "7147286064",
     "Bdate": "2000-08-24",
     "gender": "female"
@@ -54,7 +54,7 @@
     "firstName": "Ashley",
     "lastName": "Le",
     "email": "lediemhang87@gmail.com",
-    "password": "123456",
+    "password": "$2b$05$yHgsG5GhUgoyYjzXod5sfeVzUh7bQ6v/TyHsEdftHUkvc7x3GoEw2",
     "number": "7147286064",
     "Bdate": "2000-12-31",
     "gender": "female"
@@ -64,7 +64,7 @@
     "firstName": "Hang",
     "lastName": "Le",
     "email": "ashleyle248@gmail.com",
-    "password": "123456",
+    "password": "$2b$05$yHgsG5GhUgoyYjzXod5sfeVzUh7bQ6v/TyHsEdftHUkvc7x3GoEw2",
     "number": "7147286064",
     "Bdate": "2000-08-24",
     "gender": "female"
@@ -74,7 +74,7 @@
     "firstName": "Vu",
     "lastName": "Le",
     "email": "vle29931@gmail.com",
-    "password": "123456",
+    "password": "$2b$05$yHgsG5GhUgoyYjzXod5sfeVzUh7bQ6v/TyHsEdftHUkvc7x3GoEw2",
     "number": "17147286064",
     "Bdate": "2003-09-16",
     "gender": "male"
@@ -84,7 +84,7 @@
     "firstName": "Mary",
     "lastName": "Jones",
     "email": "maryjones@email.com",
-    "password": "123456",
+    "password": "$2b$05$yHgsG5GhUgoyYjzXod5sfeVzUh7bQ6v/TyHsEdftHUkvc7x3GoEw2",
     "number": "7147286064",
     "Bdate": "1972-09-14",
     "gender": "female"
@@ -94,7 +94,7 @@
     "firstName": "Thomas",
     "lastName": "Joe",
     "email": "thomasjoe@email.com",
-    "password": "123456",
+    "password": "$2b$05$yHgsG5GhUgoyYjzXod5sfeVzUh7bQ6v/TyHsEdftHUkvc7x3GoEw2",
     "number": "7147286064",
     "Bdate": "1989-01-01",
     "gender": "other"
@@ -104,7 +104,7 @@
     "firstName": "Quynh",
     "lastName": "Pham",
     "email": "quynhpham@email.com",
-    "password": "123456",
+    "password": "$2b$05$yHgsG5GhUgoyYjzXod5sfeVzUh7bQ6v/TyHsEdftHUkvc7x3GoEw2",
     "number": "7147286064",
     "Bdate": "2000-02-04",
     "gender": "other"
@@ -114,7 +114,7 @@
     "firstName": "Vu",
     "lastName": "Nguyen",
     "email": "vunguyen@email.com",
-    "password": "123456",
+    "password": "$2b$05$yHgsG5GhUgoyYjzXod5sfeVzUh7bQ6v/TyHsEdftHUkvc7x3GoEw2",
     "number": "058224214",
     "Bdate": "1995-01-01",
     "gender": "male"
@@ -124,7 +124,7 @@
     "firstName": "Dong",
     "lastName": "Le",
     "email": "dongle@email.com",
-    "password": "123456",
+    "password": "$2b$05$yHgsG5GhUgoyYjzXod5sfeVzUh7bQ6v/TyHsEdftHUkvc7x3GoEw2",
     "number": "7147285919",
     "Bdate": "1969-11-12",
     "gender": "other"
@@ -134,7 +134,7 @@
     "firstName": "Thu",
     "lastName": "Le",
     "email": "thule@email.com",
-    "password": "123456",
+    "password": "$2b$05$yHgsG5GhUgoyYjzXod5sfeVzUh7bQ6v/TyHsEdftHUkvc7x3GoEw2",
     "number": "7147285919",
     "Bdate": "1969-11-12",
     "gender": "other"
@@ -144,7 +144,7 @@
     "firstName": "Ha",
     "lastName": "Le",
     "email": "hale@email.com",
-    "password": "123456",
+    "password": "$2b$05$yHgsG5GhUgoyYjzXod5sfeVzUh7bQ6v/TyHsEdftHUkvc7x3GoEw2",
     "number": "7147285919",
     "Bdate": "1969-11-12",
     "gender": "other"
@@ -154,7 +154,7 @@
     "firstName": "Thi",
     "lastName": "Vo",
     "email": "vothi9489@gmail.com",
-    "password": "123456",
+    "password": "$2b$05$yHgsG5GhUgoyYjzXod5sfeVzUh7bQ6v/TyHsEdftHUkvc7x3GoEw2",
     "number": "17147286064",
     "Bdate": "1972-05-12",
     "gender": "female"
@@ -164,7 +164,7 @@
     "firstName": "Thi",
     "lastName": "Vo",
     "email": "vothi@gmail.com",
-    "password": "123456",
+    "password": "$2b$05$yHgsG5GhUgoyYjzXod5sfeVzUh7bQ6v/TyHsEdftHUkvc7x3GoEw2",
     "number": "17147286064",
     "Bdate": "1972-02-14",
     "gender": "female"
@@ -174,7 +174,7 @@
     "firstName": "Lan",
     "lastName": "Pham",
     "email": "lanpham@email.com",
-    "password": "123456",
+    "password": "$2b$05$yHgsG5GhUgoyYjzXod5sfeVzUh7bQ6v/TyHsEdftHUkvc7x3GoEw2",
     "number": "7147286064",
     "Bdate": "1968-02-05",
     "gender": "other"
@@ -184,7 +184,7 @@
     "firstName": "Michael",
     "lastName": "Tran",
     "email": "michaeltran@email.com",
-    "password": "123456",
+    "password": "$2b$05$yHgsG5GhUgoyYjzXod5sfeVzUh7bQ6v/TyHsEdftHUkvc7x3GoEw2",
     "number": "7147285919",
     "Bdate": "1976-11-12",
     "gender": "male"
@@ -194,7 +194,7 @@
     "firstName": "Michael",
     "lastName": "Ton",
     "email": "michaelton@email.com",
-    "password": "123456",
+    "password": "$2b$05$yHgsG5GhUgoyYjzXod5sfeVzUh7bQ6v/TyHsEdftHUkvc7x3GoEw2",
     "number": "7147285919",
     "Bdate": "1976-11-12",
     "gender": "male"
@@ -204,7 +204,7 @@
     "firstName": "Michael",
     "lastName": "Nguyen",
     "email": "michaelnguyen@email.com",
-    "password": "123456",
+    "password": "$2b$05$yHgsG5GhUgoyYjzXod5sfeVzUh7bQ6v/TyHsEdftHUkvc7x3GoEw2",
     "number": "7147285919",
     "Bdate": "1976-11-12",
     "gender": "male"
@@ -214,7 +214,7 @@
     "firstName": "Michael",
     "lastName": "Lai",
     "email": "michaellai@email.com",
-    "password": "123456",
+    "password": "$2b$05$yHgsG5GhUgoyYjzXod5sfeVzUh7bQ6v/TyHsEdftHUkvc7x3GoEw2",
     "number": "7147285919",
     "Bdate": "1976-02-13",
     "gender": "male"
@@ -242,9 +242,19 @@
     "firstName": "selena",
     "lastName": "gomez",
     "email": "selenagomez@email.com",
-    "password": "123456",
+    "password": "$2b$05$yHgsG5GhUgoyYjzXod5sfeVzUh7bQ6v/TyHsEdftHUkvc7x3GoEw2",
     "number": "17147285919",
     "Bdate": "1989-09-09",
     "gender": "female"
+  },
+  {
+    "id": "27",
+    "firstName": "rgerg",
+    "lastName": "12r12",
+    "email": "janwgwrgwrg124oe@email.com",
+    "password": "$2b$05$yHgsG5GhUgoyYjzXod5sfeVzUh7bQ6v/TyHsEdftHUkvc7x3GoEw2",
+    "number": "123",
+    "Bdate": "2023-03-03",
+    "gender": "male"
   }
 ]
