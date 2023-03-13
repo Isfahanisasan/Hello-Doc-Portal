@@ -56,6 +56,7 @@ const Item = styled(Paper)(({ theme }) => ({
 
   return (
     <div>
+
       <Navbar />
       <div className='container card text-center'>
           </div>
@@ -105,6 +106,7 @@ const Item = styled(Paper)(({ theme }) => ({
         </div>
       </div>
       </div>)}
+
     </div>
   );
 };

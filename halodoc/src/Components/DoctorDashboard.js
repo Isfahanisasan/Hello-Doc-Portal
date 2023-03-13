@@ -24,7 +24,7 @@ const DoctorDashboard = () => {
             ) : (
               
               <div className='DoctorDashboard' >
-                <DoctorNavbar name= {backendData.data.firstName + backendData.data.lastName} />
+                <DoctorNavbar name= {backendData.data.firstName + backendData.data.lastName} id={backendData.data.id} />
                 <div className='container'>
                   <div className='row'>
                     <div className='col-lg-2'>
