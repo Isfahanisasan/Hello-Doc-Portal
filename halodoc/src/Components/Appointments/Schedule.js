@@ -202,8 +202,8 @@ const Schedule = () => {
                                                 <div onChange={(e) => {setPickTime(e.target.value); setPickDate((date.getMonth()+1)+"/"+date.getDate()+"/"+date.getFullYear())}}>
                                                 
                                                 <div key={hour}>
-                                                    <input type="radio" class="btn-check" name="my-radio" id={hour+(new Date(date))} value={hour}/>
-                                                    <label class="btn btn-outline-info" for={hour+(new Date(date))}> {hour} </label>
+                                                    <input type="radio" className="btn-check" name="my-radio" id={hour+(new Date(date))} value={hour}/>
+                                                    <label className="btn btn-outline-info" for={hour+(new Date(date))}> {hour} </label>
                                                 </div>
                                                 </div>
                                             ))} 

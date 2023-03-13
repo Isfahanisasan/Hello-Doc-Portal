@@ -43,7 +43,7 @@ app.get('/patientUpcoming/:id', (req, res) => {
 
   const futureDates = patientSchedule.filter(entry => {
     const entryDate = new Date(entry.date);
-    return entryDate >= new Date();
+    return entryDate >= new Date(new Date().toLocaleDateString());
   });
 
   const filteredScheduleWithDoctorNames = futureDates.map((appointments,i) => {
@@ -76,8 +76,9 @@ app.post('/cancelAppointment', (req, res) => {
     return !(item.patient_id === req.session.patientID && item.startTime === req.body.startTime && item.date === req.body.date);
   });
 
-  fs.writeFileSync(fileNameDoctor, JSON.stringify(doctorSchedule, null, 2) + '\n');
+  doctorSchedule.sort((a, b) =>  (a.startTime < b.startTime )? 1 : -1).sort((a, b) => (new Date(a.date) > new Date(b.date)) ? 1 : -1)
 
+  fs.writeFileSync(fileNameDoctor, JSON.stringify(doctorSchedule, null, 2) + '\n');
 
   res.json({data: '/dashboard'})
 })
@@ -192,8 +193,7 @@ app.post('/editavailability', (req, res) => {
 
     doctor.startTime = `${newStartHour.padStart(2, '0')}:${newStartMinute.padStart(2, '0')}`;
     doctor.endTime = `${newEndHour.padStart(2, '0')}:${newEndMinute.padStart(2, '0')}`;
-    // doctor.startTime = '09:00';
-    // doctor.endTime = '17:00';
+
     doctor.appointmentInterval = parseInt(newInterval);
     doctor.dayOffs = newDaysOff;
 

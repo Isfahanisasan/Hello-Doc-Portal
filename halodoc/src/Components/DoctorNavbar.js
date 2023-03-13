@@ -27,10 +27,10 @@ const DoctorNavbar = ({name, email}) => {
 
           {/* If not logged in then logo return to Introduction page, if logged in then logo return to dashboard */}
           {(typeof name !== 'undefined') ? (
-            <Link class="navbar-brand" to='/doctordashboard'> 
+            <Link className="navbar-brand" to='/doctordashboard'> 
               <img src={require("../Styles/img/HelloDoc_Logo.png")} alt="" width="250px"  />
             </Link>
-          ):(<Link class="navbar-brand" to='/'> 
+          ):(<Link className="navbar-brand" to='/'> 
               <img src={require("../Styles/img/HelloDoc_Logo.png")} alt="" width="250px"  />
             </Link>)}
           
@@ -49,6 +49,8 @@ const DoctorNavbar = ({name, email}) => {
               <div className="dropdown-menu dropdown-menu-end dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                 <p className="dropdown-item text-right"> {name} <br/>{email} </p>
                 <p className="dropdown-item text-right" onClick={() => {navigate('/doctordashboard')}} style={{cursor:'pointer'}}> Back to dashboard</p>
+                <p className="dropdown-item text-right" onClick={() => {navigate('/docschedule')}} style={{cursor:'pointer'}}> View all schedule</p>
+                <p className="dropdown-item text-right" onClick={() => {navigate('/addpatient')}} style={{cursor:'pointer'}}> Add new patient </p>
                 <p className="dropdown-item text-right" onClick={handleLogout} style={{cursor:'pointer'}}> Log out</p>
               </div>
             </div>

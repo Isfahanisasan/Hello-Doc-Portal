@@ -29,10 +29,10 @@ const Navbar = ({name, email,patientID,gender}) => {
 
           {/* If not logged in then logo return to Introduction page, if logged in then logo return to dashboard */}
           {(typeof name !== 'undefined') ? (
-            <Link class="navbar-brand" to='/dashboard'>
+            <Link className="navbar-brand" to='/dashboard'>
               <img src={require("../Styles/img/HelloDoc_Logo.png")} alt="" width="250px"  />
             </Link>
-          ):(<Link class="navbar-brand" to='/'>
+          ):(<Link className="navbar-brand" to='/'>
               <img src={require("../Styles/img/HelloDoc_Logo.png")} alt="" width="250px"  />
             </Link>)}
 

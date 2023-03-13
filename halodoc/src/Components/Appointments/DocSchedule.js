@@ -176,8 +176,9 @@ const DocSchedule = () => {
     return (
         <div className='DocSchedule'>
             {loading ? (
-                <div style={{textAlign: "center"}}>
-                <h2> Loading </h2> <br/>
+                <div className='loading'>
+                  <h2 className='loading-text'> Loading </h2>
+                  <img src={require("../../Styles/img/loading.gif")} alt="" width="300px"/> 
                 </div>
             ) : (
                 <div>

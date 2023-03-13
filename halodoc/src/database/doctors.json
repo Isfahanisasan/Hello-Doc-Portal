@@ -11,9 +11,7 @@
     "startTime": "09:20",
     "endTime": "18:20",
     "appointmentInterval": 120,
-    "dayOffs": [
-      4
-    ]
+    "dayOffs": []
   },
   {
     "ava_url": "https://avatars.githubusercontent.com/u/2?v=4",
