@@ -40,6 +40,8 @@ router.post('/', (req, res) => {
 
   dataDoctor.push(appointment);
   dataPatient.push(appointment);
+  dataDoctor.sort((a, b) =>  (a.startTime < b.startTime )? 1 : -1).sort((a, b) => (new Date(a.date) > new Date(b.date)) ? 1 : -1)
+  dataPatient.sort((a, b) =>  (a.startTime < b.startTime )? 1 : -1).sort((a, b) => (new Date(a.date) > new Date(b.date)) ? 1 : -1)
   fs.writeFileSync(filePathDoctor, JSON.stringify(dataDoctor, null, 2) + '\n');
   fs.writeFileSync(filePathPatient, JSON.stringify(dataPatient, null, 2) + '\n');
   res.json({data: '/dashboard'});

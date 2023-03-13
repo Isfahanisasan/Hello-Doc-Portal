@@ -44,10 +44,9 @@ const PatientUpcomingAppt = ({patientId,firstName,lastName}) => {
                 ):(
                     <div>
                         {backendData.patientSchedule
-                        .sort((a, b) =>  (a.startTime > b.startTime )? 1 : -1)
-                        .sort((a, b) => (new Date(a.date) > new Date(b.date)) ? 1 : -1)
+                        
                         .map((appt,i) => (
-                            <div>
+                            <div key={i}>
                                 <AppointmentInfo doctor_id = {appt.doctor_id} doctorName={appt.doctorName} specialty={appt.doctorSpecialty} startTime={appt.startTime} date={appt.date} pos={i}/>
                             </div>
                         ))}

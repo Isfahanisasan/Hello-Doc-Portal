@@ -34,5 +34,16 @@
         "review": "VBNM,."
       }
     ]
+  },
+  {
+    "doctor_id": "1",
+    "rating": 5,
+    "reviews": [
+      {
+        "email": "ashleyle248@email.com",
+        "rating": 5,
+        "review": "Good amazing handsome doc"
+      }
+    ]
   }
 ]

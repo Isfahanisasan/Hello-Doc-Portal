@@ -1,18 +1,21 @@
 import { useParams } from 'react-router-dom';
+
 import doctorsJson from '../database/doctors.json';
 import doctorReview from '../database/doctorReviews.json';
 import { useNavigate } from 'react-router-dom';
 import { FaStar } from 'react-icons/fa';
 import '../Styles/Search.scss';
 import Navbar from './Navbar';
+import axios from 'axios';
 
-import * as React from 'react';
 import Button from '@mui/material/Button';
 import { ButtonGroup } from '@mui/material';
 
 import { styled } from '@mui/material/styles';
 
 import Paper from '@mui/material/Paper';
+import React, {useState, useEffect} from 'react';
+
 
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -24,7 +27,7 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 
-const DoctorProfile = () => {
+  const DoctorProfile = () => {
   let { id } = useParams();
   const navigate = useNavigate();
 
@@ -37,6 +40,10 @@ const DoctorProfile = () => {
   const reviewObject = reviewsJson.find((item) => item.doctor_id === id);
 
 
+  useEffect(() => {
+    axios.get('/dashboard').then((response) => {
+    setBackendData(response.data)
+  })})
 
   //When click handleReview, go to /review/doctor/id
   const handleReview = () => {
@@ -50,19 +57,7 @@ const DoctorProfile = () => {
   return (
     <div>
       <Navbar />
-
-      <div className='container text-start' style={{ marginTop: "50px" }}>
-        <div className="row justify-content-center">
-          <div className='col-lg-4'>
-            <h1>
-              <img
-                src={info.ava_url}
-                alt=''
-                className='round-img'
-                style={{ width: '300px', borderRadius: "50%" }}
-              />
-            </h1>
-
+      <div className='container card text-center'>
           </div>
           <div className='col-lg-5' style={{ marginTop: "50px" }}>
             <h1>
@@ -109,6 +104,7 @@ const DoctorProfile = () => {
 
         </div>
       </div>
+      </div>)}
     </div>
   );
 };

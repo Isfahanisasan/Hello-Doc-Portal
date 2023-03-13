@@ -17,8 +17,8 @@ const DoctorDashboard = () => {
     return(
         <div>
             {(typeof backendData.data === 'undefined') ? (
-                <div style={{textAlign: "center"}}>
-                  <h2> Please try logging in again</h2> <br/>
+                <div className='loading'>
+                  <h2 className='loading-text'> Loading </h2>
                   <img src={require("../Styles/img/loading.gif")} alt="" width="300px"/> 
                 </div>
             ) : (
@@ -83,8 +83,8 @@ const DoctorDashboard = () => {
                           <h2> Today's appointment </h2>
                           <div className='container'>
 
-                            <div class="card header">
-                              <div class="card-body">
+                            <div className="card header">
+                              <div className="card-body">
                                 <div className='row'> 
                                   <div className='col-sm-3'> Patient name </div>
                                   <div className='col-sm-2'> Start time </div>
@@ -97,8 +97,8 @@ const DoctorDashboard = () => {
                             {backendData.appointment
                               .sort((a, b) => a.startTime > b.startTime ? 1 : -1)
                               .map(appt => (
-                              <div class="card">
-                                <div class="card-body">
+                              <div className="card">
+                                <div className="card-body">
                                   <div className='row'> 
                                     <div className='col-sm-3'> {appt.patientName} </div>
                                     <div className='col-sm-2'> {appt.startTime} </div>
@@ -118,7 +118,7 @@ const DoctorDashboard = () => {
                       
 
                     <div className='col-lg-2'> 
-                      .
+                      
                     </div>
                   </div>
                 </div>
