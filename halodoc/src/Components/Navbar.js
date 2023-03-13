@@ -48,7 +48,7 @@ const Navbar = ({name, email,patientID,gender}) => {
               </button>
 
               <div className="dropdown-menu dropdown-menu-end dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                <p className="dropdown-item text-right"> {name} <br/>{email} </p>
+                <p className="dropdown-item text-right" onClick={() => navigate(`/patientprofile/${patientID}`)}> {name} <br/>{email} </p>
                 <p className="dropdown-item text-right" onClick={() => {navigate('/dashboard')}} style={{cursor:'pointer'}}> Back to dashboard</p>
                 <p className="dropdown-item text-right" onClick={handleLogout} style={{cursor:'pointer'}}> Log out</p>
               </div>

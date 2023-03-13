@@ -19,8 +19,8 @@ import SearchDoctor from './Components/SearchDoctor';
 import MakeAppointmentByDoctor from './Components/Appointments/MakeAppointmentByDoctor';
 import EditAvailbility  from './Components/EditAvailability';
 import AddPatient from './Components/AddPatient';
-
-
+import PatientProfile from './Components/PatientProfile';
+import DoctorProfileDocSide from './Components/DoctorProfileDocSide';
 function App() {
   return (
     <Router>
@@ -44,7 +44,8 @@ function App() {
         <Route path='/makeappointmentbydoctor/:date/:hour' element={<MakeAppointmentByDoctor />} />
         <Route path='/editavailability'  element={<EditAvailbility />} />
         <Route path= '/addpatient' element={<AddPatient/>}/>
-    
+        <Route path='/patientprofile/:id' element={<PatientProfile />} />
+        <Route path='/doctorprofile/:id' element={<DoctorProfileDocSide/>} />
       </Routes>
     </Router>
   );

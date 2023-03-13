@@ -182,7 +182,7 @@ const DocSchedule = () => {
                 </div>
             ) : (
                 <div>
-                    <DoctorNavbar name= {doctor.firstName + doctor.lastName} />
+                    <DoctorNavbar name= {doctor.firstName + doctor.lastName} id={doctor.id}/>
                     <div className='container'>
                         <div className='title'>
                             <h1> {doctor.firstName} {doctor.lastName}'s schedule  </h1>
