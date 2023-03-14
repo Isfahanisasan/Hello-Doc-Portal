@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
   const fileName = '../halodoc/src/database/appointment/doctor/' + req.session.doctorID + '.json';
   let doctorSchedule = JSON.parse(fs.readFileSync(fileName));
   let today = new Date().toLocaleDateString()
-  doctorSchedule = doctorSchedule.filter(item => new Date(item.date).getTime() === new Date(today).getTime())
+  doctorSchedule = doctorSchedule.filter(item => new Date(item.date) >= new Date(today))
 
   const newDocSchedule = doctorSchedule.map((appointments,i) => {
     const patient = patients.find(patient => patient.id === appointments.patient_id)
@@ -22,13 +22,11 @@ router.get('/', async (req, res) => {
     const patientEmail = `${patient.email}`;
     const patientBirthday = `${patient.Bdate}`;
 
-
     return { ...appointments, patientName, patientEmail, patientBirthday};
   })
   
 
-  res.json({data: doctor, appointment: newDocSchedule})
+  res.json({doctordata: doctor, patientsdata: patients, appointment: newDocSchedule})
 });
 
 module.exports = router;
-
