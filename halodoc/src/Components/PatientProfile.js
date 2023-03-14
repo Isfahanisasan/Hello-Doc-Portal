@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import PatientJSON from '../database/patients.json';
 import { useNavigate } from 'react-router-dom';
 import Navbar from './Navbar';
+import "../Styles/Styles.Dashboard.scss"
 
 import * as React from 'react';
 
@@ -15,12 +16,30 @@ const PatientProfile = () => {
 
   return (
     <div>
-      <Navbar />
+      <Navbar name ={info.firstName + ' ' + info.lastName} email={info.email} patientID={info.id} gender={info.gender} />
       <div className='container card text-center'>
+      <div className="row">
+        <div className="col-lg-5" >
+        <h1>
+          <img
+            src={require(`../Styles/img/${info.gender}.png`)}
+            alt=''
+            className='round-img'
+            style={{ width: '300px',borderRadius:"50%" }}
+          />
+        </h1>
+        </div>
+        <div className='col-lg-5' style={{marginTop:"100px"}}>
         <h1>
           {info.firstName} {info.lastName}
         </h1>
-        <h2> Phone Number: {info.phoneNumber} </h2>
+        <p> contact :{info.phoneNumber} | {info.email}</p>
+        <button type="button" class="btn btn-primary" disabled>Change your Information</button>
+        <div style={{ margin: '30px' }}>
+        </div>
+        </div>
+      </div>
+      
       </div>
     </div>
   );
