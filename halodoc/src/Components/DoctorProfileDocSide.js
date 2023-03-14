@@ -60,36 +60,38 @@ const DoctorProfileDocSide = () => {
       <div>
         <DoctorNavbar name= {backendData.data.firstName + backendData.data.lastName} id={backendData.data.id} url={backendData.data.ava_url} />
         <div className='container card text-center'>
-          <h1>
-            <img
-              src={info.ava_url}
-              alt=''
-              className='round-img'
-              style={{ width: '200px' }}
-            />
-          </h1>
+      <div className="row">
+        <div className="col-lg-5" >
+        <h1>
+          <img
+            src={info.ava_url}
+            alt=''
+            className='round-img'
+            style={{ width: '300px',borderRadius:"50%" }}
+          />
+        </h1>
+        </div>
+        <div className='col-lg-5' style={{marginTop:"50px"}}>
+        <h1>
+          {info.firstName} {info.lastName}
+        </h1>
 
-          <h1>
-            {info.firstName} {info.lastName}
-          </h1>
 
+        <h3>
+          <img src={require("../Styles/img/doctorIcon.png")} width="25px"/>
+          Specialty: {info.specialty}
+        </h3>
+        {reviewObject && <h3>
+          <img src ={require("../Styles/img/star.png")} width="30px"/>
+          {reviewObject.rating}
+          </h3>}
+        <p> contact :{info.number} | {info.email}</p>
 
-
-          <h2> Specialty: {info.specialty} </h2>
-          {reviewObject && <h2> Rating: {reviewObject.rating} </h2>}
-          <h2> Phone Number: {info.number} </h2>
-
-          {reviewObject &&
-            reviewObject.reviews.map(function (item, i) {
-              return (
-                <div>
-                  <p> ----------------- </p>
-                  <p> {item.email} </p>
-                  <p> {item.rating} </p>
-                  <h3> {item.review} </h3>
-                </div>
-              );
-            })}
+        <div style={{ margin: '30px' }}>
+        </div>
+        </div>
+      </div>
+      
       </div>
       </div>)}
     </div>

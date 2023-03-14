@@ -52,7 +52,7 @@ const Item = styled(Paper)(({ theme }) => ({
 
   return (
     <div>
-      <DoctorNavbar name ={info.firstName + ' ' + info.lastName} email={info.email} patientID={info.id} url={info.ava_url}/>
+      <Navbar/>
       <div className='container card text-center'>
       <div className="row">
         <div className="col-lg-5" >
