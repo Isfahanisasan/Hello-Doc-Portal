@@ -5,7 +5,7 @@
     "lastName": "Doe",
     "email": "johndoe@email.com",
     "password": "$2b$05$yHgsG5GhUgoyYjzXod5sfeVzUh7bQ6v/TyHsEdftHUkvc7x3GoEw2",
-    "phoneNumber": "0$2b$05$yHgsG5GhUgoyYjzXod5sfeVzUh7bQ6v/TyHsEdftHUkvc7x3GoEw2789",
+    "phoneNumber": "123456789",
     "Bdate": "2000-08-24",
     "gender": "male"
   },
@@ -255,6 +255,15 @@
     "password": "$2b$05$yHgsG5GhUgoyYjzXod5sfeVzUh7bQ6v/TyHsEdftHUkvc7x3GoEw2",
     "number": "123",
     "Bdate": "2023-03-03",
+    "gender": "male"
+  },
+  {
+    "id": "28",
+    "firstName": "Jin",
+    "lastName": "Yun",
+    "email": "jinyun@email.com",
+    "phoneNumber": "1421481924",
+    "Bdate": "1978-08-14",
     "gender": "male"
   }
 ]

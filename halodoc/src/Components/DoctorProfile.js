@@ -105,7 +105,7 @@ const Item = styled(Paper)(({ theme }) => ({
                       {[...Array(item.rating)].map((_,index)=>(
                         <FaStar key ={index}/>
                       ))}</p>
-                <p> "{item.review}"" </p>
+                <p> "{item.review}" </p>
               </div>
               </div>
             );

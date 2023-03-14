@@ -1,4 +1,5 @@
 import { useParams } from 'react-router-dom';
+import {FaStar}from 'react-icons/fa';
 
 import doctorsJson from '../database/doctors.json';
 import doctorReview from '../database/doctorReviews.json';
@@ -94,6 +95,27 @@ const DoctorProfileDocSide = () => {
       
       </div>
       </div>)}
+
+      <div className="container text-start">
+        {reviewObject &&
+          reviewObject.reviews.map(function (item, i) {
+            return (
+              <div className="card">
+                <div className="card-header">
+                {item.email}
+                  </div>
+                  <div className="card-body">
+                    
+                    <p> Rating:
+                      {[...Array(item.rating)].map((_,index)=>(
+                        <FaStar key ={index}/>
+                      ))}</p>
+                <p> "{item.review}" </p>
+              </div>
+              </div>
+            );
+          })}
+          </div>
     </div>
   );
 };
