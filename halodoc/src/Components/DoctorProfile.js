@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import '../Styles/container.scss';
 import '../Styles/Search.scss';
 import Navbar from './Navbar';
+import DoctorNavbar from './DoctorNavbar';
 
 import * as React from 'react';
 import Button from '@mui/material/Button';
@@ -14,6 +15,7 @@ import { ButtonGroup } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 import Paper from '@mui/material/Paper';
+import { indigo } from '@mui/material/colors';
 
 
 
@@ -50,7 +52,7 @@ const Item = styled(Paper)(({ theme }) => ({
 
   return (
     <div>
-      <Navbar/>
+      <DoctorNavbar name ={info.firstName + ' ' + info.lastName} email={info.email} patientID={info.id} url={info.ava_url}/>
       <div className='container card text-center'>
       <div className="row">
         <div className="col-lg-5" >
@@ -95,11 +97,10 @@ const Item = styled(Paper)(({ theme }) => ({
             return (
               <div className="card">
                 <div className="card-header">
-                  Review
+                {item.email}
                   </div>
                   <div className="card-body">
-                    <p className="card-title">
-                    {item.email} </p>
+                    
                     <p> Rating:
                       {[...Array(item.rating)].map((_,index)=>(
                         <FaStar key ={index}/>

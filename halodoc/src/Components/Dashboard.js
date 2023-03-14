@@ -27,7 +27,7 @@ const Dashboard = () => {
                 </div>
             ) : (
               <div>
-                <Navbar name={backendData.data.firstName + ' ' + backendData.data.lastName} email={backendData.data.email} patientID={backendData.data.id} gender={backendData.data.gender}/>
+                <Navbar name={backendData.data.firstName + ' ' + backendData.data.lastName} email={backendData.data.email} patientID={backendData.data.id} gender={backendData.data.gender} />
                   <div className="container">
                     <div className="row">
                       <div className="col-lg-6">
