@@ -118,16 +118,7 @@ app.post('/doctorCancelAppointment', (req, res) => {
   console.log('doctor schedule')
   console.log(doctorSchedule)
   doctorSchedule = doctorSchedule.filter(item => {
-
-    console.log(item.startTime)
-    console.log(req.body.startTime)
-
-    console.log(item.date)
-    console.log(req.body.date)
-
-    console.log(item.patient_id)
-    console.log(patient.id)
-  return !(item.startTime === req.body.startTime && (new Date(item.date)).getTime() === (new Date(req.body.date)).getTime() && item.patient_id === patient.id);
+    return !(item.startTime === req.body.startTime && (new Date(item.date)).getTime() === (new Date(req.body.date)).getTime() && item.patient_id === patient.id);
   });
   console.log('doctor schedule filtered')
 
@@ -168,6 +159,7 @@ app.post('/makeappointmentbydoctor/:date/:hour', (req, res) => {
   }
   console.log(newAppointment);
   doctorData.push(newAppointment);
+  doctorData.sort((a, b) =>  (a.startTime < b.startTime )? 1 : -1).sort((a, b) => (new Date(a.date) > new Date(b.date)) ? 1 : -1)
   fs.writeFileSync(doctorFileName, JSON.stringify(doctorData, null, 2));
 
   try {
@@ -179,6 +171,7 @@ app.post('/makeappointmentbydoctor/:date/:hour', (req, res) => {
   }
   console.log(newAppointment);
   patientData.push(newAppointment);
+  patientData.sort((a, b) =>  (a.startTime < b.startTime )? 1 : -1).sort((a, b) => (new Date(a.date) > new Date(b.date)) ? 1 : -1)
   fs.writeFileSync(patientFileName, JSON.stringify(patientData, null, 2));
 
   res.send('Appointment submitted successfully!');

@@ -45,7 +45,7 @@ router.post('/', async (req, res) => {
         }
     })
 
-    res.json('/doctordashboard');
+    res.json('/showallpatient');
     
 });
 

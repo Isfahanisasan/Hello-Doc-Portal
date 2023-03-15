@@ -33,8 +33,7 @@ const PatientProfile = () => {
         <h1>
           {info.firstName} {info.lastName}
         </h1>
-        <p> contact :{info.phoneNumber} | {info.email}</p>
-        <button type="button" class="btn btn-primary" disabled>Change your Information</button>
+        <p> contact :{info.phoneNumber} <br/> {info.email}</p>
         <div style={{ margin: '30px' }}>
         </div>
         </div>

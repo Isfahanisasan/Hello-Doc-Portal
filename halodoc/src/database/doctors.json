@@ -291,5 +291,43 @@
       0,
       6
     ]
+  },
+  {
+    "ava_url": "https://xsgames.co/randomusers/assets/avatars/male/17.jpg",
+    "id": "17",
+    "firstName": "Jun",
+    "lastName": "Hayashi",
+    "specialty": "Internal medicine",
+    "email": "junhayashi@email.com",
+    "password": "$2b$05$HrAM82F1rzFOP2E/.uLwGundJPNGchzmraW3iNVbLavfUUj3m231y",
+    "number": "9495453379",
+    "Bdate": "1955-07-21",
+    "gender": "male",
+    "startTime": "09:00",
+    "endTime": "17:00",
+    "appointmentInterval": 30,
+    "dayOffs": [
+      0,
+      6
+    ]
+  },
+  {
+    "ava_url": "https://xsgames.co/randomusers/assets/avatars/male/18.jpg",
+    "id": "18",
+    "firstName": "Thinh",
+    "lastName": "Nguyen",
+    "specialty": "Internal medicine",
+    "email": "thinhnguyen@email.com",
+    "password": "$2b$05$avM5w6WBkRFv.QHQbge7p.88KFmqAn8hWOHiSZ/NbPjJsDOzeT5oO",
+    "number": "12345678",
+    "Bdate": "1999-08-18",
+    "gender": "male",
+    "startTime": "09:00",
+    "endTime": "17:00",
+    "appointmentInterval": 30,
+    "dayOffs": [
+      0,
+      6
+    ]
   }
 ]

@@ -16,7 +16,7 @@ const SearchDoctor = () => {
         <div className='Dashboard'>
             {(typeof backendData.data === 'undefined') ? (
                 <div style={{textAlign: "center"}}>
-                  <Navbar/>
+                
                   <img src={require("../Styles/img/loading.gif")} alt="" width="300px"/>
                 </div>
             ) : (

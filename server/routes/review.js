@@ -35,7 +35,7 @@ router.post('/', async(req, res) => {
                   const data = JSON.stringify(reviews, null, 2);
                   fs.writeFileSync('../halodoc/src/database/doctorReviews.json', data);
                   console.log('Review added successfully!');
-                  res.send('Sucessfully submit review');
+                  res.json(`/doctors/${doctor.doctor_id}`);
                 } catch (err) {
                   console.error(`Error writing to file: ${err}`);
                   res.send('Fail to submit review');
@@ -54,10 +54,10 @@ router.post('/', async(req, res) => {
                 const data = JSON.stringify(reviews, null, 2);
                 fs.writeFileSync('../halodoc/src/database/doctorReviews.json', data);
                 console.log('Review added successfully!');
-                res.send('Sucessfully submit review');
+                res.json(`/doctors/${doctor.doctor_id}`);
               } catch (err) {
                 console.error(`Error writing to file: ${err}`);
-                res.send('Fail to submit review');
+                
               }
             }
             
@@ -81,10 +81,9 @@ router.post('/', async(req, res) => {
             const data = JSON.stringify(reviews, null, 2);
             fs.writeFileSync('../halodoc/src/database/doctorReviews.json', data);
             console.log('Review added successfully!');
-            res.send('Sucessfully submit review');
+            res.json(`/doctors/${doctor.doctor_id}`);
           } catch (err) {
             console.error(`Error writing to file: ${err}`);
-            res.send('Fail to submit review');
           }
     }
 })  

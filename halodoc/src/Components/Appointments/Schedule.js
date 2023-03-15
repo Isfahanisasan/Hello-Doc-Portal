@@ -170,8 +170,7 @@ const Schedule = () => {
             
             {(typeof backendData.data === 'undefined') ? (
             <div style={{textAlign: "center"}}>
-              
-              <h2> Loading </h2> <br/>
+                <img src={require("../../Styles/img/loading.gif")} alt="" width="300px"/> 
             </div>
             ):(
                 <div>

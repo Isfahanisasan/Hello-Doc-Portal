@@ -37,12 +37,38 @@
   },
   {
     "doctor_id": "1",
-    "rating": 5,
+    "rating": "3.0",
     "reviews": [
       {
         "email": "ashleyle248@email.com",
         "rating": 5,
-        "review": "Good amazing handsome doc"
+        "review": "He's cool"
+      },
+      {
+        "email": "lediemhang87@email.com",
+        "rating": 2,
+        "review": "Wait too long"
+      },
+      {
+        "email": "lediemhang87@gmail.com",
+        "rating": 2,
+        "review": "wait too long"
+      }
+    ]
+  },
+  {
+    "doctor_id": "18",
+    "rating": "5.0",
+    "reviews": [
+      {
+        "email": "lediemhang87@gmail.com",
+        "rating": 5,
+        "review": "He is a great doctor!"
+      },
+      {
+        "email": "ashleyle248@email.com",
+        "rating": 5,
+        "review": "Doctor Thinh Nguyen is awesome!"
       }
     ]
   }

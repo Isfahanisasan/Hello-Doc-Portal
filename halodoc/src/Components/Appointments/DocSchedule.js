@@ -106,8 +106,16 @@ const DocSchedule = () => {
             return `${patient.firstName} ${patient.lastName}`;
     
         }
-        return ""
-        
+        return "" 
+    }
+
+    const getPatientBirthday = (patientID) => {
+        const patient = patients.find((patient) => patient.id === patientID);
+        if(patient != null){
+            return `${patient.Bdate}`;
+    
+        }
+        return "" 
     }
     
     
@@ -125,7 +133,7 @@ const DocSchedule = () => {
                     if (compareDates(date, doctorSchedule[i].date)){
                         if (hours.includes(doctorSchedule[i].startTime)) {
                             tempHours.splice(tempHours.indexOf(doctorSchedule[i].startTime), 1,
-                            doctorSchedule[i].startTime + ' with ' + getPatientName(doctorSchedule[i].patient_id));
+                            doctorSchedule[i].startTime + ' with ' + getPatientName(doctorSchedule[i].patient_id) + ' ' + getPatientBirthday(doctorSchedule[i].patient_id));
                             
                         } 
                         else {

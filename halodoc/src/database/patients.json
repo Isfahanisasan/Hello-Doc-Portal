@@ -265,5 +265,44 @@
     "phoneNumber": "1421481924",
     "Bdate": "1978-08-14",
     "gender": "male"
+  },
+  {
+    "id": "29",
+    "firstName": "Thit kho",
+    "lastName": "Hot vit",
+    "email": "thitkhohotvit@email.com",
+    "phoneNumber": "99929999999",
+    "Bdate": "1900-01-01",
+    "gender": "Other"
+  },
+  {
+    "id": "30",
+    "firstName": "Jayden",
+    "lastName": "Nguyen",
+    "email": "jayden@email.com",
+    "password": "$2b$05$ZwoMAK806qFbCOY6Z1bCj.doZLUJ15xG8BBlEX3vlKssO6hBDNPjO",
+    "number": "1234567890",
+    "Bdate": "2016-02-05",
+    "gender": "male"
+  },
+  {
+    "id": "31",
+    "firstName": "Nhung",
+    "lastName": "Pham",
+    "email": "nhungpham@email.com",
+    "password": "$2b$05$Xwm4lGslbUXEGMDmckJ4M.GcdGQUX8.5H/.AWchbgB8pDNIbiIGlO",
+    "number": "1234567890",
+    "Bdate": "1980-08-21",
+    "gender": "female"
+  },
+  {
+    "id": "32",
+    "firstName": "Andy",
+    "lastName": "Nguyen",
+    "email": "andynguyen12345@email.com",
+    "password": "$2b$05$J5pzLMwDFX4EtjKKXuvROOtYO4HV2EB2F5asBIqco/LauZdoXBofW",
+    "number": "1234567890",
+    "Bdate": "1978-04-05",
+    "gender": "male"
   }
 ]

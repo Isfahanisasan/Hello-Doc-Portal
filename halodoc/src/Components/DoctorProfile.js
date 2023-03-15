@@ -6,28 +6,15 @@ import { useNavigate } from 'react-router-dom';
 import '../Styles/container.scss';
 import '../Styles/Search.scss';
 import Navbar from './Navbar';
-import DoctorNavbar from './DoctorNavbar';
+import React, {useState, useEffect} from 'react';
+import axios from 'axios';
 
-import * as React from 'react';
+
 import Button from '@mui/material/Button';
 import { ButtonGroup } from '@mui/material';
 
-import { styled } from '@mui/material/styles';
-
-import Paper from '@mui/material/Paper';
-import { indigo } from '@mui/material/colors';
-
-
-
-const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-  }));
-
-  const DoctorProfile = () => {
+const DoctorProfile = () => {
+  
   let { id } = useParams();
   const navigate = useNavigate();
 
@@ -39,6 +26,12 @@ const Item = styled(Paper)(({ theme }) => ({
   const reviewsJson = JSON.parse(JSON.stringify(doctorReview));
   const reviewObject = reviewsJson.find((item) => item.doctor_id === id);
 
+  const [backendData, setBackendData] = useState({})
+
+  useEffect(() => {
+    axios.get('/dashboard').then((response) => {
+    setBackendData(response.data)
+  })})
 
 
   //When click handleReview, go to /review/doctor/id
@@ -52,7 +45,13 @@ const Item = styled(Paper)(({ theme }) => ({
 
   return (
     <div>
-      <Navbar/>
+      {(typeof backendData.data === 'undefined') ? (
+                <div style={{textAlign: "center"}}>
+                  <img src={require("../Styles/img/loading.gif")} alt="" width="300px"/>
+                </div>
+            ) : (
+      <div>
+      <Navbar name={backendData.data.firstName + ' ' + backendData.data.lastName} email={backendData.data.email} patientID={backendData.data.id} gender={backendData.data.gender} />
       <div className='container card text-center'>
       <div className="row">
         <div className="col-lg-5" >
@@ -79,7 +78,8 @@ const Item = styled(Paper)(({ theme }) => ({
           <img src ={require("../Styles/img/star.png")} width="30px"/>
           {reviewObject.rating}
           </h3>}
-        <p> contact :{info.number} | {info.email}</p>
+        <p> Phone number: {info.number} </p>
+        <p> Email: {info.email} </p>
 
         <div style={{ margin: '30px' }}>
         <ButtonGroup variant='outlined' aria-label='outlined button group' >
@@ -91,13 +91,15 @@ const Item = styled(Paper)(({ theme }) => ({
       </div>
       
       </div>
+      
       <div className="container text-start">
+        <h2> Reviews</h2>
         {reviewObject &&
           reviewObject.reviews.map(function (item, i) {
             return (
               <div className="card">
                 <div className="card-header">
-                {item.email}
+                  {item.email}
                   </div>
                   <div className="card-body">
                     
@@ -110,8 +112,10 @@ const Item = styled(Paper)(({ theme }) => ({
               </div>
             );
           })}
-          </div>
       </div>
+      </div>)}
+
+    </div>
   );
 };
 
