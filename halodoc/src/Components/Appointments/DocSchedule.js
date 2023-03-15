@@ -133,7 +133,7 @@ const DocSchedule = () => {
                     if (compareDates(date, doctorSchedule[i].date)){
                         if (hours.includes(doctorSchedule[i].startTime)) {
                             tempHours.splice(tempHours.indexOf(doctorSchedule[i].startTime), 1,
-                            doctorSchedule[i].startTime + ' with ' + getPatientName(doctorSchedule[i].patient_id) + ' ' + getPatientBirthday(doctorSchedule[i].patient_id));
+                            doctorSchedule[i].startTime + ' with ' + getPatientName(doctorSchedule[i].patient_id) + ' id: ' + doctorSchedule[i].patient_id);
                             
                         } 
                         else {
@@ -250,7 +250,7 @@ const DocSchedule = () => {
                                                                         </button>
                                                                 
                                                                         <div className="dropdown-menu dropdown-menu-end dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                                                                            <p onClick={() => handleCancel({ patient_name: hour.slice(11), date: date.toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }), startTime: hour.slice(0,5)})}>Cancel Appointment</p>
+                                                                            <p onClick={() => handleCancel({ patientID: hour.slice(hour.indexOf("id: ") + 4), date: date.toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }), startTime: hour.slice(0,5)})}>Cancel Appointment</p>
                                                                         </div>
                                                                     </div>
                                                                 </div>

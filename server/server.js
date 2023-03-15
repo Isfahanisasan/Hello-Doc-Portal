@@ -97,12 +97,14 @@ app.post('/doctorCancelAppointment', (req, res) => {
     return res.redirect('/doctorlogin');
   }
   console.log(req.body);
-  const patient = JSON.parse(fs.readFileSync('../halodoc/src/database/patients.json'))
-  .find(patient => patient.firstName === req.body.patient_name.split(" ")[0] && patient.lastName === req.body.patient_name.split(" ")[1]);
-  const fileName = '../halodoc/src/database/appointment/patient/' + patient.id + '.json';
-  console.log(patient.id)
+  // const patient = JSON.parse(fs.readFileSync('../halodoc/src/database/patients.json'))
+  // .find(patient => patient.firstName === req.body.patient_name.split(" ")[0] && patient.lastName === req.body.patient_name.split(" ")[1]);
+  const fileName = '../halodoc/src/database/appointment/patient/' + req.body.patientID + '.json';
+  console.log(req.patientID);
 
   let patientSchedule = JSON.parse(fs.readFileSync(fileName));
+  console.log('patient schedule')
+  console.log(patientSchedule)
 
   
   patientSchedule = patientSchedule.filter(item => {
@@ -118,13 +120,12 @@ app.post('/doctorCancelAppointment', (req, res) => {
   console.log('doctor schedule')
   console.log(doctorSchedule)
   doctorSchedule = doctorSchedule.filter(item => {
-    return !(item.startTime === req.body.startTime && (new Date(item.date)).getTime() === (new Date(req.body.date)).getTime() && item.patient_id === patient.id);
+    return !(item.startTime === req.body.startTime && (new Date(item.date)).getTime() === (new Date(req.body.date)).getTime() && item.patient_id === req.body.patientID);
   });
   console.log('doctor schedule filtered')
 
   console.log(doctorSchedule)
   fs.writeFileSync(fileNameDoctor, JSON.stringify(doctorSchedule, null, 2) + '\n');
-
 
   res.send('/dashboard');
 })
