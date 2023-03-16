@@ -29,9 +29,7 @@ cd server
 npm i
 ```
 # Run The App
-There are 2 ways to run the app.
 
-## 1st way is to open 2 terminals
 In the first terminal, run
 ```bash
 cd Bugs-Squasher
@@ -43,12 +41,6 @@ In the second terminal run
 cd Bugs-Squasher
 cd server
 npm run server
-```
-## 2nd way is to run
-```bash
-cd Bugs-Squasher
-cd server
-npm run dev
 ```
 ## Contributing
 
