@@ -1,7 +1,6 @@
 import {FaStar}from 'react-icons/fa';
 import { useParams } from 'react-router-dom';
-import doctorsJson from '../database/doctors.json';
-import doctorReview from '../database/doctorReviews.json';
+
 import { useNavigate } from 'react-router-dom';
 import '../Styles/container.scss';
 import '../Styles/Search.scss';
@@ -16,23 +15,17 @@ import { ButtonGroup } from '@mui/material';
 const DoctorProfile = () => {
   
   let { id } = useParams();
+
   const navigate = useNavigate();
 
-  //Get doctors.json
-  const doctors = JSON.parse(JSON.stringify(doctorsJson));
-  const info = doctors.find((doctor) => doctor.id === id);
-
-  //Get doctorReviews.json
-  const reviewsJson = JSON.parse(JSON.stringify(doctorReview));
-  const reviewObject = reviewsJson.find((item) => item.doctor_id === id);
 
   const [backendData, setBackendData] = useState({})
 
   useEffect(() => {
-    axios.get('/dashboard').then((response) => {
+    axios.get(`/doctors/${id}`).then((response) => {
+    console.log(response.data)
     setBackendData(response.data)
-  })})
-
+  })}, [])
 
   //When click handleReview, go to /review/doctor/id
   const handleReview = () => {
@@ -50,14 +43,14 @@ const DoctorProfile = () => {
                   <img src={require("../Styles/img/loading.gif")} alt="" width="300px"/>
                 </div>
             ) : (
-      <div>
+      <div> 
       <Navbar name={backendData.data.firstName + ' ' + backendData.data.lastName} email={backendData.data.email} patientID={backendData.data.id} gender={backendData.data.gender} />
       <div className='container card text-center'>
       <div className="row">
         <div className="col-lg-5" >
         <h1>
           <img
-            src={info.ava_url}
+            src={backendData.dataDoc.ava_url}
             alt=''
             className='round-img'
             style={{ width: '300px',borderRadius:"50%" }}
@@ -66,20 +59,20 @@ const DoctorProfile = () => {
         </div>
         <div className='col-lg-5'>
         <h1>
-          {info.firstName} {info.lastName}
+          {backendData.dataDoc.firstName} {backendData.dataDoc.lastName}
         </h1>
 
 
         <h3>
           <img src={require("../Styles/img/doctorIcon.png")} width="25px"/>
-          Specialty: {info.specialty}
+          Specialty: {backendData.dataDoc.specialty}
         </h3>
-        {reviewObject && <h3>
+        {backendData.dataReview && <h3>
           <img src ={require("../Styles/img/star.png")} width="30px"/>
-          {reviewObject.rating}
+          {backendData.dataReview.rating}
           </h3>}
-        <p> Phone number: {info.number} </p>
-        <p> Email: {info.email} </p>
+        <p> Phone number: {backendData.dataDoc.number} </p>
+        <p> Email: {backendData.dataDoc.email} </p>
 
         <div style={{ margin: '30px' }}>
         <ButtonGroup variant='outlined' aria-label='outlined button group' >
@@ -94,21 +87,24 @@ const DoctorProfile = () => {
       
       <div className="container text-start">
         <h2> Reviews</h2>
-        {reviewObject &&
-          reviewObject.reviews.map(function (item, i) {
+        {backendData.dataReview  &&
+          backendData.dataReview.reviews.map(function (item, i) {
             return (
-              <div className="card">
-                <div className="card-header">
-                  {item.email}
+              <div>
+                <div className="card">
+                  <div className="card-header">
+                    {item.email}
                   </div>
                   <div className="card-body">
-                    
                     <p> Rating:
                       {[...Array(item.rating)].map((_,index)=>(
                         <FaStar key ={index}/>
-                      ))}</p>
-                <p> "{item.review}" </p>
-              </div>
+                      ))}
+                      </p>
+                    <p> "{item.review}" </p>
+                  </div>
+                </div>
+                <br/>
               </div>
             );
           })}

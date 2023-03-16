@@ -37,7 +37,7 @@
   },
   {
     "doctor_id": "1",
-    "rating": "3.0",
+    "rating": "2.7",
     "reviews": [
       {
         "email": "ashleyle248@email.com",
@@ -53,6 +53,21 @@
         "email": "lediemhang87@gmail.com",
         "rating": 2,
         "review": "wait too long"
+      },
+      {
+        "email": "abc@e.com",
+        "rating": 2,
+        "review": "meh"
+      },
+      {
+        "email": "john@email.com",
+        "rating": 4,
+        "review": "good"
+      },
+      {
+        "email": "ahah@d.com",
+        "rating": 1,
+        "review": "terrible"
       }
     ]
   },
@@ -69,6 +84,91 @@
         "email": "ashleyle248@email.com",
         "rating": 5,
         "review": "Doctor Thinh Nguyen is awesome!"
+      }
+    ]
+  },
+  {
+    "doctor_id": "12",
+    "rating": "4.5",
+    "reviews": [
+      {
+        "email": "email@email.com",
+        "rating": 5,
+        "review": "good doc"
+      },
+      {
+        "email": "a@email.com",
+        "rating": 4,
+        "review": "meh"
+      }
+    ]
+  },
+  {
+    "doctor_id": "16",
+    "rating": "3.3",
+    "reviews": [
+      {
+        "email": "ashleyle248@email.com",
+        "rating": 1,
+        "review": "Rude"
+      },
+      {
+        "email": "e@email.com",
+        "rating": 5,
+        "review": "cool"
+      },
+      {
+        "email": "cool@email.com",
+        "rating": 4,
+        "review": "cool doc"
+      }
+    ]
+  },
+  {
+    "doctor_id": "6",
+    "rating": "4.0",
+    "reviews": [
+      {
+        "email": "abc@email.com",
+        "rating": 5,
+        "review": "She is awesome"
+      },
+      {
+        "email": "a@email.com",
+        "rating": 2,
+        "review": "meh"
+      },
+      {
+        "email": "ashley@email.com",
+        "rating": 5,
+        "review": "my name"
+      }
+    ]
+  },
+  {
+    "doctor_id": "3",
+    "rating": "3.5",
+    "reviews": [
+      {
+        "email": "ashley@email.com",
+        "rating": 4,
+        "review": "123456"
+      },
+      {
+        "email": "a@email.com",
+        "rating": 3,
+        "review": "ok"
+      }
+    ]
+  },
+  {
+    "doctor_id": "10",
+    "rating": 4,
+    "reviews": [
+      {
+        "email": "ash@email.com",
+        "rating": 4,
+        "review": "he's funny"
       }
     ]
   }

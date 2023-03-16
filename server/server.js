@@ -32,6 +32,27 @@ app.use('/makeappointment', require('./routes/makeappointment'));
 app.use('/addNewPatient', require('./routes/addNewPatient'));
 app.use('/doctorsignup', require('./routes/doctorsignup'));
 
+app.get('/doctors/:id', (req, res) => {
+
+  let reviews = JSON.parse(fs.readFileSync('../halodoc/src/database/doctorReviews.json'))
+  let doctors = JSON.parse(fs.readFileSync('../halodoc/src/database/doctors.json'))
+  let patients = JSON.parse(fs.readFileSync('../halodoc/src/database/patients.json'))
+
+
+  if (!req.session.patientID) {
+      return res.redirect('/patientlogin');
+  }
+
+  const patient = patients.find((patient) => patient.id === req.session.patientID);
+ 
+
+  const doctor = doctors.find((doctor) => doctor.id === req.params.id)
+  console.log(doctor)
+
+  const review = reviews.find((item) => item.doctor_id === req.params.id);
+
+  res.json({data: patient, dataDoc: doctor, dataReview: review})
+  });
 
 
 

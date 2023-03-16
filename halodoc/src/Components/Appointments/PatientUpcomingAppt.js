@@ -8,18 +8,13 @@ import '../../Styles/Styles.PatientUpcoming.scss'
 
 const PatientUpcomingAppt = ({patientId,firstName,lastName}) => {
 
-    const schedules = JSON.parse(JSON.stringify(schedulesJson));
     // const patients = JSON.parse(JSON.stringify(patientsJson));
-    const doctors = JSON.parse(JSON.stringify(doctorsJson));
     
-    const schedule = schedules.filter((schedule) => schedule.patient_id === patientId)
-    const [loading, setLoading] = useState(true);
     const [backendData, setBackendData] = useState([]);
 
     const today = new Date();
     const options = { month: '2-digit', day: '2-digit', year: 'numeric' };
     const dateString = today.toLocaleDateString('en-US', options);
-    let myAppointments = []
     
     useEffect(() => {
         axios.get(`/patientUpcoming/${patientId}`)

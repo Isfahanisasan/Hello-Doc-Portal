@@ -15,7 +15,7 @@ const Dashboard = () => {
     useEffect(() => {
       axios.get('/dashboard').then((response) => {
       setBackendData(response.data)
-    })})
+    })}, [])
 
 
     return(

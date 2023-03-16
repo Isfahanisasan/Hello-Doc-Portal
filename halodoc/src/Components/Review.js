@@ -15,7 +15,6 @@ const Review = () => {
     const [review, setReview] = useState('');
     const [rating, setRating] = useState(null);
     const info = doctors.find((doctor) => doctor.id === id)
-    const [alert, setAlert] = useState('');
     const [backendData, setBackendData] = useState({})
 
     useEffect(() => {
@@ -28,11 +27,9 @@ const Review = () => {
         
         try {
             const response = await axios.post('/review', { id, email, rating, review });
-            console.log(response.data)
             navigate(response.data)
         } 
-        
-          catch (err) {
+        catch (err) {
           console.error(err);
         }
       };
@@ -70,7 +67,6 @@ const Review = () => {
                     <label> Review </label>
                     <textarea onChange={e => setReview(e.target.value)} className="form-control" id="exampleFormControlTextarea1" rows="3" required/>
                     <button className= 'btn btn-success' type='submit'> Submit </button>
-                    <p>{alert}</p>
                 </div>
             </form>
             

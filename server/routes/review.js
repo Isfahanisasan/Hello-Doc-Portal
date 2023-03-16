@@ -2,11 +2,6 @@ const express = require('express');
 const router = express.Router();
 const fs = require('fs');
 
-
-router.get('/', (req, res) => {
-  // Do some thing
-});
-
 router.post('/', async(req, res) => {
     let reviews = JSON.parse(fs.readFileSync('../halodoc/src/database/doctorReviews.json'))
 
@@ -14,6 +9,7 @@ router.post('/', async(req, res) => {
 
     if (doctor){
         const doctorReviews = reviews.find((doctor) => doctor.doctor_id === req.body.id).reviews;
+
         if (doctorReviews){
 
             const thisEmail = doctorReviews.find((review) => review.email === req.body.email)
@@ -57,7 +53,6 @@ router.post('/', async(req, res) => {
                 res.json(`/doctors/${doctor.doctor_id}`);
               } catch (err) {
                 console.error(`Error writing to file: ${err}`);
-                
               }
             }
             
@@ -81,7 +76,7 @@ router.post('/', async(req, res) => {
             const data = JSON.stringify(reviews, null, 2);
             fs.writeFileSync('../halodoc/src/database/doctorReviews.json', data);
             console.log('Review added successfully!');
-            res.json(`/doctors/${doctor.doctor_id}`);
+            res.json(`/doctors/${req.body.id}`);
           } catch (err) {
             console.error(`Error writing to file: ${err}`);
           }
