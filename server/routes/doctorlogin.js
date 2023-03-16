@@ -25,6 +25,10 @@ router.post('/', async (req, res) => {
           console.log(err)
         }
       }
+      else {
+        res.json(null)
+        return;
+      }
     }
   });
 
