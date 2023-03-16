@@ -54,9 +54,9 @@ const DoctorSignup = () => {
           <div className="col-lg-6">
             <div className="text1">
 
-              <h1>Provide strightforwad,fast medical appointment service</h1>
+              <h1>Provide straightforward,fast medical appointment service</h1>
               <br /><br />
-              <h3>Save your Time and checky your appointment calendar Conveniently </h3> <br />
+              <h3>Save your time and check your appointments conveniently!!! </h3> <br />
               <img src={require("../Styles/img/doctor_online_3.jpg")} alt="" width="300px" height="250px" className="image" />
 
             </div>
