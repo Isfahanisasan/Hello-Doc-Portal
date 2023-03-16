@@ -13,7 +13,9 @@ router.get('/', async (req, res) => {
     }
   const doctor = doctors.find((doctor) => doctor.id === req.session.doctorID);
   const review = reviews.find((item) => item.doctor_id === req.session.doctorID);
-
+  
+  console.log(doctor);
+  // console.log(review)
   res.json({data: doctor, reviews: review})
 });
 
