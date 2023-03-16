@@ -11,16 +11,20 @@ router.post('/', async (req, res) => {
 
     const { email, password } = req.body;
     const doctor = doctors.find((doctor) => doctor.email === email);
-    let password_matched = await  hashHelper.comparePassword(password, doctor.password);
-    if (!doctor || !password_matched) {
+    if (!doctor) {
         res.json(null)
         return;
     }
-    try {
-        req.session.doctorID = doctor.id;
-        res.json(doctor)
-    } catch (err) {
-      console.log(err)
+    else {
+      let password_matched = await hashHelper.comparePassword(password, doctor.password);
+      if(password_matched) {
+        try {
+          req.session.doctorID = doctor.id;
+          res.json(doctor)
+        } catch (err) {
+          console.log(err)
+        }
+      }
     }
   });
 
