@@ -10,8 +10,9 @@ router.post('/', async (req, res) => {
     let doctors = JSON.parse(fs.readFileSync('../halodoc/src/database/doctors.json'))
 
     const { email, password } = req.body;
-    const doctor = doctors.find((doctor) => doctor.email === email && hashHelper.comparePassword(password, doctor.password));
-    if (!doctor) {
+    const doctor = doctors.find((doctor) => doctor.email === email);
+    let password_matched = await  hashHelper.comparePassword(password, doctor.password);
+    if (!doctor || !password_matched) {
         res.json(null)
         return;
     }
