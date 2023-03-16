@@ -60,7 +60,7 @@ const PatientLogin = () => {
                 <h1> Patient login</h1>
                   <input type="text" placeholder="Username" id="patientUsername" onChange={e => setEmail(e.target.value)} required/>
                   <input type="password" placeholder="Password" id="patientPassword" onChange={e => setPassword(e.target.value)} required/>
-                  {error}
+                  <p style={{"text": "red"}}>{error}</p>
                   <br/>
                   <button id='patientSubmit' onClick={handleSubmit}> Login </button>
                   <p> Don't have an account? <Link to='/patientsignup'> Sign up </Link> </p>
