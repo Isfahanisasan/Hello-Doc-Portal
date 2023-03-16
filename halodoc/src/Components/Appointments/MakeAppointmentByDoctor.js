@@ -1,8 +1,11 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect}  from 'react';
 import {useParams} from "react-router-dom";
-import Select from 'react-select';
 import axios from 'axios';
+import Select from 'react-select';
 import { useNavigate } from "react-router-dom";
+import DoctorNavbar from '../DoctorNavbar'
+
+
 const patients = require('../../database/patients.json');
 
 
@@ -30,18 +33,14 @@ const MakeAppointmentByDoctor = () => {
 
 
     
-    const [error, setError] = useState('');
+    const [backendData, setBackendData] = useState({})
 
 
-    // a generic function to handle input change
-    // const handleInputChange = (e) => {
-    //     const {name, value} = e.target;
-    //     setFormValues({
-    //         ...formValues,
-    //         [name]: value
-    //     });
-
-    // };
+    useEffect(() => {
+      axios.get('/doctorDashboard').then(function (response) {
+      setBackendData(response.data)
+      console.log(backendData)
+    })}, [])
 
     const handleSelectedPatient = (selectedOptions) => {
       const selectedValue = selectedOptions.value;
@@ -63,29 +62,37 @@ const MakeAppointmentByDoctor = () => {
             console.log('successful')
             navigate('/docschedule');
           } else {
-            setError('There was an error with your signup')
+            console.error('There was an error with your signup')
           }
         }
         catch (err){
           console.error(err);
-          setError('There was an error with your signup');
         }
     
       };
 
         return(
             <div>
-              <section>
-                <div className="makeAppt">
-                  <h1 >Add appointment to {dateObj.getMonth() + 1}/{dateObj.getDate()}/{dateObj.getFullYear()} at {hour} </h1>
-                  <form onSubmit={handleSubmit}>
-                    <label>Choose a patient</label>
-                      <Select options={patientOptions} onChange={handleSelectedPatient} required/>
-                    <button type="submit">Submit</button>
-                  </form>
+              {(typeof backendData.data === 'undefined') ? (
+                  <div className='loading'>
+                    <img src={require("../../Styles/img/loading.gif")} alt="" width="300px"/> 
+                  </div>
+              ) : (
+                <div >
+                <DoctorNavbar name= {backendData.data.firstName + backendData.data.lastName} id={backendData.data.id} url={backendData.data.ava_url} />
+                  <div className='container'>
+                  <div className="makeAppt">
+                    <h1 >Add appointment </h1> 
+                    <h2> {dateObj.getMonth() + 1}/{dateObj.getDate()}/{dateObj.getFullYear()} at {hour} </h2>
+                    <form onSubmit={handleSubmit}>
+                      <label>Choose a patient</label><br/>
+                        <Select options={patientOptions} onChange={handleSelectedPatient} required/><br/>
+                      <button type="submit" className='btn btn-success'>Submit</button>
+                    </form>
+                  </div>
+                  </div>
                 </div>
-              </section>  
-
+              )}
           </div>
 
         )
