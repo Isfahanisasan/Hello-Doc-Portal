@@ -205,6 +205,8 @@ app.post('/makeappointmentbydoctor/:date/:hour', (req, res) => {
 
 app.get('/docschedule', (req, res) =>{
   let doctors = JSON.parse(fs.readFileSync('../halodoc/src/database/doctors.json'))
+  let patients = JSON.parse(fs.readFileSync('../halodoc/src/database/patients.json'))
+
 
   if (!req.session.doctorID) {
     console.log('Not logged in');
@@ -224,7 +226,7 @@ app.get('/docschedule', (req, res) =>{
   const currentDoctorJson = doctors.find((doctor) => doctor.id === req.session.doctorID);
   const currentDoctor = JSON.parse(JSON.stringify(currentDoctorJson));
 
-  return res.json({currentDoctor: currentDoctor, doctorSchedule: doctorSchedule});
+  return res.json({currentDoctor: currentDoctor, doctorSchedule: doctorSchedule, patients: patients});
 
 })
 

@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
-import patients from '../../database/patients.json';
 import '../../Styles/Styles.DocSchedule.scss'
 import DoctorNavbar from '../DoctorNavbar';
 import { useNavigate } from 'react-router-dom';
@@ -67,6 +66,7 @@ const DocSchedule = () => {
     var dayOff = [1,2]
     var doctor = {}
     var doctorSchedule = [];
+    var patients=[]
     
     
    /*Whereever you need to use the data from the backend, you should use the following code
@@ -80,6 +80,8 @@ const DocSchedule = () => {
         interval = doctor.appointmentInterval;
         dayOff = doctor.dayOffs;
         doctorSchedule = backendData.doctorSchedule;
+        patients = backendData.patients;
+
        
     }
     
@@ -101,12 +103,14 @@ const DocSchedule = () => {
     //Go through each time slot in the date and compare with the data in doctor/{id}.json
     //and check if there is an apointment at that time slot
     const getPatientName = (patientID) => {
+        
         const patient = patients.find((patient) => patient.id === patientID);
         if(patient != null){
             return `${patient.firstName} ${patient.lastName}`;
     
         }
         return "" 
+        
     }
     
     
