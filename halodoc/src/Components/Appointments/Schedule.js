@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import {useParams} from "react-router-dom";
 import axios from 'axios';
 import Navbar from '../Navbar';
-import scheduleJson from '../../database/schedules.json'
 import '../../Styles/Styles.Schedule.scss'
 
 
@@ -197,7 +196,8 @@ const Schedule = () => {
                                             <div>{days[date.getDay()]} {date.getMonth()+1}/{date.getDate()}</div>
                                         </div>
                                         <div className='scheduleHours'>
-                                            {selectedTimeSlot(date).map(hour => ( 
+                                            {new Date(date) >= new Date()
+                                                && selectedTimeSlot(date).map(hour => ( 
                                                 <div onChange={(e) => {setPickTime(e.target.value); setPickDate((date.getMonth()+1)+"/"+date.getDate()+"/"+date.getFullYear())}}>
                                                 
                                                 <div key={hour}>
