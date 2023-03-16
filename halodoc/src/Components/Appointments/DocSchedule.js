@@ -108,15 +108,6 @@ const DocSchedule = () => {
         }
         return "" 
     }
-
-    const getPatientBirthday = (patientID) => {
-        const patient = patients.find((patient) => patient.id === patientID);
-        if(patient != null){
-            return `${patient.Bdate}`;
-    
-        }
-        return "" 
-    }
     
     
     
@@ -228,8 +219,8 @@ const DocSchedule = () => {
                             <div className='container'>
                                 <div className='row'>
                                     
-                                    {weeklyDates.map(date => (
-                                        <div className='col'>
+                                    {weeklyDates.map((date,i) => (
+                                        <div className='col' key={i}>
                                             <div className='date-title'>
                                                 <div>{days[date.getDay()]} {date.getMonth()+1}/{date.getDate()}</div>
                                             </div>
@@ -256,9 +247,9 @@ const DocSchedule = () => {
                                                                 </div>
                                                             
                                                             ):(
-                                                                <a onClick={() => {navigate(`/makeappointmentbydoctor/${date}/${hour}`)}}  className="timeLink"> 
+                                                                <div onClick={() => {navigate(`/makeappointmentbydoctor/${date}/${hour}`)}} className="timeLink"> 
                                                                     <div className='hour'> {hour}</div>
-                                                                </a>
+                                                                </div>
                                                             )}
                                                     </div>
                                                 ))} 

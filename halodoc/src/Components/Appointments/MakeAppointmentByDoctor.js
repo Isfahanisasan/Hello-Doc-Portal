@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import DoctorNavbar from '../DoctorNavbar'
 
 
-const patients = require('../../database/patients.json');
+// const patients = require('../../database/patients.json');
 
 
 
@@ -16,15 +16,9 @@ const MakeAppointmentByDoctor = () => {
   let navigate = useNavigate(); 
     let{date, hour} = useParams(); 
 
-    const patientOptions = [];
+    const [patientOptions,setPatientOptions] = useState([]);
 
-    const patientsData = JSON.parse(JSON.stringify(patients));
-        for (let patient of patientsData){ //important the difference between and in in 
-            const option = { value: `${patient.id}`, label: `${patient.firstName} ${patient.lastName} ${patient.Bdate}`}
-            patientOptions.push(option);
-        
-      } 
-
+ 
 
     const [formValues, setFormValues] = useState({
         patientID: '',
@@ -37,10 +31,16 @@ const MakeAppointmentByDoctor = () => {
 
 
     useEffect(() => {
-      axios.get('/doctorDashboard').then(function (response) {
+      axios.get('/makeAppointmentByDoctor').then(function (response) {
       setBackendData(response.data)
-      console.log(backendData)
-    })}, [])
+
+      let patientsData = [];
+      for (let patient of response.data.dataPatient){ //important the difference between and in in 
+        const option = { value: `${patient.id}`, label: `${patient.firstName} ${patient.lastName} ${patient.Bdate}`}
+        patientsData.push(option);}
+      
+      setPatientOptions(patientsData)
+      })}, [])
 
     const handleSelectedPatient = (selectedOptions) => {
       const selectedValue = selectedOptions.value;
@@ -56,10 +56,7 @@ const MakeAppointmentByDoctor = () => {
         try{
           const response = await axios.post(`/makeappointmentbydoctor/${dateObj}/${hour}`, formValues);
 
-          console.log(dateObj);
-          console.log(response.data);
           if(response.status === 200){
-            console.log('successful')
             navigate('/docschedule');
           } else {
             console.error('There was an error with your signup')

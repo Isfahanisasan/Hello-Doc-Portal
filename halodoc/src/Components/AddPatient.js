@@ -51,7 +51,6 @@ const AddPatient = () => {
     useEffect(() => {
         axios.get('/doctorDashboard').then(function (response) {
         setBackendData(response.data)
-        console.log(backendData)
       })}, [])
 
     return(
@@ -66,7 +65,7 @@ const AddPatient = () => {
             <DoctorNavbar name= {backendData.data.firstName + backendData.data.lastName} id={backendData.data.id} url={backendData.data.ava_url} />
                 <div className="container">
                     <form onSubmit={handleSubmit}>
-                    <img src={require('../Styles/img/add-user.png')}/>
+                    <img src={require('../Styles/img/add-user.png')} alt='add-user'/>
                     <h1> Add new patient </h1>
                     
                     

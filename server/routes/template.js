@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const doctors = require('../../halodoc/src/database/doctors.json');
+const fs = require('fs');
 
 router.get('/', (req, res) => {
   // Do some thing

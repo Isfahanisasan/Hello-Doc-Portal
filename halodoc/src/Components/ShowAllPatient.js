@@ -1,6 +1,5 @@
 import React, {useState, useEffect}  from 'react';
 import { useNavigate } from "react-router-dom";
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 import '../Styles/Styles.ShowAllPatient.scss'
 import DoctorNavbar from './DoctorNavbar'
@@ -8,12 +7,10 @@ import DoctorNavbar from './DoctorNavbar'
 const ShowAllPatient = () => {
     let navigate = useNavigate();
     const [backendData, setBackendData] = useState([])
-    const [searchField, setSearchField] = useState("")
     const [backUp, setBackUp] = useState([])
 
     useEffect(() => {
       axios.get('/showallpatient').then(function (response) {
-      console.log(response.data)
       setBackendData(response.data);
       setBackUp(response.data)
     })}, [])
@@ -66,8 +63,8 @@ const ShowAllPatient = () => {
                             </div>
                             <div className='gallery-card'>
                               {backendData.patientsdata
-                                .map(patient => (
-                                <div className="card card-format" style={{width: '18rem'}}>
+                                .map((patient,i) => (
+                                <div className="card card-format" style={{width: '18rem'}} key={i}>
                                   <div className="card-body">
                                     <div className='row'> 
                                       <p>Name: {patient.firstName} {patient.lastName}</p>
@@ -81,8 +78,8 @@ const ShowAllPatient = () => {
                                           
                                           <div className="dropdown-menu dropdown-menu-end dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                                           {backendData.appointment.filter(appointment => appointment.patient_id === patient.id)
-                                            .map(appt => (
-                                              <div>  {appt.date} {appt.startTime} </div>
+                                            .map((appt, i) => (
+                                              <div key={i}>  {appt.date} {appt.startTime} </div>
                                             ))}
                                           </div>
                                       </div>

@@ -1,6 +1,5 @@
 import React, {useState, useEffect}  from 'react';
 import { useNavigate } from "react-router-dom";
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 import '../Styles/Styles.DoctorDashboard.scss'
 import DoctorNavbar from './DoctorNavbar'
@@ -12,8 +11,7 @@ const DoctorDashboard = () => {
     useEffect(() => {
       axios.get('/doctorDashboard').then(function (response) {
       setBackendData(response.data)
-      console.log(backendData)
-    })}, [])
+    })}, [backendData])
 
     return(
         <div>
@@ -54,7 +52,7 @@ const DoctorDashboard = () => {
                           <div className='row'>
                             <div className='col'>
                               <button className="btn btn-light " onClick={() => navigate('/docschedule')}>  See your schedule 
-                                <img src={require("../Styles/img/calendar_icon.png")} width='100%'/> 
+                                <img src={require("../Styles/img/calendar_icon.png")} alt='calendar' width='100%'/> 
                               </button> 
                               
                             </div>
@@ -63,14 +61,14 @@ const DoctorDashboard = () => {
                                 <button className="btn btn-light" onClick={() => navigate('/showallpatient')}> 
                                 
                                   Show all patients 
-                                  <img src={require("../Styles/img/patient.png") } width='100%'/>
+                                  <img src={require("../Styles/img/patient.png") } alt='allPatient' width='100%'/>
                                   
                                 </button>
                             </div>
 
                             <div className='col'> 
                               <button className="btn btn-light " onClick={() => navigate('/editavailability')}> Edit working hour 
-                                <img src={require("../Styles/img/information.png") } width='100%'/>
+                                <img src={require("../Styles/img/information.png") } alt='information' width='100%'/>
                               </button>
                             </div>
                           </div>
@@ -96,8 +94,8 @@ const DoctorDashboard = () => {
                         
                             {backendData.appointment
                               .sort((a, b) => a.startTime > b.startTime ? 1 : -1)
-                              .map(appt => (
-                              <div className="card">
+                              .map((appt,i) => (
+                              <div className="card" key={i}>
                                 <div className="card-body">
                                   <div className='row'> 
                                     <div className='col-sm-3'> {appt.patientName} </div>

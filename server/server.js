@@ -31,6 +31,9 @@ app.use('/review', require('./routes/review'));
 app.use('/makeappointment', require('./routes/makeappointment'));
 app.use('/addNewPatient', require('./routes/addNewPatient'));
 app.use('/doctorsignup', require('./routes/doctorsignup'));
+app.use('/makeAppointmentByDoctor', require('./routes/makeAppointmentByDoctor'));
+app.use('/doctorProfileDoc/:id', require('./routes/doctorProfileDoc'));
+app.use('/patientProfile', require('./routes/patientProfile'));
 
 app.get('/doctors/:id', (req, res) => {
 

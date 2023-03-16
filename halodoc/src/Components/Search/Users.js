@@ -13,8 +13,8 @@ const Users = ({ users, loading }) => {
       <div className='userStyle'>
         <div className="container text-center">
           <div className='row justify-content-center'>
-            {users.map(user => (
-              <div className='col-lg-4'>
+            {users.map((user,i) => (
+              <div className='col-lg-4' key={i}>
                 <UserItem key={user.id} user={user} />
               </div>
             ))}
