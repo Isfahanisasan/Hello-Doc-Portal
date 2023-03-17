@@ -8,9 +8,9 @@
     "email": "johndoe@email.com",
     "password": "$2b$05$M8v2i6IqzpCREzMZjW2n4eI0pWptBKBHa3uMt7y92azlMKBuRfa46",
     "number": "7147286064",
-    "startTime": "12:20",
-    "endTime": "18:20",
-    "appointmentInterval": 15,
+    "startTime": "09:00",
+    "endTime": "17:20",
+    "appointmentInterval": 60,
     "dayOffs": [
       6,
       0

@@ -118,10 +118,23 @@ const DocSchedule = () => {
 
     const selectedTimeSlot = (date) => {
         let tempHours = createTimeArray(startTime, endTime, interval);
+        let arr = []
         
         for (let i = 0; i < dayOff.length; i++){
-            if (date.getDay() === dayOff[i])
-                return []
+            if (date.getDay() === dayOff[i]){
+                if(doctorSchedule != null){
+                    for (let i = 0; i < doctorSchedule.length; i++){
+                        if (compareDates(date, doctorSchedule[i].date)){
+                            arr.push(doctorSchedule[i].startTime + ' with ' + getPatientName(doctorSchedule[i].patient_id) + ' id: ' + doctorSchedule[i].patient_id );
+                        }
+                    }
+                }
+
+                return arr
+            }
+
+
+                
         }
             if(doctorSchedule != null){
                 for (let i = 0; i < doctorSchedule.length; i++){
@@ -131,8 +144,9 @@ const DocSchedule = () => {
                             doctorSchedule[i].startTime + ' with ' + getPatientName(doctorSchedule[i].patient_id) + ' id: ' + doctorSchedule[i].patient_id);
                             
                         } 
-                        else {
-                            tempHours.push(doctorSchedule[i].startTime + ' with ' + getPatientName(doctorSchedule[i].patient_id));
+                        // This is for the case that there is no such start time in the array (due to doctor's edit availability)
+                        else { 
+                            tempHours.push(doctorSchedule[i].startTime + ' with ' + getPatientName(doctorSchedule[i].patient_id) + ' id: ' + doctorSchedule[i].patient_id );
                         }
                         
                     }
@@ -180,19 +194,11 @@ const DocSchedule = () => {
         setTimeout(()=>{
             window.location.reload(false);
         }, 500);
-        console.log('page to reload')
     }
 
     const handleCancel = async (appointment) => {
-        console.log(appointment)
         try {
-            const response = await axios.post('/doctorCancelAppointment', appointment).then(refreshPage);
-            
-            if(response.status === 200) {
-                console.log('successful');
-            } else {
-                console.log("Error Make Appointment");
-            }
+            await axios.post('/doctorCancelAppointment', appointment).then(refreshPage);
         }
         catch (err) {
             console.error(err);

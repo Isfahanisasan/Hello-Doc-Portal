@@ -58,12 +58,12 @@ const Review = () => {
                 </div>
                
 
-                <label for="exampleInputEmail1">Email address</label>
+                <label htmlFor="exampleInputEmail1">Email address</label>
                 <input type="email" onChange={e => setEmail(e.target.value)} className="form-control" placeholder="Enter email" required/>
                 <p> Rating: </p>
                 <StarRating onRatingChange={(newValue) => setRating(newValue)} required/>
         
-                <div class="form-group">
+                <div className="form-group">
                     <label> Review </label>
                     <textarea onChange={e => setReview(e.target.value)} className="form-control" id="exampleFormControlTextarea1" rows="3" required/>
                     <button className= 'btn btn-success' type='submit'> Submit </button>

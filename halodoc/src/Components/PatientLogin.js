@@ -25,7 +25,6 @@ const PatientLogin = () => {
           email,
           password
         });
-        console.log(response.data)
         if (response.data){
           navigate('/dashboard')
         } else {

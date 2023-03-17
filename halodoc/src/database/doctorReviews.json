@@ -37,7 +37,7 @@
   },
   {
     "doctor_id": "1",
-    "rating": "2.7",
+    "rating": "2.9",
     "reviews": [
       {
         "email": "ashleyle248@email.com",
@@ -68,6 +68,16 @@
         "email": "ahah@d.com",
         "rating": 1,
         "review": "terrible"
+      },
+      {
+        "email": "ashleyle248@emailc.com",
+        "rating": 2,
+        "review": "Hurts me"
+      },
+      {
+        "email": "niccce@email.com",
+        "rating": 5,
+        "review": "nice doc"
       }
     ]
   },
@@ -147,7 +157,7 @@
   },
   {
     "doctor_id": "3",
-    "rating": "3.5",
+    "rating": "3.3",
     "reviews": [
       {
         "email": "ashley@email.com",
@@ -158,6 +168,11 @@
         "email": "a@email.com",
         "rating": 3,
         "review": "ok"
+      },
+      {
+        "email": "joebruin@email.com",
+        "rating": 3,
+        "review": "I am still hurt"
       }
     ]
   },
@@ -169,6 +184,17 @@
         "email": "ash@email.com",
         "rating": 4,
         "review": "he's funny"
+      }
+    ]
+  },
+  {
+    "doctor_id": "2",
+    "rating": 4,
+    "reviews": [
+      {
+        "email": "ashley@e",
+        "rating": 4,
+        "review": "she cool"
       }
     ]
   }

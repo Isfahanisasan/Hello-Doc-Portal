@@ -1,5 +1,3 @@
-import { useParams } from 'react-router-dom';
-
 import Navbar from './Navbar';
 import "../Styles/Styles.Dashboard.scss"
 import axios from 'axios';
@@ -12,7 +10,6 @@ const PatientProfile = () => {
 
   useEffect(() => {
     axios.get('/patientProfile').then(function (response) {
-    console.log(response.data)
     setBackendData(response.data)
   })}, [])
 
@@ -41,7 +38,7 @@ const PatientProfile = () => {
                   <h1>
                     {backendData.data.firstName} {backendData.data.lastName}
                   </h1>
-                  <p> contact :{backendData.data.number} <br/> {backendData.data.email}</p>
+                  <p> contact :{backendData.data.phoneNumber} <br/> {backendData.data.email}</p>
                   <div style={{ margin: '30px' }}>
                   </div>
                   </div>

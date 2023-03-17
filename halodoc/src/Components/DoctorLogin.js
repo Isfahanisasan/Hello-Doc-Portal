@@ -23,7 +23,6 @@ const DoctorLogin = () => {
         email,
         password
       });
-      console.log(response.data)
       if (response.data) {
         navigate('/doctorDashboard')
       } else {

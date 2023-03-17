@@ -10,10 +10,8 @@ const DoctorNavbar = ({name, email, id, url}) => {
   const handleLogout= async (e) => {
     
       e.preventDefault();
-      console.log('Click logout')
       try {
         const response = await axios.post('/doctorlogout');
-        console.log(response.data.data)
         navigate(response.data.data)
       } catch (err) {
         console.error(err);

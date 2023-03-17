@@ -23,9 +23,8 @@ const DoctorProfile = () => {
 
   useEffect(() => {
     axios.get(`/doctors/${id}`).then((response) => {
-    console.log(response.data)
     setBackendData(response.data)
-  })}, [])
+  })}, [id])
 
   //When click handleReview, go to /review/doctor/id
   const handleReview = () => {
@@ -64,11 +63,11 @@ const DoctorProfile = () => {
 
 
         <h3>
-          <img src={require("../Styles/img/doctorIcon.png")} width="25px"/>
+          <img src={require("../Styles/img/doctorIcon.png")} alt='doctorIcon' width="25px"/>
           Specialty: {backendData.dataDoc.specialty}
         </h3>
         {backendData.dataReview && <h3>
-          <img src ={require("../Styles/img/star.png")} width="30px"/>
+          <img src ={require("../Styles/img/star.png")} alt='star' width="30px"/>
           {backendData.dataReview.rating}
           </h3>}
         <p> Phone number: {backendData.dataDoc.number} </p>
@@ -90,10 +89,10 @@ const DoctorProfile = () => {
         {backendData.dataReview  &&
           backendData.dataReview.reviews.map(function (item, i) {
             return (
-              <div>
-                <div className="card">
+              <div key={i}>
+                <div className="card" >
                   <div className="card-header">
-                    {item.email}
+                    {item.email.slice(0, 3)}**********
                   </div>
                   <div className="card-body">
                     <p> Rating:

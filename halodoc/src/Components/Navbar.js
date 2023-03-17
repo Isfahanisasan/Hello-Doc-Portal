@@ -13,10 +13,8 @@ const Navbar = ({name, email,patientID,gender}) => {
   const handleLogout= async (e) => {
 
       e.preventDefault();
-      console.log('Click logout')
       try {
         const response = await axios.post('/patientlogout');
-        console.log(response.data.data)
         navigate(response.data.data)
       } catch (err) {
         console.error(err);

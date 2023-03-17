@@ -304,5 +304,42 @@
     "number": "1234567890",
     "Bdate": "1978-04-05",
     "gender": "male"
+  },
+  {
+    "id": "33",
+    "firstName": "Thi",
+    "lastName": "Nguyen",
+    "email": "thi@email.com",
+    "phoneNumber": "9495453379",
+    "Bdate": "1989-05-31",
+    "gender": "female"
+  },
+  {
+    "id": "34",
+    "firstName": "Joe",
+    "lastName": "Bruin",
+    "email": "joebruin@email.com",
+    "password": "$2b$05$84TxU5U/AC0AUiqjmeff0.f9GRbTujnNiQs6Pk76431r9GDNKUWkm",
+    "number": "123123123",
+    "Bdate": "1919-09-09",
+    "gender": "male"
+  },
+  {
+    "id": "35",
+    "firstName": "Mina",
+    "lastName": "Kang",
+    "email": "minakang@email.com",
+    "phoneNumber": "4123124212",
+    "Bdate": "1998-07-08",
+    "gender": "female"
+  },
+  {
+    "id": "36",
+    "firstName": "Thi Xuan Lan",
+    "lastName": "Vo",
+    "email": "thixuanlanvo1@gmail.com",
+    "phoneNumber": "17147286373",
+    "Bdate": "1941-03-04",
+    "gender": "female"
   }
 ]

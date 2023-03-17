@@ -14,7 +14,6 @@ const DoctorProfileDocSide = () => {
 
   useEffect(() => {
     axios.get('/doctorProfileDoc').then(function (response) {
-    console.log(response.data)
     setBackendData(response.data)
   })}, [])
 
@@ -69,11 +68,11 @@ const DoctorProfileDocSide = () => {
             return (
               <div className="card" key={i}>
                 <div className="card-header">
-                {item.email}
+                  {item.email.slice(0, 3)}**********
                   </div>
                   <div className="card-body">
                     
-                    <p> Rating:
+                    <p> Rating: 
                       {[...Array(item.rating)].map((_,index)=>(
                         <FaStar key ={index}/>
                       ))}</p>

@@ -1,8 +1,6 @@
 import '../../Styles/Search.scss';
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import Search from './Search';
-import About from './About';
-import Navbar from './Navbar';
 import Doctors from '../../database/doctors.json';
 import Users from './Users';
 import Alert from './Alert';
@@ -21,7 +19,7 @@ class RunSearch extends Component {
     if (text){
 
       const doctor = doctors.filter((doctor) =>
-        (doctor.firstName+doctor.lastName+doctor.specialty).toLowerCase().includes(text.toLowerCase())
+        (doctor.firstName+ " " + doctor.lastName + " " +doctor.specialty).toLowerCase().includes(text.toLowerCase())
       );
       this.setState({ users: doctor, loading: false });
     }
@@ -40,7 +38,7 @@ class RunSearch extends Component {
   };
 
   render() {
-    const { users, user, loading } = this.state;
+    const { users, loading } = this.state;
     // console.log("Hello");
     return (
       <div className='RunSearch' >

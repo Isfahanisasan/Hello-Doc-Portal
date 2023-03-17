@@ -73,9 +73,21 @@
   },
   {
     "doctor_id": "1",
+    "patient_id": "9",
+    "startTime": "12:20",
+    "date": "03/16/2023"
+  },
+  {
+    "doctor_id": "1",
     "patient_id": "7",
     "startTime": "12:35",
     "date": "03/16/2023"
+  },
+  {
+    "doctor_id": "1",
+    "patient_id": "3",
+    "startTime": "12:35",
+    "date": "03/17/2023"
   },
   {
     "doctor_id": "1",
@@ -85,8 +97,50 @@
   },
   {
     "doctor_id": "1",
+    "patient_id": "34",
+    "startTime": "12:20",
+    "date": "3/18/2023"
+  },
+  {
+    "doctor_id": "1",
+    "patient_id": "34",
+    "startTime": "12:20",
+    "date": "3/19/2023"
+  },
+  {
+    "doctor_id": "1",
+    "patient_id": "1",
+    "startTime": "13:35",
+    "date": "3/19/2023"
+  },
+  {
+    "doctor_id": "1",
+    "patient_id": "9",
+    "startTime": "13:30",
+    "date": "03/20/2023"
+  },
+  {
+    "doctor_id": "1",
     "patient_id": "1",
     "startTime": "15:50",
     "date": "3/20/2023"
+  },
+  {
+    "doctor_id": "1",
+    "patient_id": "34",
+    "startTime": "14:00",
+    "date": "03/21/2023"
+  },
+  {
+    "doctor_id": "1",
+    "patient_id": "36",
+    "startTime": "12:00",
+    "date": "03/22/2023"
+  },
+  {
+    "doctor_id": "1",
+    "patient_id": "32",
+    "startTime": "12:50",
+    "date": "03/26/2023"
   }
 ]

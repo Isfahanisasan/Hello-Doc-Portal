@@ -69,7 +69,7 @@ const Schedule = () => {
         .then(({data}) => {
             setBackendData(data)
         })
-    }, []) // Make sure to have [] here to avoid being render infinitely.
+    }, [id]) // Make sure to have [] here to avoid being render infinitely.
 
 
     const days = ["Sunday", "Monday", "Tuesday", "Wednesday","Thursday", "Friday","Saturday"]
@@ -136,14 +136,10 @@ const Schedule = () => {
             };
         }
         if(submitData) {
-            console.log(submitData);
             try {
                 const response = await axios.post('/makeappointment', submitData);
-                console.log(response.data);
                 navigate(response.data.data);
-                if(response.status === 200) {
-                  console.log('successful');
-                } else {
+                if(response.status !== 200) {
                   console.log("Error Make Appointment");
                 }
             }
@@ -189,20 +185,20 @@ const Schedule = () => {
                         <div className='container'>
                             <div className='row'>
                                 
-                                {weeklyDates.map(date => (
+                                {weeklyDates.map((date,i) => (
                                     
-                                    <div className='col'>
+                                    <div className='col' key={i}>
                                         <div className='date-title'>
                                             <div>{days[date.getDay()]} {date.getMonth()+1}/{date.getDate()}</div>
                                         </div>
                                         <div className='scheduleHours'>
                                             {new Date(date) >= new Date()
-                                                && selectedTimeSlot(date).map(hour => ( 
-                                                <div onChange={(e) => {setPickTime(e.target.value); setPickDate((date.getMonth()+1)+"/"+date.getDate()+"/"+date.getFullYear())}}>
+                                                && selectedTimeSlot(date).map((hour,i) => ( 
+                                                <div key={i} onChange={(e) => {setPickTime(e.target.value); setPickDate((date.getMonth()+1)+"/"+date.getDate()+"/"+date.getFullYear())}}>
                                                 
                                                 <div key={hour}>
                                                     <input type="radio" className="btn-check" name="my-radio" id={hour+(new Date(date))} value={hour}/>
-                                                    <label className="btn btn-outline-info" for={hour+(new Date(date))}> {hour} </label>
+                                                    <label className="btn btn-outline-info" htmlFor={hour+(new Date(date))}> {hour} </label>
                                                 </div>
                                                 </div>
                                             ))} 

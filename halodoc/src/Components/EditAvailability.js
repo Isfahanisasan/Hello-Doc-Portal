@@ -7,7 +7,6 @@ import { useNavigate } from "react-router-dom";
 const EditAvailbility = () => {
     const navigate = useNavigate()
 
-    const [error, setError] = useState('');
 
     const [backendData, setBackendData] = useState({})
     const [formValues, setFormValues] = useState({
@@ -55,7 +54,6 @@ const EditAvailbility = () => {
             }
             catch (err){
               console.error(err);
-              setError('There was an error with your signup')
             }
 
     };
@@ -74,7 +72,8 @@ const EditAvailbility = () => {
         { value: 3, label: 'Wednesday' },
         { value: 4, label: 'Thursday' },
         { value: 5, label: 'Friday' },
-        { value: 6, label: 'Saturday' }
+        { value: 6, label: 'Saturday' },
+        { value: 8, label: 'No day off' }
       ]
 
     const hoursArray = Array.from({ length: 24 }, (_, index) => {
