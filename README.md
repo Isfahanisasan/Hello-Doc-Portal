@@ -5,16 +5,16 @@ Hello Doc is a web application that has it's main purpose as a portal that conne
 There are 2 types of users in Hello Doc, one is the patient user, and one is the doctor user.
 
 
-## Quick overview of the application interface
+# # Quick overview of the application interface
 ![image](https://user-images.githubusercontent.com/53335012/233882898-4b476048-5433-4a9d-9a12-f4645b524d0a.png)
 
-Patients' Pages
+## Patients' Pages
 ![image](https://user-images.githubusercontent.com/53335012/233883174-0134958c-782c-4d46-89c5-6e1fa0551028.png)
 ![image](https://user-images.githubusercontent.com/53335012/233883240-b915219b-bad8-4fc7-94fd-09526723e021.png)
 ![image](https://user-images.githubusercontent.com/53335012/233883308-21c1902f-3be0-4bf8-b193-f84c85dfca1c.png)
 ![image](https://user-images.githubusercontent.com/53335012/233883361-600b4607-0c63-476d-8400-b60a19a0ba68.png)
 
-Doctors' Pages
+## Doctors' Pages
 ![image](https://user-images.githubusercontent.com/53335012/233883888-3c402add-4c6f-4d5d-a718-05c710e8afc5.png)
 ![image](https://user-images.githubusercontent.com/53335012/233884027-3691bb75-820e-4c52-907d-1d9d8fd83c98.png)
 ![image](https://user-images.githubusercontent.com/53335012/233884101-0a56ba3f-6eab-4a75-ad46-68ffe46757a4.png)
