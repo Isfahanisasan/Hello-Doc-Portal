@@ -1,6 +1,6 @@
 ## Hello Doc
 
-Hello Doc is a web application that has it's main purpose as a portal that connects patients and doctors. Allowing them a platform to make and organize appointments.
+Hello Doc is a web application that has its main purpose as a portal that connects patients and doctors. Allowing them a platform to make and organize appointments.
 
 There are 2 types of users in Hello Doc, one is the patient user, and one is the doctor user.
 
